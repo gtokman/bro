@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SignUpViewController : UIViewController
+@interface SignUpViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
+
+- (IBAction)loginAction:(UIButton *)sender;
+- (IBAction)signUpAction:(UIButton *)sender;
+- (IBAction)pageControlAction:(UIPageControl *)sender;
 
 @end

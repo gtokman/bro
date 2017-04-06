@@ -67,6 +67,11 @@
                                                 </constraints>
                                             </collectionViewCell>
                                         </cells>
+                                        <connections>
+                                            <outlet property="dataSource" destination="X6c-sk-fiY" id="nww-Jf-LSp"/>
+                                            <outlet property="delegate" destination="X6c-sk-fiY" id="Kt8-Zo-X7u"/>
+                                            <outlet property="prefetchDataSource" destination="X6c-sk-fiY" id="G9k-qX-ltZ"/>
+                                        </connections>
                                     </collectionView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ApV-wZ-BW9">
                                         <rect key="frame" x="0.0" y="619" width="375" height="48"/>
@@ -78,31 +83,45 @@
                                         <state key="normal" title="Signup">
                                             <color key="titleColor" red="0.90823972225189209" green="0.92638683319091797" blue="0.9317171573638916" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="signUpAction:" destination="X6c-sk-fiY" eventType="touchUpInside" id="Glg-ow-irp"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="XEf-yo-m84">
                                 <rect key="frame" x="160" y="20" width="55" height="37"/>
+                                <connections>
+                                    <action selector="pageControlAction:" destination="X6c-sk-fiY" eventType="valueChanged" id="9PY-dU-JdZ"/>
+                                </connections>
                             </pageControl>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOGIN" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jHF-ft-06z">
-                                <rect key="frame" x="307" y="20" width="52" height="22"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MTO-wA-gD6">
+                                <rect key="frame" x="307" y="28" width="52" height="34"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="16"/>
-                                <color key="textColor" red="0.12637259066104889" green="0.12639245390892029" blue="0.12636536359786987" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <state key="normal" title="LOGIN">
+                                    <color key="titleColor" red="0.12637259066104889" green="0.12639245390892029" blue="0.12636536359786987" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="loginAction:" destination="X6c-sk-fiY" eventType="touchUpInside" id="utt-f5-t6y"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="XEf-yo-m84" firstAttribute="centerX" secondItem="4fl-jp-tjQ" secondAttribute="centerX" id="3Df-xf-yrC"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="jHF-ft-06z" secondAttribute="trailing" id="4id-kB-xHK"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="MTO-wA-gD6" secondAttribute="trailing" id="3HP-27-2CG"/>
                             <constraint firstAttribute="trailing" secondItem="G9f-XQ-WhS" secondAttribute="trailing" id="7oS-Nn-Ywz"/>
-                            <constraint firstItem="jHF-ft-06z" firstAttribute="top" secondItem="Pwd-fq-anH" secondAttribute="bottom" id="DNI-eM-SEU"/>
                             <constraint firstItem="XEf-yo-m84" firstAttribute="top" secondItem="Pwd-fq-anH" secondAttribute="bottom" id="F88-1x-OsO"/>
                             <constraint firstItem="G9f-XQ-WhS" firstAttribute="leading" secondItem="4fl-jp-tjQ" secondAttribute="leading" id="IB4-v7-0Bc"/>
                             <constraint firstItem="G9f-XQ-WhS" firstAttribute="top" secondItem="4fl-jp-tjQ" secondAttribute="top" id="UDH-ZF-TEg"/>
                             <constraint firstAttribute="bottom" secondItem="G9f-XQ-WhS" secondAttribute="bottom" id="iDQ-xE-QGg"/>
+                            <constraint firstItem="MTO-wA-gD6" firstAttribute="top" secondItem="Pwd-fq-anH" secondAttribute="bottom" constant="8" id="uJc-9S-eVu"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="YdC-LA-H3O" id="wbg-9i-9Yi"/>
+                        <outlet property="pageControl" destination="XEf-yo-m84" id="Bqn-06-udh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ll0-Rm-9GO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
