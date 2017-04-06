@@ -11,8 +11,10 @@
 		027840531E96C3EE00E231F1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 027840521E96C3EE00E231F1 /* AppDelegate.m */; };
 		0278405B1E96C3EE00E231F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0278405A1E96C3EE00E231F1 /* Assets.xcassets */; };
 		0278405E1E96C3EE00E231F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0278405C1E96C3EE00E231F1 /* LaunchScreen.storyboard */; };
-		0278406C1E96C4C400E231F1 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0278406B1E96C4C400E231F1 /* SignUpViewController.m */; };
+		0278406C1E96C4C400E231F1 /* OnboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0278406B1E96C4C400E231F1 /* OnboardViewController.m */; };
 		0278406F1E96C4E100E231F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0278406E1E96C4E100E231F1 /* Main.storyboard */; };
+		027840721E97064300E231F1 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 027840711E97064300E231F1 /* SignUpViewController.m */; };
+		027840751E97064F00E231F1 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 027840741E97064F00E231F1 /* LoginViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,9 +25,13 @@
 		0278405A1E96C3EE00E231F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0278405D1E96C3EE00E231F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0278405F1E96C3EE00E231F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0278406A1E96C4C400E231F1 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SignUpViewController.h; path = Auth/SignUpViewController.h; sourceTree = "<group>"; };
-		0278406B1E96C4C400E231F1 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SignUpViewController.m; path = Auth/SignUpViewController.m; sourceTree = "<group>"; };
+		0278406A1E96C4C400E231F1 /* OnboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OnboardViewController.h; path = Auth/OnboardViewController.h; sourceTree = "<group>"; };
+		0278406B1E96C4C400E231F1 /* OnboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OnboardViewController.m; path = Auth/OnboardViewController.m; sourceTree = "<group>"; };
 		0278406E1E96C4E100E231F1 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		027840701E97064300E231F1 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SignUpViewController.h; path = Auth/SignUpViewController.h; sourceTree = "<group>"; };
+		027840711E97064300E231F1 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SignUpViewController.m; path = Auth/SignUpViewController.m; sourceTree = "<group>"; };
+		027840731E97064F00E231F1 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = Auth/LoginViewController.h; sourceTree = "<group>"; };
+		027840741E97064F00E231F1 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = Auth/LoginViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,8 +128,12 @@
 		0278406D1E96C4CD00E231F1 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				0278406A1E96C4C400E231F1 /* SignUpViewController.h */,
-				0278406B1E96C4C400E231F1 /* SignUpViewController.m */,
+				0278406A1E96C4C400E231F1 /* OnboardViewController.h */,
+				0278406B1E96C4C400E231F1 /* OnboardViewController.m */,
+				027840701E97064300E231F1 /* SignUpViewController.h */,
+				027840711E97064300E231F1 /* SignUpViewController.m */,
+				027840731E97064F00E231F1 /* LoginViewController.h */,
+				027840741E97064F00E231F1 /* LoginViewController.m */,
 			);
 			name = Auth;
 			sourceTree = "<group>";
@@ -202,7 +212,9 @@
 			files = (
 				027840531E96C3EE00E231F1 /* AppDelegate.m in Sources */,
 				027840501E96C3EE00E231F1 /* main.m in Sources */,
-				0278406C1E96C4C400E231F1 /* SignUpViewController.m in Sources */,
+				027840721E97064300E231F1 /* SignUpViewController.m in Sources */,
+				0278406C1E96C4C400E231F1 /* OnboardViewController.m in Sources */,
+				027840751E97064F00E231F1 /* LoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

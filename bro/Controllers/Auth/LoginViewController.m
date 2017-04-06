@@ -1,18 +1,18 @@
 //
-//  SignUpViewController.m
+//  LoginViewController.m
 //  bro
 //
 //  Created by g tokman on 4/6/17.
 //  Copyright © 2017 garytokman. All rights reserved.
 //
 
-#import "SignUpViewController.h"
+#import "LoginViewController.h"
 
-@interface SignUpViewController ()
+@interface LoginViewController ()
 
 @end
 
-@implementation SignUpViewController
+@implementation LoginViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -34,6 +34,9 @@
 }
 */
 
-- (IBAction)nextAction:(UIButton *)sender {
+- (IBAction)forgotPasswordAction:(UIButton *)sender {
+}
+
+- (IBAction)loginAction:(UIButton *)sender {
 }
 @end

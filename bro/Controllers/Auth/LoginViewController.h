@@ -1,5 +1,5 @@
 //
-//  SignUpViewController.h
+//  LoginViewController.h
 //  bro
 //
 //  Created by g tokman on 4/6/17.
@@ -8,13 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SignUpViewController : UIViewController
+@interface LoginViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet UITextField *emailTextField;
 @property (weak, nonatomic) IBOutlet UITextField *userNameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
-- (IBAction)nextAction:(UIButton *)sender;
+- (IBAction)forgotPasswordAction:(UIButton *)sender;
+- (IBAction)loginAction:(UIButton *)sender;
 
 @end
