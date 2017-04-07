@@ -45,7 +45,7 @@
     
     [[notification.userInfo valueForKey:UIKeyboardFrameEndUserInfoKey] getValue:&keyboardBounds];
     keyboardDuration = [notification.userInfo valueForKey:UIKeyboardAnimationDurationUserInfoKey];
-    // Do something with keyboard height
+    
     [UIView animateWithDuration:[keyboardDuration integerValue] animations:^{
         NSLog(@"%f", keyboardBounds.size.height);
         self.loginActionBottomConstraint.constant = keyboardBounds.size.height;
@@ -53,15 +53,10 @@
 }
 
 - (void)keyboardWillHide:(NSNotification *)notification {
-    CGRect keyboardBounds;
     NSNumber *keyboardDuration;
-    
-    [[notification.userInfo valueForKey:UIKeyboardDidChangeFrameNotification] getValue:&keyboardBounds];
     keyboardDuration = [notification.userInfo valueForKey:UIKeyboardAnimationDurationUserInfoKey];
     
-    // Do something with keyboard height
     [UIView animateWithDuration:[keyboardDuration integerValue] animations:^{
-        NSLog(@"%f", keyboardBounds.size.height);
         self.loginActionBottomConstraint.constant = 0;
     }];
 }
@@ -73,7 +68,8 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     NSLog(@"prepare for seg");
-    [self.userNameTextField resignFirstResponder];
+    if ([self.userNameTextField isFirstResponder]) [self.userNameTextField resignFirstResponder];
+    if ([self.passwordTextField isFirstResponder]) [self.passwordTextField resignFirstResponder];
 }
 
 #pragma mark - Actions
