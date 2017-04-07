@@ -9,7 +9,7 @@
 #import "SignUpViewController.h"
 
 @interface SignUpViewController ()
-
+@property FIRAuthStateDidChangeListenerHandle handle;
 @end
 
 @implementation SignUpViewController
@@ -27,6 +27,23 @@
                                              selector:@selector(keyboardWillHide:)
                                                  name:UIKeyboardWillHideNotification
                                                object:nil];
+    
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    self.handle = [[FIRAuth auth]
+                   addAuthStateDidChangeListener:^(FIRAuth * _Nonnull auth, FIRUser * _Nullable user) {
+                       if (user) {
+                           NSLog(@"We have a user %@", user.email);
+                       }
+                   }];
+    
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [[FIRAuth auth]removeAuthStateDidChangeListener:self.handle];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -79,6 +96,14 @@
 #pragma mark - Actions
 
 - (IBAction)nextAction:(UIButton *)sender {
+    if ([self.emailTextField hasText] && [self.userNameTextField hasText] && [self.passwordTextField hasText]) {
+        [AuthManager
+         signUpUserWithEmail:self.emailTextField.text
+         password:self.passwordTextField.text
+         error: ^(NSError* failure) {
+             NSLog(@"Error: %@", failure.localizedDescription);
+         }];
+    }
 }
 
 #pragma mark - UITextFieldDelegate

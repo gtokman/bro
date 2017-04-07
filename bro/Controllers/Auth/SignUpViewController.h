@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <FirebaseAuth/FirebaseAuth.h>
+#import "AuthManager.h"
 
 @interface SignUpViewController : UIViewController <UITextFieldDelegate>
 

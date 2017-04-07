@@ -15,6 +15,9 @@
 		0278406F1E96C4E100E231F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0278406E1E96C4E100E231F1 /* Main.storyboard */; };
 		027840721E97064300E231F1 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 027840711E97064300E231F1 /* SignUpViewController.m */; };
 		027840751E97064F00E231F1 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 027840741E97064F00E231F1 /* LoginViewController.m */; };
+		0278407A1E97483000E231F1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 027840791E97483000E231F1 /* GoogleService-Info.plist */; };
+		0278407D1E9749A900E231F1 /* AuthManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0278407C1E9749A900E231F1 /* AuthManager.m */; };
+		4841069A8390415568126926 /* Pods_bro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76B251959E1D532637366865 /* Pods_bro.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +35,12 @@
 		027840711E97064300E231F1 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SignUpViewController.m; path = Auth/SignUpViewController.m; sourceTree = "<group>"; };
 		027840731E97064F00E231F1 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = Auth/LoginViewController.h; sourceTree = "<group>"; };
 		027840741E97064F00E231F1 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = Auth/LoginViewController.m; sourceTree = "<group>"; };
+		027840791E97483000E231F1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		0278407B1E9749A900E231F1 /* AuthManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthManager.h; sourceTree = "<group>"; };
+		0278407C1E9749A900E231F1 /* AuthManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthManager.m; sourceTree = "<group>"; };
+		1E7978981E31365E53249527 /* Pods-bro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bro.release.xcconfig"; path = "Pods/Target Support Files/Pods-bro/Pods-bro.release.xcconfig"; sourceTree = "<group>"; };
+		76B251959E1D532637366865 /* Pods_bro.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_bro.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A1B574031C44AC1C01A88BA /* Pods-bro.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bro.debug.xcconfig"; path = "Pods/Target Support Files/Pods-bro/Pods-bro.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4841069A8390415568126926 /* Pods_bro.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,6 +60,8 @@
 			children = (
 				0278404D1E96C3EE00E231F1 /* bro */,
 				0278404C1E96C3EE00E231F1 /* Products */,
+				96ED4320B92E6E23FB386F1C /* Pods */,
+				DB967AE977795966E4F327D1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -93,6 +105,8 @@
 		027840661E96C41B00E231F1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0278407B1E9749A900E231F1 /* AuthManager.h */,
+				0278407C1E9749A900E231F1 /* AuthManager.m */,
 			);
 			name = Model;
 			path = Models;
@@ -116,6 +130,7 @@
 		027840691E96C49C00E231F1 /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				027840791E97483000E231F1 /* GoogleService-Info.plist */,
 				027840511E96C3EE00E231F1 /* AppDelegate.h */,
 				027840521E96C3EE00E231F1 /* AppDelegate.m */,
 				0278405A1E96C3EE00E231F1 /* Assets.xcassets */,
@@ -138,6 +153,23 @@
 			name = Auth;
 			sourceTree = "<group>";
 		};
+		96ED4320B92E6E23FB386F1C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8A1B574031C44AC1C01A88BA /* Pods-bro.debug.xcconfig */,
+				1E7978981E31365E53249527 /* Pods-bro.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		DB967AE977795966E4F327D1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				76B251959E1D532637366865 /* Pods_bro.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -145,9 +177,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 027840621E96C3EE00E231F1 /* Build configuration list for PBXNativeTarget "bro" */;
 			buildPhases = (
+				0380C63C2E12DAC7B4E3AA76 /* [CP] Check Pods Manifest.lock */,
 				027840471E96C3EE00E231F1 /* Sources */,
 				027840481E96C3EE00E231F1 /* Frameworks */,
 				027840491E96C3EE00E231F1 /* Resources */,
+				15020EC345B0EC83D1E11CA4 /* [CP] Embed Pods Frameworks */,
+				9C23EB9DF36A415EADE53D94 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -198,6 +233,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0278406F1E96C4E100E231F1 /* Main.storyboard in Resources */,
+				0278407A1E97483000E231F1 /* GoogleService-Info.plist in Resources */,
 				0278405E1E96C3EE00E231F1 /* LaunchScreen.storyboard in Resources */,
 				0278405B1E96C3EE00E231F1 /* Assets.xcassets in Resources */,
 			);
@@ -205,12 +241,61 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0380C63C2E12DAC7B4E3AA76 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		15020EC345B0EC83D1E11CA4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-bro/Pods-bro-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9C23EB9DF36A415EADE53D94 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-bro/Pods-bro-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		027840471E96C3EE00E231F1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				027840531E96C3EE00E231F1 /* AppDelegate.m in Sources */,
+				0278407D1E9749A900E231F1 /* AuthManager.m in Sources */,
 				027840501E96C3EE00E231F1 /* main.m in Sources */,
 				027840721E97064300E231F1 /* SignUpViewController.m in Sources */,
 				0278406C1E96C4C400E231F1 /* OnboardViewController.m in Sources */,
@@ -324,6 +409,7 @@
 		};
 		027840631E96C3EE00E231F1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8A1B574031C44AC1C01A88BA /* Pods-bro.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = NTP2A7PJM8;
@@ -336,6 +422,7 @@
 		};
 		027840641E96C3EE00E231F1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1E7978981E31365E53249527 /* Pods-bro.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = NTP2A7PJM8;
@@ -365,6 +452,7 @@
 				027840641E96C3EE00E231F1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
