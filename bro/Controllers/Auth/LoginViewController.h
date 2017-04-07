@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LoginViewController : UIViewController
+@interface LoginViewController : UIViewController <UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *userNameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *loginActionBottomConstraint;
+
 
 - (IBAction)forgotPasswordAction:(UIButton *)sender;
 - (IBAction)loginAction:(UIButton *)sender;
