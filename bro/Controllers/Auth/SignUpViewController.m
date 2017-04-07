@@ -35,7 +35,7 @@
     self.handle = [[FIRAuth auth]
                    addAuthStateDidChangeListener:^(FIRAuth * _Nonnull auth, FIRUser * _Nullable user) {
                        if (user) {
-                           NSLog(@"We have a user %@", user.email);
+                           NSLog(@"We have a user %@, displayName: %@", user.email, user.displayName);
                        }
                    }];
     
@@ -97,6 +97,7 @@
 
 - (IBAction)nextAction:(UIButton *)sender {
     if ([self.emailTextField hasText] && [self.userNameTextField hasText] && [self.passwordTextField hasText]) {
+        [self.activityIndicator startAnimating];
         [AuthManager
          signUpUserWithEmail:self.emailTextField.text
          password:self.passwordTextField.text
@@ -106,7 +107,10 @@
              } else {
                  NSLog(@"Sign up with user: %@", user.email);
              }
+             [self.activityIndicator stopAnimating];
          }];
+    } else {
+        NSLog(@"No empty text");
     }
 }
 

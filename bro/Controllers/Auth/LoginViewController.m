@@ -9,7 +9,7 @@
 #import "LoginViewController.h"
 
 @interface LoginViewController ()
-
+@property FIRAuthStateDidChangeListenerHandle authHandle;
 @end
 
 @implementation LoginViewController
@@ -17,7 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self.userNameTextField becomeFirstResponder];
+    [self.emailTextField becomeFirstResponder];
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWillShow:)
                                                  name:UIKeyboardWillShowNotification
@@ -27,6 +27,22 @@
                                              selector:@selector(keyboardWillHide:)
                                                  name:UIKeyboardWillHideNotification
                                                object:nil];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.authHandle = [[FIRAuth auth]addAuthStateDidChangeListener:^(FIRAuth * _Nonnull auth, FIRUser * _Nullable user) {
+        if (user) {
+            NSLog(@"We have a user! %@", user.email);
+        } else {
+            NSLog(@"No user :(");
+        }
+    }];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [[FIRAuth auth]removeAuthStateDidChangeListener:self.authHandle];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -68,16 +84,35 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     NSLog(@"prepare for seg");
-    if ([self.userNameTextField isFirstResponder]) [self.userNameTextField resignFirstResponder];
+    if ([self.emailTextField isFirstResponder]) [self.emailTextField resignFirstResponder];
     if ([self.passwordTextField isFirstResponder]) [self.passwordTextField resignFirstResponder];
 }
 
 #pragma mark - Actions
 
 - (IBAction)forgotPasswordAction:(UIButton *)sender {
+    NSError *signOutError;
+    [AuthManager signOutUserThrowsError:&signOutError withBlock:^{
+        if (signOutError) {
+            NSLog(@"Error signing out: %@", signOutError.localizedDescription);
+        } else {
+            NSLog(@"User signed out!");
+        }
+    }];
 }
 
 - (IBAction)loginAction:(UIButton *)sender {
+    if ([self.emailTextField hasText] && [self.passwordTextField hasText]) {
+        [self.activityIndicator startAnimating];
+        [AuthManager loginUserWithEmail:self.emailTextField.text password:self.passwordTextField.text withBlock:^(FIRUser *user, NSError *error) {
+            if (error) {
+                NSLog(@"Error logining in user: %@", error.localizedDescription);
+            } else {
+                NSLog(@"We have a user logged in: %@", user.email);
+            }
+            [self.activityIndicator stopAnimating];
+        }];
+    }
 }
 
 #pragma mark - TextFieldDelegate

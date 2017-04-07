@@ -182,7 +182,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="gJa-y0-aXn">
                                 <rect key="frame" x="40" y="78" width="295" height="104"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ENTER USERNAME" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="QCr-bU-IDS">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ENTER EMAIL" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="QCr-bU-IDS">
                                         <rect key="frame" x="0.0" y="0.0" width="295" height="48"/>
                                         <color key="backgroundColor" red="0.90823972225189209" green="0.92638683319091797" blue="0.9317171573638916" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="tintColor" red="0.23018704354763031" green="0.77713233232498169" blue="0.3158949613571167" alpha="1" colorSpace="calibratedRGB"/>
@@ -205,7 +205,7 @@
                                         </constraints>
                                         <color key="textColor" red="0.12637259066104889" green="0.12639245390892029" blue="0.12636536359786987" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="go" secureTextEntry="YES"/>
                                         <connections>
                                             <outlet property="delegate" destination="jwB-Xk-5qQ" id="Mgx-ce-3bh"/>
                                         </connections>
@@ -248,9 +248,9 @@
                     </view>
                     <connections>
                         <outlet property="activityIndicator" destination="ekQ-Tt-j6q" id="9a0-lx-GJq"/>
+                        <outlet property="emailTextField" destination="QCr-bU-IDS" id="SkB-Ia-rF2"/>
                         <outlet property="loginActionBottomConstraint" destination="meY-9L-cuf" id="Ep6-Rm-4vZ"/>
                         <outlet property="passwordTextField" destination="nCL-LF-Svu" id="WwV-hK-KXG"/>
-                        <outlet property="userNameTextField" destination="QCr-bU-IDS" id="0C6-9G-yxh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G4z-Nl-U7I" userLabel="First Responder" sceneMemberID="firstResponder"/>

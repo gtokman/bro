@@ -55,7 +55,7 @@
 
 - (IBAction)pageControlAction:(UIPageControl *)sender {
     NSLog(@"Page Controll Action");
-    NSInteger xOffset = (self.collectionView.bounds.size.width
+    CGFloat xOffset = (self.collectionView.bounds.size.width
                          * self.pageControl.currentPage);
     [self.collectionView setContentOffset:CGPointMake(xOffset, 0) animated:YES];
 }
@@ -81,8 +81,8 @@
 #pragma mark - ScrollViewDelegate
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-    NSInteger currentPage = (scrollView.contentOffset.x / scrollView.bounds.size.width);
-    self.pageControl.currentPage = currentPage;
+    CGFloat currentPage = (scrollView.contentOffset.x / scrollView.bounds.size.width);
+    self.pageControl.currentPage = (NSInteger) currentPage;
 }
 
 @end
