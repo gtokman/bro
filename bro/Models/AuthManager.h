@@ -11,8 +11,8 @@
 
 @interface AuthManager : NSObject
 
-+ (void)signUpUserWithEmail:(NSString*)email password:(NSString*)password error:(void(^)(NSError*))failure;
-+ (void)loginUserWithEmail:(NSString*)email password:(NSString*)password error:(void(^)(NSError*))failure;
++ (void)signUpUserWithEmail:(NSString*)email password:(NSString*)password withBlock:(void(^)(FIRUser* user, NSError* error))completion;
++ (void)loginUserWithEmail:(NSString*)email password:(NSString*)password withBlock:(void(^)(FIRUser* user, NSError* error))completion;
 + (void)resetUserPassword:(NSString*)password;
 + (void)logoutUser:(void(^)(BOOL))success failure:(void(^)(NSError*))failure;
 

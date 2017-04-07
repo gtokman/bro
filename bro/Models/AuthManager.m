@@ -10,19 +10,15 @@
 
 @implementation AuthManager
 
-+ (void)signUpUserWithEmail:(NSString *)email password:(NSString *)password error:(void (^)(NSError *))failure {
++ (void)signUpUserWithEmail:(NSString *)email password:(NSString *)password withBlock:(void (^)(FIRUser *, NSError *))completion {
     [[FIRAuth auth]createUserWithEmail:email password:password completion:^(FIRUser * _Nullable user, NSError * _Nullable error) {
-        if (error) {
-            failure(error);
-        }
+        completion(user, error);
     }];
 }
 
-+ (void)loginUserWithEmail:(NSString *)email password:(NSString *)password error:(void (^)(NSError *))failure {
++ (void)loginUserWithEmail:(NSString *)email password:(NSString *)password withBlock:(void (^)(FIRUser *, NSError *))completion {
     [[FIRAuth auth]signInWithEmail:email password:password completion:^(FIRUser * _Nullable user, NSError * _Nullable error) {
-        if (error) {
-            failure(error);
-        }
+        completion(user, error);
     }];
 }
 

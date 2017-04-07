@@ -100,8 +100,12 @@
         [AuthManager
          signUpUserWithEmail:self.emailTextField.text
          password:self.passwordTextField.text
-         error: ^(NSError* failure) {
-             NSLog(@"Error: %@", failure.localizedDescription);
+         withBlock:^(FIRUser *user, NSError *error) {
+             if (error) {
+                 NSLog(@"Error signing up: %@", error.localizedDescription);
+             } else {
+                 NSLog(@"Sign up with user: %@", user.email);
+             }
          }];
     }
 }
