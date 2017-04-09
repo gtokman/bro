@@ -251,12 +251,21 @@
                         <outlet property="emailTextField" destination="QCr-bU-IDS" id="SkB-Ia-rF2"/>
                         <outlet property="loginActionBottomConstraint" destination="meY-9L-cuf" id="Ep6-Rm-4vZ"/>
                         <outlet property="passwordTextField" destination="nCL-LF-Svu" id="WwV-hK-KXG"/>
+                        <segue destination="00M-cC-p1q" kind="presentation" identifier="HomeSegue" id="2gZ-M3-ngS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G4z-Nl-U7I" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="DPQ-c6-Tde" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1240.8" y="189.3553223388306"/>
+        </scene>
+        <!--HomePageController-->
+        <scene sceneID="hee-8u-0Ih">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Home" referencedIdentifier="HomePageController" id="00M-cC-p1q" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ywl-VO-fnI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1921" y="490"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="sfh-an-hEM">
@@ -377,6 +386,7 @@
                         <outlet property="nextActionBottomConstraint" destination="50I-EB-Fp4" id="u6y-Fx-HEw"/>
                         <outlet property="passwordTextField" destination="4e7-k4-cXV" id="iVp-GS-c9J"/>
                         <outlet property="userNameTextField" destination="n9o-pt-bHX" id="jJu-hd-ECN"/>
+                        <segue destination="00M-cC-p1q" kind="presentation" identifier="HomeSegue" id="Yeq-FN-pz2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="83t-kH-LLn" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -385,4 +395,7 @@
             <point key="canvasLocation" x="1241" y="1007"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Yeq-FN-pz2"/>
+    </inferredMetricsTieBreakers>
 </document>

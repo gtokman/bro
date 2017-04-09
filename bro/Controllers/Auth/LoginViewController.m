@@ -34,6 +34,7 @@
     self.authHandle = [[FIRAuth auth]addAuthStateDidChangeListener:^(FIRAuth * _Nonnull auth, FIRUser * _Nullable user) {
         if (user) {
             NSLog(@"We have a user! %@", user.email);
+            [self performSegueWithIdentifier:@"HomeSegue" sender:nil];
         } else {
             NSLog(@"No user :(");
         }
