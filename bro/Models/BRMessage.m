@@ -9,5 +9,25 @@
 #import "BRMessage.h"
 
 @implementation BRMessage
+- (instancetype)initWithSender:(NSString *)sender receiver:(NSString *)receiver
+                          body:(NSString *)body timestamp:(NSString *)time {
+    self = [super init];
+    if (self) {
+        self.sender = sender;
+        self.receiver = receiver;
+        self.body = body;
+        self.timeStamp = time;
+    }
+    return self;
+}
 
+- (NSDictionary *)messageToJsonDictionary {
+    return @{
+             @"sender":self.sender,
+             @"receiver":self.receiver,
+             @"body":self.body,
+             @"time":self.timeStamp,
+             @"icon":@"https://avatars2.githubusercontent.com/u/24276710?v=3"
+             };
+}
 @end

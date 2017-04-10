@@ -30,4 +30,10 @@
     }];
 }
 
++ (void)addNewMessageNotificationToDatabaseWithMessageDict:(NSDictionary*)messageDict withBlock:(DatabaseCompletion)completion {
+    [[[self notificationRef] childByAutoId] setValue:messageDict withCompletionBlock:^(NSError * _Nullable error, FIRDatabaseReference * _Nonnull ref) {
+        completion(error, ref);
+    }];
+}
+
 @end

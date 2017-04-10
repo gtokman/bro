@@ -10,6 +10,7 @@
 #import <FirebaseAuth/FirebaseAuth.h>
 #import <FirebaseDatabase/FirebaseDatabase.h>
 #import "DatabaseManager.h"
+#import "BRMessage.h"
 
 @interface HomeViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 

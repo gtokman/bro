@@ -11,6 +11,7 @@
 
 @interface HomeViewController () <UISearchResultsUpdating>
 @property NSMutableArray<BRUser *> *users;
+@property FIRUser *currentUser;
 @property FIRDatabaseHandle usersHandle;
 @end
 
@@ -20,8 +21,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.users = [NSMutableArray new];
-    FIRUser *user = [[FIRAuth auth]currentUser];
-    NSLog(@"%@, %@, %@", user.email, user.displayName, user.description);
+    self.currentUser = [[FIRAuth auth]currentUser];
+    //NSLog(@"%@, %@, %@", user.email, user.displayName, user.description);
     
     self.usersHandle = [[DatabaseManager newUserRef]
                         observeEventType:FIRDataEventTypeChildAdded
@@ -58,6 +59,28 @@
 + (HomeViewController *)homeViewControllerFromStoryBoardID {
     return [[UIStoryboard storyboardWithName:@"Home" bundle:nil]
             instantiateViewControllerWithIdentifier:@"HomeVC"];
+}
+
+#pragma mark - TableViewDelegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    BRUser *receivingUser = self.users[indexPath.row];
+    if (receivingUser && ![self.currentUser.uid isEqualToString:receivingUser.uid]) {
+        NSTimeInterval timestamp = [[NSDate date] timeIntervalSince1970];
+        NSString *timestampString = [[NSNumber numberWithDouble:timestamp] stringValue];
+        BRMessage *message =
+        [[BRMessage alloc]
+         initWithSender:self.currentUser.uid
+         receiver:receivingUser.uid body:@"Bro" timestamp:timestampString];
+        [DatabaseManager addNewMessageNotificationToDatabaseWithMessageDict:[message messageToJsonDictionary] withBlock:^(NSError *error, FIRDatabaseReference *ref) {
+            if (error) {
+                NSLog(@"Error: %@", error.localizedDescription);
+            } else {
+                NSLog(@"Sent notification message! %@", ref);
+                //[self.tableView deleteRowsAtIndexPaths:@{indexPath} withRowAnimation:UITableViewRowAnimationFade];
+            }
+        }];
+    }
 }
 
 #pragma mark - TableViewDataSource
