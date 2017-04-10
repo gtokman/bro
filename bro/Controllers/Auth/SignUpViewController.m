@@ -36,6 +36,15 @@
                    addAuthStateDidChangeListener:^(FIRAuth * _Nonnull auth, FIRUser * _Nullable user) {
                        if (user) {
                            NSLog(@"We have a user %@, displayName: %@", user.email, user.displayName);
+                           [DatabaseManager addNewUserToDatabase:user userName:self.userNameTextField.text withBlock:^(NSError *error, FIRDatabaseReference *ref) {
+                               if (error) {
+                                   NSLog(@"Error adding user to database: %@", error.localizedDescription);
+                               } else {
+                                   NSLog(@"new user added %@", ref);
+                                   [self performSegueWithIdentifier:@"HomeSegue" sender:nil];
+                               }
+                               [self.activityIndicator stopAnimating];
+                           }];
                        }
                    }];
     
@@ -54,6 +63,8 @@
 - (BOOL)prefersStatusBarHidden {
     return YES;
 }
+
+#pragma mark - Helper
 
 - (void)keyboardWillShow:(NSNotification *)notification {
     CGRect keyboardBounds;
@@ -104,10 +115,10 @@
          withBlock:^(FIRUser *user, NSError *error) {
              if (error) {
                  NSLog(@"Error signing up: %@", error.localizedDescription);
+                 [self.activityIndicator stopAnimating];
              } else {
                  NSLog(@"Sign up with user: %@", user.email);
              }
-             [self.activityIndicator stopAnimating];
          }];
     } else {
         NSLog(@"No empty text");

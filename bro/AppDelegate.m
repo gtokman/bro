@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "OnboardViewController.h"
+#import "PageViewController.h"
 @import Firebase;
 
 @interface AppDelegate ()
@@ -19,6 +21,14 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     [FIRApp configure];
+    
+    UIViewController *root = [OnboardViewController initOnboardViewControllerFromStoryboard];
+    if ([[FIRAuth auth] currentUser]) {
+        root = [PageViewController initPageViewControllerFromStoryboard];
+    }
+    self.window.rootViewController = root;
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 
