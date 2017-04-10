@@ -17,4 +17,6 @@
 - (IBAction)signUpAction:(UIButton *)sender;
 - (IBAction)pageControlAction:(UIPageControl *)sender;
 
++ (OnboardViewController*)initOnboardViewControllerFromStoryboard;
+
 @end

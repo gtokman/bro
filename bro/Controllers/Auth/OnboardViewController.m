@@ -43,6 +43,11 @@
     NSLog(@"Unwind segue");
 }
 
++ (OnboardViewController*)initOnboardViewControllerFromStoryboard {
+    return [[UIStoryboard storyboardWithName:@"Main" bundle:nil]
+            instantiateViewControllerWithIdentifier:@"OnboardVC"];
+}
+
 #pragma mark - Actions
 
 - (IBAction)loginAction:(UIButton *)sender {
