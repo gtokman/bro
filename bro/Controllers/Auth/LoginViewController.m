@@ -105,7 +105,8 @@
 - (IBAction)loginAction:(UIButton *)sender {
     if ([self.emailTextField hasText] && [self.passwordTextField hasText]) {
         [self.activityIndicator startAnimating];
-        [AuthManager loginUserWithEmail:self.emailTextField.text password:self.passwordTextField.text withBlock:^(FIRUser *user, NSError *error) {
+        [AuthManager loginUserWithEmail:self.emailTextField.text password:self.passwordTextField.text
+                              withBlock:^(FIRUser *user, NSError *error) {
             if (error) {
                 NSLog(@"Error logining in user: %@", error.localizedDescription);
             } else {

@@ -36,6 +36,14 @@
                    addAuthStateDidChangeListener:^(FIRAuth * _Nonnull auth, FIRUser * _Nullable user) {
                        if (user) {
                            NSLog(@"We have a user %@, displayName: %@", user.email, user.displayName);
+                           [AuthManager updateUserInfoWithDisplayName:self.userNameTextField.text imageUrl:nil withBlock:^(NSError * error) {
+                               if (error) {
+                                   NSLog(@"Error updating user! %@", error.localizedDescription);
+                               } else {
+                                   [self performSegueWithIdentifier:@"HomeSegue" sender:nil];
+                               }
+                               [self performSegueWithIdentifier:@"HomeSegue" sender:nil];
+                           }];
                        }
                    }];
     
@@ -107,7 +115,6 @@
              } else {
                  NSLog(@"Sign up with user: %@", user.email);
              }
-             [self.activityIndicator stopAnimating];
          }];
     } else {
         NSLog(@"No empty text");

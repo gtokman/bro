@@ -7,7 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <FirebaseDatabase/FirebaseDatabase.h>
 
 @interface DatabaseManager : NSObject
+
+typedef void(^DatabaseCompletion)(NSError* error, FIRDatabaseReference* ref);
+
++ (FIRDatabaseReference*)newUserRef;
 
 @end

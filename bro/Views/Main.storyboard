@@ -13,7 +13,7 @@
         <!--Onboard View Controller-->
         <scene sceneID="J7a-qu-eQH">
             <objects>
-                <viewController id="X6c-sk-fiY" customClass="OnboardViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OnboardVC" id="X6c-sk-fiY" customClass="OnboardViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Pwd-fq-anH"/>
                         <viewControllerLayoutGuide type="bottom" id="beu-xq-pCg"/>

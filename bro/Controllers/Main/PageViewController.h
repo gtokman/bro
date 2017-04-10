@@ -12,4 +12,6 @@
 
 @interface PageViewController : UIPageViewController <UIPageViewControllerDataSource>
 
++(PageViewController*)initPageViewControllerFromStoryboard;
+
 @end

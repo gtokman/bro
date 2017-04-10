@@ -21,6 +21,7 @@
 		0278407D1E9749A900E231F1 /* AuthManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0278407C1E9749A900E231F1 /* AuthManager.m */; };
 		02DD31961E9AB2C300BEF14F /* PageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02DD31951E9AB2C300BEF14F /* PageViewController.m */; };
 		02DD31991E9AB56200BEF14F /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02DD31981E9AB56200BEF14F /* ProfileViewController.m */; };
+		02FDDE541E9AFA8500287627 /* DatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 02FDDE531E9AFA8500287627 /* DatabaseManager.m */; };
 		4841069A8390415568126926 /* Pods_bro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76B251959E1D532637366865 /* Pods_bro.framework */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +50,8 @@
 		02DD31951E9AB2C300BEF14F /* PageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageViewController.m; sourceTree = "<group>"; };
 		02DD31971E9AB56200BEF14F /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		02DD31981E9AB56200BEF14F /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		02FDDE521E9AFA8500287627 /* DatabaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatabaseManager.h; sourceTree = "<group>"; };
+		02FDDE531E9AFA8500287627 /* DatabaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatabaseManager.m; sourceTree = "<group>"; };
 		1E7978981E31365E53249527 /* Pods-bro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bro.release.xcconfig"; path = "Pods/Target Support Files/Pods-bro/Pods-bro.release.xcconfig"; sourceTree = "<group>"; };
 		76B251959E1D532637366865 /* Pods_bro.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_bro.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A1B574031C44AC1C01A88BA /* Pods-bro.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bro.debug.xcconfig"; path = "Pods/Target Support Files/Pods-bro/Pods-bro.debug.xcconfig"; sourceTree = "<group>"; };
@@ -132,6 +135,8 @@
 			children = (
 				0278407B1E9749A900E231F1 /* AuthManager.h */,
 				0278407C1E9749A900E231F1 /* AuthManager.m */,
+				02FDDE521E9AFA8500287627 /* DatabaseManager.h */,
+				02FDDE531E9AFA8500287627 /* DatabaseManager.m */,
 			);
 			name = Model;
 			path = Models;
@@ -329,6 +334,7 @@
 				027840721E97064300E231F1 /* SignUpViewController.m in Sources */,
 				0278406C1E96C4C400E231F1 /* OnboardViewController.m in Sources */,
 				0221F63D1E97F5B6007C87E0 /* HomeViewController.m in Sources */,
+				02FDDE541E9AFA8500287627 /* DatabaseManager.m in Sources */,
 				027840751E97064F00E231F1 /* LoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -10,4 +10,12 @@
 
 @implementation DatabaseManager
 
++ (FIRDatabaseReference *)newUserRef {
+    return [[[FIRDatabase database] reference] child:@"users"];
+}
+
++ (FIRDatabaseReference*)notificationRef {
+    return [[[[FIRDatabase database] reference] child:@"notifications"] child:@"messages"];;
+}
+
 @end
