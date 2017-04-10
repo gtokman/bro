@@ -10,6 +10,7 @@
 #import <FirebaseAuth/FirebaseAuth.h>
 #import "AuthManager.h"
 #import "DatabaseManager.h"
+@import Firebase;
 
 @interface SignUpViewController : UIViewController <UITextFieldDelegate>
 
