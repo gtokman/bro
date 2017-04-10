@@ -36,14 +36,17 @@
                    addAuthStateDidChangeListener:^(FIRAuth * _Nonnull auth, FIRUser * _Nullable user) {
                        if (user) {
                            NSLog(@"We have a user %@, displayName: %@", user.email, user.displayName);
-                           [AuthManager updateUserInfoWithDisplayName:self.userNameTextField.text imageUrl:nil withBlock:^(NSError * error) {
-                               if (error) {
-                                   NSLog(@"Error updating user! %@", error.localizedDescription);
-                               } else {
-                                   [self performSegueWithIdentifier:@"HomeSegue" sender:nil];
-                               }
-                               [self performSegueWithIdentifier:@"HomeSegue" sender:nil];
-                           }];
+                           [[[DatabaseManager newUserRef]
+                             child:user.uid] setValue:@{@"uid": user.uid, @"email":user.email, @"username":self.userNameTextField.text}
+                            withCompletionBlock:^(NSError * _Nullable error, FIRDatabaseReference * _Nonnull ref) {
+                                if (error) {
+                                    NSLog(@"Error adding user to database: %@", error.localizedDescription);
+                                } else {
+                                    NSLog(@"new user added %@", ref);
+                                    [self performSegueWithIdentifier:@"HomeSegue" sender:nil];
+                                }
+                                [self.activityIndicator stopAnimating];
+                            }];
                        }
                    }];
     
@@ -112,6 +115,7 @@
          withBlock:^(FIRUser *user, NSError *error) {
              if (error) {
                  NSLog(@"Error signing up: %@", error.localizedDescription);
+                 [self.activityIndicator stopAnimating];
              } else {
                  NSLog(@"Sign up with user: %@", user.email);
              }

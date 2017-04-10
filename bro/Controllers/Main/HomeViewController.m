@@ -17,7 +17,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+    FIRUser *user = [[FIRAuth auth]currentUser];
+    NSLog(@"%@, %@, %@", user.email, user.displayName, user.description);
 }
 
 - (void)didReceiveMemoryWarning {

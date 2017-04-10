@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <FirebaseAuth/FirebaseAuth.h>
+#import "DatabaseManager.h"
 
 @interface HomeViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
