@@ -8,4 +8,5 @@ target 'bro' do
   # Pods for bro
     pod 'Firebase/Auth'
     pod 'Firebase/Database'
+    pod 'Firebase/Messaging'
 end
