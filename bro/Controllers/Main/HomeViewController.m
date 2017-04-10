@@ -7,9 +7,11 @@
 //
 
 #import "HomeViewController.h"
+#import "BRUser.h"
 
 @interface HomeViewController () <UISearchResultsUpdating>
-
+@property NSMutableArray<BRUser *> *users;
+@property FIRDatabaseHandle usersHandle;
 @end
 
 @implementation HomeViewController
@@ -17,8 +19,27 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.users = [NSMutableArray new];
     FIRUser *user = [[FIRAuth auth]currentUser];
     NSLog(@"%@, %@, %@", user.email, user.displayName, user.description);
+    
+    self.usersHandle = [[DatabaseManager newUserRef]
+                        observeEventType:FIRDataEventTypeChildAdded
+                        withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+                            BRUser *user = [[BRUser alloc] initWithJsonDictionary:snapshot.value];
+                            [self.users addObject:user];
+                            [self.tableView reloadData];
+                        }];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [[DatabaseManager newUserRef] removeObserverWithHandle:self.usersHandle];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -42,13 +63,14 @@
 #pragma mark - TableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    return self.users.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BroCell" forIndexPath:indexPath];
     
-    cell.textLabel.text = [NSString stringWithFormat:@"Hello cell %ld", indexPath.row];
+    BRUser *user = self.users[indexPath.row];
+    cell.textLabel.text = user.displayName;
     
     return cell;
 }

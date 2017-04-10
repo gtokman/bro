@@ -36,17 +36,15 @@
                    addAuthStateDidChangeListener:^(FIRAuth * _Nonnull auth, FIRUser * _Nullable user) {
                        if (user) {
                            NSLog(@"We have a user %@, displayName: %@", user.email, user.displayName);
-                           [[[DatabaseManager newUserRef]
-                             child:user.uid] setValue:@{@"uid": user.uid, @"email":user.email, @"username":self.userNameTextField.text}
-                            withCompletionBlock:^(NSError * _Nullable error, FIRDatabaseReference * _Nonnull ref) {
-                                if (error) {
-                                    NSLog(@"Error adding user to database: %@", error.localizedDescription);
-                                } else {
-                                    NSLog(@"new user added %@", ref);
-                                    [self performSegueWithIdentifier:@"HomeSegue" sender:nil];
-                                }
-                                [self.activityIndicator stopAnimating];
-                            }];
+                           [DatabaseManager addNewUserToDatabase:user userName:self.userNameTextField.text withBlock:^(NSError *error, FIRDatabaseReference *ref) {
+                               if (error) {
+                                   NSLog(@"Error adding user to database: %@", error.localizedDescription);
+                               } else {
+                                   NSLog(@"new user added %@", ref);
+                                   [self performSegueWithIdentifier:@"HomeSegue" sender:nil];
+                               }
+                               [self.activityIndicator stopAnimating];
+                           }];
                        }
                    }];
     
@@ -65,6 +63,8 @@
 - (BOOL)prefersStatusBarHidden {
     return YES;
 }
+
+#pragma mark - Helper
 
 - (void)keyboardWillShow:(NSNotification *)notification {
     CGRect keyboardBounds;

@@ -9,5 +9,10 @@
 #import <Foundation/Foundation.h>
 
 @interface BRUser : NSObject
+@property NSString *email;
+@property NSString *displayName;
+@property NSString *uid;
 
+- (instancetype)initWithJsonDictionary:(NSDictionary*)dictionary;
+- (NSDictionary*)userToJsonDictionary;
 @end

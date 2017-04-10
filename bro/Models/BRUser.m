@@ -10,4 +10,22 @@
 
 @implementation BRUser
 
+- (instancetype)initWithJsonDictionary:(NSDictionary *)dictionary {
+    self = [super init];
+    if (self) {
+        self.email = dictionary[@"email"];
+        self.displayName = dictionary[@"displayName"];
+        self.uid = dictionary[@"uid"];
+    }
+    return self;
+}
+
+- (NSDictionary *)userToJsonDictionary {
+    return @{
+             @"email":self.email,
+             @"displayName":self.displayName,
+             @"uid":self.uid
+             };
+}
+
 @end
