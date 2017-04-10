@@ -12,6 +12,7 @@
 @property NSString *email;
 @property NSString *displayName;
 @property NSString *uid;
+@property NSString *token;
 
 - (instancetype)initWithJsonDictionary:(NSDictionary*)dictionary;
 - (NSDictionary*)userToJsonDictionary;

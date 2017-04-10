@@ -16,6 +16,7 @@
         self.email = dictionary[@"email"];
         self.displayName = dictionary[@"displayName"];
         self.uid = dictionary[@"uid"];
+        self.token = dictionary[@"token"];
     }
     return self;
 }
@@ -24,7 +25,8 @@
     return @{
              @"email":self.email,
              @"displayName":self.displayName,
-             @"uid":self.uid
+             @"uid":self.uid,
+             @"token":self.token
              };
 }
 

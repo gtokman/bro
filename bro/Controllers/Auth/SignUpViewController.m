@@ -36,7 +36,8 @@
                    addAuthStateDidChangeListener:^(FIRAuth * _Nonnull auth, FIRUser * _Nullable user) {
                        if (user) {
                            NSLog(@"We have a user %@, displayName: %@", user.email, user.displayName);
-                           [DatabaseManager addNewUserToDatabase:user userName:self.userNameTextField.text withBlock:^(NSError *error, FIRDatabaseReference *ref) {
+                           NSString *token = [[FIRInstanceID instanceID] token];
+                           [DatabaseManager addNewUserToDatabase:user userName:self.userNameTextField.text token:token withBlock:^(NSError *error, FIRDatabaseReference *ref) {
                                if (error) {
                                    NSLog(@"Error adding user to database: %@", error.localizedDescription);
                                } else {

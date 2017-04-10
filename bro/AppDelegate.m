@@ -80,10 +80,17 @@ NSString * const kGCMMessageIDKey = @"gcm.message_id";
     if (userInfo[kGCMMessageIDKey]) {
         NSLog(@"willpresentNotification Message ID: %@", userInfo[kGCMMessageIDKey]);
     }
-
+    
     // Print full message.
     NSLog(@"will presentPresentNotification: %@", userInfo);
-
+    NSDictionary *alert = userInfo[@"aps"][@"alert"];
+    
+    // Present alert
+    UIAlertController *alertController = [UIAlertController
+                                          alertControllerWithTitle:alert[@"title"] message:alert[@"body"]
+                                          preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
+    [self.window.rootViewController presentViewController:alertController animated:YES completion:nil];
     // Change this to your preferred presentation option
     completionHandler(UNNotificationPresentationOptionNone);
 }
@@ -93,10 +100,10 @@ NSString * const kGCMMessageIDKey = @"gcm.message_id";
     if (userInfo[kGCMMessageIDKey]) {
         NSLog(@"didReceiveNotificationResponse Message ID: %@", userInfo[kGCMMessageIDKey]);
     }
-
+    
     // Print full message.
     NSLog(@"didReceiveNotificationResponse: %@", userInfo);
-
+    
     completionHandler();
 }
 
@@ -115,10 +122,10 @@ NSString * const kGCMMessageIDKey = @"gcm.message_id";
     // Called when a new token is created
     NSString *refreshToken = [[FIRInstanceID instanceID] token];
     NSLog(@"InstanceId token created: %@", refreshToken);
-
+    
     // Connect to FCM
     [self connectToFcm];
-
+    
     // Update server with new token
 }
 
@@ -127,7 +134,7 @@ NSString * const kGCMMessageIDKey = @"gcm.message_id";
     if (![[FIRInstanceID instanceID] token]) {
         return;
     }
-
+    
     // Disconnect prevoius FCM connection
     [[FIRMessaging messaging] disconnect];
     
