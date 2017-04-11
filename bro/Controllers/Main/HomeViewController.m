@@ -61,6 +61,11 @@
             instantiateViewControllerWithIdentifier:@"HomeVC"];
 }
 
+- (IBAction)addAction:(UIButton *)sender {
+    NSError *signOutError;
+    [[FIRAuth auth] signOut:&signOutError];
+}
+
 #pragma mark - TableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

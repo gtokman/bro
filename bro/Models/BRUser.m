@@ -29,6 +29,5 @@
             @"token": self.token
     };
 }
-}
 
 @end
