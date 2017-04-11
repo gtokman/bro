@@ -23,11 +23,12 @@
 
 - (NSDictionary *)userToJsonDictionary {
     return @{
-             @"email":self.email,
-             @"displayName":self.displayName,
-             @"uid":self.uid,
-             @"token":self.token
-             };
+            @"email": self.email,
+            @"displayName": self.displayName,
+            @"uid": self.uid,
+            @"token": self.token
+    };
+}
 }
 
 @end

@@ -19,7 +19,7 @@
 
 @implementation AppDelegate
 
-NSString * const kGCMMessageIDKey = @"gcm.message_id";
+NSString *const kGCMMessageIDKey = @"gcm.message_id";
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
