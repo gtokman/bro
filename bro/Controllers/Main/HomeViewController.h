@@ -18,4 +18,5 @@
 
 + (HomeViewController*)homeViewControllerFromStoryBoardID;
 
+- (IBAction)addAction:(UIButton *)sender;
 @end
