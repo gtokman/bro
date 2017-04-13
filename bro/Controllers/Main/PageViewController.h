@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "HomeViewController.h"
 #import "ProfileViewController.h"
+#import "PhotoViewController.h"
 
 @interface PageViewController : UIPageViewController <UIPageViewControllerDataSource>
 

@@ -8,7 +8,12 @@
 
 #import "PhotoViewController.h"
 
-@interface PhotoViewController ()
+
+@interface PhotoViewController () <AVCapturePhotoCaptureDelegate>
+@property AVCaptureSession *session;
+@property AVCaptureVideoPreviewLayer *previewLayer;
+@property AVCaptureDevice *captureDevice;
+@property AVCapturePhotoOutput *photoOutput;
 
 @end
 
@@ -17,14 +22,34 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self setupCaptureSession];
+    
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)setupCaptureSession {
+    
 }
 
-/*
+- (void)setupPreviewLayer {
+    
+}
+
+- (void)startCaptureSession {
+    if ([self.session isRunning]) {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+            [self.session startRunning];
+        });
+    }
+}
+
+- (void)stopCaptureSession {
+    if ([self.session isRunning]) {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+            [self.session stopRunning];
+        });
+    }
+}
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -32,6 +57,10 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
-*/
+
++ (PhotoViewController*)photoViewControllerFromStoryboardID {
+    return [[UIStoryboard storyboardWithName:@"Home" bundle:nil]
+            instantiateViewControllerWithIdentifier:@"PhotoVC"];
+}
 
 @end
