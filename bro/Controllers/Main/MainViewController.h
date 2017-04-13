@@ -10,4 +10,6 @@
 
 @interface MainViewController : UIViewController
 
++ (MainViewController*)getMainViewControllerWithStoryboardID;
+
 @end

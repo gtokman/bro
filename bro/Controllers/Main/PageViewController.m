@@ -19,11 +19,11 @@
     
     // Init
     self.pageViewControllers = [NSMutableArray new];
-    HomeViewController *home = [HomeViewController homeViewControllerFromStoryBoardID];
+    MainViewController *main = [MainViewController getMainViewControllerWithStoryboardID];
     ProfileViewController *profile = [ProfileViewController profileViewControllerFromStoryboardID];
     PhotoViewController *photoVC = [PhotoViewController photoViewControllerFromStoryboardID];
     [self.pageViewControllers addObject:profile];
-    [self.pageViewControllers addObject:home];
+    [self.pageViewControllers addObject:main];
     [self.pageViewControllers addObject:photoVC];
     // Setup
     self.dataSource = self;
@@ -48,7 +48,7 @@
 #pragma mark - UIPageControllerDataSource
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {
-    if ([viewController isKindOfClass:[HomeViewController class]]) {
+    if ([viewController isKindOfClass:[MainViewController class]]) {
         NSLog(@"The before VC is profile %@", viewController.description);
         return self.pageViewControllers[0];
     } else if ([viewController isKindOfClass:[PhotoViewController class]]) {
@@ -63,7 +63,7 @@
     if ([viewController isKindOfClass:[ProfileViewController class]]) {
         NSLog(@"The after vc should be Home: %@ ", viewController.description);
         return self.pageViewControllers[1];
-    } else if ([viewController isKindOfClass:[HomeViewController class]]) {
+    } else if ([viewController isKindOfClass:[MainViewController class]]) {
         return self.pageViewControllers[2];
     }
     

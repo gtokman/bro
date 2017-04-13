@@ -20,6 +20,7 @@
 		027840751E97064F00E231F1 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 027840741E97064F00E231F1 /* LoginViewController.m */; };
 		0278407A1E97483000E231F1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 027840791E97483000E231F1 /* GoogleService-Info.plist */; };
 		0278407D1E9749A900E231F1 /* AuthManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0278407C1E9749A900E231F1 /* AuthManager.m */; };
+		0289DB1C1E9FFE4C005382A1 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0289DB1B1E9FFE4C005382A1 /* MainViewController.m */; };
 		02DD31961E9AB2C300BEF14F /* PageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02DD31951E9AB2C300BEF14F /* PageViewController.m */; };
 		02DD31991E9AB56200BEF14F /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02DD31981E9AB56200BEF14F /* ProfileViewController.m */; };
 		02FDDE541E9AFA8500287627 /* DatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 02FDDE531E9AFA8500287627 /* DatabaseManager.m */; };
@@ -51,6 +52,8 @@
 		027840791E97483000E231F1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0278407B1E9749A900E231F1 /* AuthManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthManager.h; sourceTree = "<group>"; };
 		0278407C1E9749A900E231F1 /* AuthManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthManager.m; sourceTree = "<group>"; };
+		0289DB1A1E9FFE4C005382A1 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		0289DB1B1E9FFE4C005382A1 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		02DD31941E9AB2C300BEF14F /* PageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageViewController.h; sourceTree = "<group>"; };
 		02DD31951E9AB2C300BEF14F /* PageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageViewController.m; sourceTree = "<group>"; };
 		02DD31971E9AB56200BEF14F /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
@@ -90,6 +93,8 @@
 				02DD31981E9AB56200BEF14F /* ProfileViewController.m */,
 				023DBF7E1E9FC8EA00249A1A /* PhotoViewController.h */,
 				023DBF7F1E9FC8EA00249A1A /* PhotoViewController.m */,
+				0289DB1A1E9FFE4C005382A1 /* MainViewController.h */,
+				0289DB1B1E9FFE4C005382A1 /* MainViewController.m */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -362,6 +367,7 @@
 				02FDDE5A1E9B1EA200287627 /* BRMessage.m in Sources */,
 				0278406C1E96C4C400E231F1 /* OnboardViewController.m in Sources */,
 				0221F63D1E97F5B6007C87E0 /* HomeViewController.m in Sources */,
+				0289DB1C1E9FFE4C005382A1 /* MainViewController.m in Sources */,
 				02FDDE541E9AFA8500287627 /* DatabaseManager.m in Sources */,
 				027840751E97064F00E231F1 /* LoginViewController.m in Sources */,
 			);
@@ -479,7 +485,7 @@
 				CODE_SIGN_ENTITLEMENTS = bro/bro.entitlements;
 				DEVELOPMENT_TEAM = NTP2A7PJM8;
 				INFOPLIST_FILE = bro/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.garytokman.bro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -494,7 +500,7 @@
 				CODE_SIGN_ENTITLEMENTS = bro/bro.entitlements;
 				DEVELOPMENT_TEAM = NTP2A7PJM8;
 				INFOPLIST_FILE = bro/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.garytokman.bro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
