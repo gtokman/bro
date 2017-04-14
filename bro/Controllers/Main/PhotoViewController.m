@@ -9,7 +9,7 @@
 #import "PhotoViewController.h"
 
 
-@interface PhotoViewController () <AVCapturePhotoCaptureDelegate>
+@interface PhotoViewController () <AVCapturePhotoCaptureDelegate, ShareMediaDelegate>
 
 @property AVCaptureSession *session;
 @property AVCaptureVideoPreviewLayer *previewLayer;
@@ -84,6 +84,12 @@
     }
 }
 
+#pragma mark - ShareMediaDelegate
+
+- (void)didSelectUser:(BRUser *)user {
+    NSLog(@"User %@", user.email);
+}
+
 #pragma mark - AVCapturePhotoCaptureDelegate
 
 - (void)captureOutput:(AVCapturePhotoOutput *)captureOutput didFinishProcessingPhotoSampleBuffer:(nullable CMSampleBufferRef)photoSampleBuffer previewPhotoSampleBuffer:(nullable CMSampleBufferRef)previewPhotoSampleBuffer resolvedSettings:(AVCaptureResolvedPhotoSettings *)resolvedSettings bracketSettings:(nullable AVCaptureBracketedStillImageSettings *)bracketSettings error:(nullable NSError *)error {
@@ -96,6 +102,10 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"UsersListSegue"]) {
+        self.homeVC = [segue destinationViewController];
+        self.homeVC.delegate = self;
+    }
 }
 
 + (PhotoViewController*)photoViewControllerFromStoryboardID {

@@ -24,13 +24,11 @@
     self.currentUser = [[FIRAuth auth]currentUser];
     //NSLog(@"%@, %@, %@", user.email, user.displayName, user.description);
     
-    self.usersHandle = [[DatabaseManager newUserRef]
-                        observeEventType:FIRDataEventTypeChildAdded
-                        withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
-                            BRUser *user = [[BRUser alloc] initWithJsonDictionary:snapshot.value];
-                            [self.users addObject:user];
-                            [self.tableView reloadData];
-                        }];
+    self.usersHandle = [DatabaseManager observeNewUsersAddedHandleWithBlock:^(FIRDataSnapshot *snapshot) {
+        BRUser *user = [[BRUser alloc] initWithJsonDictionary:snapshot.value];
+        [self.users addObject:user];
+        [self.tableView reloadData];
+    }];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -70,22 +68,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     BRUser *receivingUser = self.users[indexPath.row];
-    if (receivingUser && ![self.currentUser.uid isEqualToString:receivingUser.uid]) {
-        NSTimeInterval timestamp = [[NSDate date] timeIntervalSince1970];
-        NSString *timestampString = [[NSNumber numberWithDouble:timestamp] stringValue];
-        BRMessage *message =
-        [[BRMessage alloc]
-         initWithSender:self.currentUser.uid
-         receiver:receivingUser.uid body:@"Bro" timestamp:timestampString];
-        [DatabaseManager addNewMessageNotificationToDatabaseWithMessageDict:[message messageToJsonDictionary] withBlock:^(NSError *error, FIRDatabaseReference *ref) {
-            if (error) {
-                NSLog(@"Error: %@", error.localizedDescription);
-            } else {
-                NSLog(@"Sent notification message! %@", ref);
-                //[self.tableView deleteRowsAtIndexPaths:@{indexPath} withRowAnimation:UITableViewRowAnimationFade];
-            }
-        }];
-    }
+    [self.delegate didSelectUser:receivingUser];
 }
 
 #pragma mark - TableViewDataSource

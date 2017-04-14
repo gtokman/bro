@@ -7,7 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "BRUser.h"
 
+@class BRUser;
 @protocol ShareMediaDelegate <NSObject>
-
+- (void)didSelectUser:(BRUser*)user;
 @end

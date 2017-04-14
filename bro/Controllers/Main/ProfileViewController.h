@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ProfileViewController : UIViewController
+@interface ProfileViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+
+
+@property (weak, nonatomic) IBOutlet UILabel *label;
 
 + (ProfileViewController*)profileViewControllerFromStoryboardID;
-@property (weak, nonatomic) IBOutlet UILabel *label;
 
 @end

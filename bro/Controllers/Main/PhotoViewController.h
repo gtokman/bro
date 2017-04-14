@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
+#import "HomeViewController.h"
 
 @interface PhotoViewController : UIViewController
+
+@property HomeViewController *homeVC;
 
 + (PhotoViewController*)photoViewControllerFromStoryboardID;
 

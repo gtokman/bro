@@ -7,8 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ShareMediaDelegate.h"
+#import "HomeViewController.h"
 
 @interface MainViewController : UIViewController
+
+@property HomeViewController *homeVC;
 
 + (MainViewController*)getMainViewControllerWithStoryboardID;
 

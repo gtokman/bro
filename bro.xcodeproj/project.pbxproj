@@ -54,6 +54,7 @@
 		0278407C1E9749A900E231F1 /* AuthManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthManager.m; sourceTree = "<group>"; };
 		0289DB1A1E9FFE4C005382A1 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		0289DB1B1E9FFE4C005382A1 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		0289DB1D1EA00679005382A1 /* ShareMediaDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareMediaDelegate.h; sourceTree = "<group>"; };
 		02DD31941E9AB2C300BEF14F /* PageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageViewController.h; sourceTree = "<group>"; };
 		02DD31951E9AB2C300BEF14F /* PageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageViewController.m; sourceTree = "<group>"; };
 		02DD31971E9AB56200BEF14F /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
@@ -95,6 +96,7 @@
 				023DBF7F1E9FC8EA00249A1A /* PhotoViewController.m */,
 				0289DB1A1E9FFE4C005382A1 /* MainViewController.h */,
 				0289DB1B1E9FFE4C005382A1 /* MainViewController.m */,
+				0289DB1D1EA00679005382A1 /* ShareMediaDelegate.h */,
 			);
 			path = Main;
 			sourceTree = "<group>";

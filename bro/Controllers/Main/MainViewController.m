@@ -8,7 +8,7 @@
 
 #import "MainViewController.h"
 
-@interface MainViewController ()
+@interface MainViewController () <ShareMediaDelegate>
 
 @end
 
@@ -17,6 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -24,6 +25,9 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)didSelectUser:(BRUser *)user {
+    NSLog(@"Selected %@", user.email);
+}
 
 #pragma mark - Navigation
 
@@ -31,6 +35,10 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"UsersListSegue"]) {
+        self.homeVC = [segue destinationViewController];
+        self.homeVC.delegate = self;
+    }
 }
 
 + (MainViewController *)getMainViewControllerWithStoryboardID {
