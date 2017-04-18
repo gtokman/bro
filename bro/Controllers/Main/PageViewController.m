@@ -19,11 +19,12 @@
     
     // Init
     self.pageViewControllers = [NSMutableArray new];
-    HomeViewController *home = [HomeViewController homeViewControllerFromStoryBoardID];
-    ProfileViewController *profile = [ProfileViewController profileViewControllerFromStoryboardID];
+    UINavigationController *main = [MainViewController getMainViewControllerWithStoryboardID];
+    UINavigationController *profile = [NotificationViewController profileViewControllerFromStoryboardID];
+    PhotoViewController *photoVC = [PhotoViewController photoViewControllerFromStoryboardID];
     [self.pageViewControllers addObject:profile];
-    [self.pageViewControllers addObject:home];
-    
+    [self.pageViewControllers addObject:main];
+    [self.pageViewControllers addObject:photoVC];
     // Setup
     self.dataSource = self;
     [self setViewControllers:@[self.pageViewControllers[1]]
@@ -47,19 +48,22 @@
 #pragma mark - UIPageControllerDataSource
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {
-    if ([viewController isKindOfClass:[HomeViewController class]]) {
+    if ([viewController.childViewControllers.firstObject isKindOfClass:[MainViewController class]]) {
         NSLog(@"The before VC is profile %@", viewController.description);
         return self.pageViewControllers[0];
+    } else if ([viewController isKindOfClass:[PhotoViewController class]]) {
+        return self.pageViewControllers[1];
     }
 
     return nil;
 }
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController {
-    
-    if ([viewController isKindOfClass:[ProfileViewController class]]) {
+    if ([viewController.childViewControllers.firstObject isKindOfClass:[NotificationViewController class]]) {
         NSLog(@"The after vc should be Home: %@ ", viewController.description);
         return self.pageViewControllers[1];
+    } else if ([viewController.childViewControllers.firstObject isKindOfClass:[MainViewController class]]) {
+        return self.pageViewControllers[2];
     }
     
     return nil;
