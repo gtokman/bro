@@ -18,5 +18,6 @@ typedef void(^HandleCompletion)(FIRDataSnapshot* snapshot);
 + (FIRDatabaseReference *)notificationRef;
 + (void)addNewUserToDatabase:(FIRUser*)user userName:(NSString*)username token:(NSString*)token withBlock:(DatabaseCompletion)completion;
 + (FIRDatabaseHandle)observeNewUsersAddedHandleWithBlock:(HandleCompletion)completion;
++ (FIRDatabaseHandle)observeNewUserNotifications:(FIRUser *)user withBlock:(HandleCompletion)completion;
 + (void)addNewMessageNotificationToDatabaseWithMessageDict:(NSDictionary*)messageDict withBlock:(DatabaseCompletion)completion;
 @end

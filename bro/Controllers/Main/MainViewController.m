@@ -41,9 +41,9 @@
     }
 }
 
-+ (MainViewController *)getMainViewControllerWithStoryboardID {
++ (UINavigationController *)getMainViewControllerWithStoryboardID {
     return [[UIStoryboard storyboardWithName:@"Home" bundle:nil]
-            instantiateViewControllerWithIdentifier:@"MainVC"];
+            instantiateViewControllerWithIdentifier:@"MainNavVC"];
 }
 
 @end

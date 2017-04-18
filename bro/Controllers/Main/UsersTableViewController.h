@@ -1,5 +1,5 @@
 //
-//  HomeViewController.h
+//  UsersTableViewController.h
 //  bro
 //
 //  Created by g tokman on 4/7/17.
@@ -13,12 +13,12 @@
 #import "BRMessage.h"
 #import "ShareMediaDelegate.h"
 
-@interface HomeViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface UsersTableViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) id <ShareMediaDelegate> delegate;
 
-+ (HomeViewController*)homeViewControllerFromStoryBoardID;
++ (UsersTableViewController*)homeViewControllerFromStoryBoardID;
 
 - (IBAction)addAction:(UIButton *)sender;
 @end

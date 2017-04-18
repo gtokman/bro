@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
-#import "HomeViewController.h"
+#import "UsersTableViewController.h"
 
 @interface PhotoViewController : UIViewController
 
-@property HomeViewController *homeVC;
+@property UsersTableViewController *homeVC;
 
 + (PhotoViewController*)photoViewControllerFromStoryboardID;
 

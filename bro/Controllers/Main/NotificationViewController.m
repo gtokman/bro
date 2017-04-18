@@ -1,23 +1,34 @@
 //
-//  ProfileViewController.m
+//  NotificationViewController.m
 //  bro
 //
 //  Created by g tokman on 4/9/17.
 //  Copyright © 2017 garytokman. All rights reserved.
 //
 
-#import "ProfileViewController.h"
+#import "NotificationViewController.h"
+#import <FirebaseDatabase/FirebaseDatabase.h>
 
-@interface ProfileViewController ()
-
+@interface NotificationViewController ()
+@property FIRDatabaseHandle usersHandle;
 @end
 
-@implementation ProfileViewController
+@implementation NotificationViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    NSLog(@"hi");
+    NSLog(@"User uid: %@", [FIRAuth auth].currentUser.uid);
+    self.usersHandle =
+    [DatabaseManager observeNewUserNotifications:[FIRAuth auth].currentUser
+                                       withBlock:^(FIRDataSnapshot *snapshot) {
+                                           NSLog(@"Notification value is %@", snapshot.value);
+                                       }];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -33,9 +44,9 @@
     // Pass the selected object to the new view controller.
 }
 
-+ (ProfileViewController *)profileViewControllerFromStoryboardID {
++ (UINavigationController *)profileViewControllerFromStoryboardID {
     return [[UIStoryboard storyboardWithName:@"Home" bundle:nil]
-            instantiateViewControllerWithIdentifier:@"ProfileVC"];
+            instantiateViewControllerWithIdentifier:@"NotifNavVC"];
 }
 
 #pragma mark - TableViewDataSource

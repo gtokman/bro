@@ -1,5 +1,5 @@
 //
-//  ProfileViewController.h
+//  NotificationViewController.h
 //  bro
 //
 //  Created by g tokman on 4/9/17.
@@ -7,12 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <FirebaseAuth/FirebaseAuth.h>
+#import "DatabaseManager.h"
 
-@interface ProfileViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+
+@interface NotificationViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 
 @property (weak, nonatomic) IBOutlet UILabel *label;
 
-+ (ProfileViewController*)profileViewControllerFromStoryboardID;
++ (NotificationViewController*)profileViewControllerFromStoryboardID;
 
 @end

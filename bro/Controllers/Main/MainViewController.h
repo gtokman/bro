@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "ShareMediaDelegate.h"
-#import "HomeViewController.h"
+#import "UsersTableViewController.h"
 
 @interface MainViewController : UIViewController
 
-@property HomeViewController *homeVC;
+@property UsersTableViewController *homeVC;
 
 + (MainViewController*)getMainViewControllerWithStoryboardID;
 

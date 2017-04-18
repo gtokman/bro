@@ -1,21 +1,21 @@
 //
-//  HomeViewController.m
+//  UsersTableViewController.m
 //  bro
 //
 //  Created by g tokman on 4/7/17.
 //  Copyright © 2017 garytokman. All rights reserved.
 //
 
-#import "HomeViewController.h"
+#import "UsersTableViewController.h"
 #import "BRUser.h"
 
-@interface HomeViewController () <UISearchResultsUpdating>
+@interface UsersTableViewController () <UISearchResultsUpdating>
 @property NSMutableArray<BRUser *> *users;
 @property FIRUser *currentUser;
 @property FIRDatabaseHandle usersHandle;
 @end
 
-@implementation HomeViewController
+@implementation UsersTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -54,7 +54,7 @@
     // Pass the selected object to the new view controller.
 }
 
-+ (HomeViewController *)homeViewControllerFromStoryBoardID {
++ (UsersTableViewController *)homeViewControllerFromStoryBoardID {
     return [[UIStoryboard storyboardWithName:@"Home" bundle:nil]
             instantiateViewControllerWithIdentifier:@"HomeVC"];
 }
