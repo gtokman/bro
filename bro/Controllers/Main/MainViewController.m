@@ -1,23 +1,23 @@
 //
-//  ProfileViewController.m
+//  MainViewController.m
 //  bro
 //
-//  Created by g tokman on 4/9/17.
+//  Created by g tokman on 4/13/17.
 //  Copyright © 2017 garytokman. All rights reserved.
 //
 
-#import "ProfileViewController.h"
+#import "MainViewController.h"
 
-@interface ProfileViewController ()
+@interface MainViewController () <ShareMediaDelegate>
 
 @end
 
-@implementation ProfileViewController
+@implementation MainViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    NSLog(@"hi");
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -25,6 +25,9 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)didSelectUser:(BRUser *)user {
+    NSLog(@"Selected %@", user.email);
+}
 
 #pragma mark - Navigation
 
@@ -32,12 +35,15 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"UsersListSegue"]) {
+        self.homeVC = [segue destinationViewController];
+        self.homeVC.delegate = self;
+    }
 }
 
-+ (ProfileViewController *)profileViewControllerFromStoryboardID {
++ (UINavigationController *)getMainViewControllerWithStoryboardID {
     return [[UIStoryboard storyboardWithName:@"Home" bundle:nil]
-            instantiateViewControllerWithIdentifier:@"ProfileVC"];
+            instantiateViewControllerWithIdentifier:@"MainNavVC"];
 }
-
 
 @end

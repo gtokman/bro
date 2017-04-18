@@ -10,14 +10,14 @@
 #import <FirebaseDatabase/FirebaseDatabase.h>
 #import <FirebaseAuth/FirebaseAuth.h>
 
-
 @interface DatabaseManager : NSObject
 
 typedef void(^DatabaseCompletion)(NSError* error, FIRDatabaseReference* ref);
 typedef void(^HandleCompletion)(FIRDataSnapshot* snapshot);
 + (FIRDatabaseReference*)newUserRef;
 + (FIRDatabaseReference *)notificationRef;
-+ (void)addNewUserToDatabase:(FIRUser*)user userName:(NSString*)username withBlock:(DatabaseCompletion)completion;
++ (void)addNewUserToDatabase:(FIRUser*)user userName:(NSString*)username token:(NSString*)token withBlock:(DatabaseCompletion)completion;
 + (FIRDatabaseHandle)observeNewUsersAddedHandleWithBlock:(HandleCompletion)completion;
++ (FIRDatabaseHandle)observeNewUserNotifications:(FIRUser *)user withBlock:(HandleCompletion)completion;
 + (void)addNewMessageNotificationToDatabaseWithMessageDict:(NSDictionary*)messageDict withBlock:(DatabaseCompletion)completion;
 @end

@@ -16,16 +16,18 @@
         self.email = dictionary[@"email"];
         self.displayName = dictionary[@"displayName"];
         self.uid = dictionary[@"uid"];
+        self.token = dictionary[@"token"];
     }
     return self;
 }
 
 - (NSDictionary *)userToJsonDictionary {
     return @{
-             @"email":self.email,
-             @"displayName":self.displayName,
-             @"uid":self.uid
-             };
+            @"email": self.email,
+            @"displayName": self.displayName,
+            @"uid": self.uid,
+            @"token": self.token
+    };
 }
 
 @end
