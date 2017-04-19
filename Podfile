@@ -9,4 +9,7 @@ target 'bro' do
     pod 'Firebase/Auth'
     pod 'Firebase/Database'
     pod 'Firebase/Messaging'
+
+    pod 'Ohana', '~> 1.3'
+    pod 'ChameleonFramework'
 end
