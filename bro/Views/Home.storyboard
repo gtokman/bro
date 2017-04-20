@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -15,7 +16,7 @@
                 <pageViewController storyboardIdentifier="HomePageController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="MNG-vb-oML" customClass="PageViewController" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qxo-04-6cL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="338" y="176"/>
+            <point key="canvasLocation" x="369" y="68"/>
         </scene>
         <!--Notifications-->
         <scene sceneID="hDD-JS-REZ">
@@ -71,6 +72,66 @@
             </objects>
             <point key="canvasLocation" x="2959.1999999999998" y="-55.322338830584712"/>
         </scene>
+        <!--Invite-->
+        <scene sceneID="ac7-G7-wSj">
+            <objects>
+                <tableViewController storyboardIdentifier="ContactsVC" id="fSL-8W-lor" customClass="ContactsTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="75" sectionHeaderHeight="28" sectionFooterHeight="28" id="BlZ-kS-86R">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ContactCell" rowHeight="75" id="rwU-7U-W2J" customClass="ContactsCell">
+                                <rect key="frame" x="0.0" y="28" width="375" height="75"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rwU-7U-W2J" id="vSY-70-XrZ">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="74.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="dv6-51-0hl">
+                                            <rect key="frame" x="8" y="8" width="359" height="58.5"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gary Tokman" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QoO-N4-Jeg">
+                                                    <rect key="frame" x="0.0" y="0.0" width="359" height="30"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="24"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="444-333-1111" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kWx-qt-xWk">
+                                                    <rect key="frame" x="0.0" y="34" width="359" height="24.5"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="dv6-51-0hl" secondAttribute="trailing" id="0jK-L9-bo8"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="dv6-51-0hl" secondAttribute="bottom" id="WJ7-4M-Eht"/>
+                                        <constraint firstItem="dv6-51-0hl" firstAttribute="leading" secondItem="vSY-70-XrZ" secondAttribute="leadingMargin" id="dRD-j2-1Cx"/>
+                                        <constraint firstItem="dv6-51-0hl" firstAttribute="top" secondItem="vSY-70-XrZ" secondAttribute="topMargin" id="gEj-Xm-5YE"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="nameLabel" destination="QoO-N4-Jeg" id="MT4-g1-EAJ"/>
+                                    <outlet property="phoneNumberLabel" destination="kWx-qt-xWk" id="ubg-j5-pNM"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="fSL-8W-lor" id="6SV-5l-p2a"/>
+                            <outlet property="delegate" destination="fSL-8W-lor" id="zJO-Xa-nte"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Invite" id="RmE-MW-epz">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="czN-6d-jQA"/>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pmY-a0-QpE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5024.8000000000002" y="-55.322338830584712"/>
+        </scene>
         <!--Users Table View Controller-->
         <scene sceneID="yXp-YV-YG3">
             <objects>
@@ -80,14 +141,37 @@
                         <viewControllerLayoutGuide type="bottom" id="adG-y6-0pd"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="m2j-bd-Mk6">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" sectionIndexMinimumDisplayRowCount="1" rowHeight="75" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ch2-LQ-kTg">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="HD4-F3-mwW">
+                                    <rect key="frame" x="0.0" y="103" width="375" height="61"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Invite" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l2T-D3-pM1">
+                                            <rect key="frame" x="8" y="8" width="359" height="45"/>
+                                            <gestureRecognizers/>
+                                            <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="18"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                            <connections>
+                                                <outletCollection property="gestureRecognizers" destination="7yp-VM-kqN" appends="YES" id="lBe-c5-Q7z"/>
+                                            </connections>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" red="0.89126098155975342" green="0.3545563817024231" blue="0.39968371391296387" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstItem="l2T-D3-pM1" firstAttribute="leading" secondItem="HD4-F3-mwW" secondAttribute="leadingMargin" id="B59-BT-g4t"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="l2T-D3-pM1" secondAttribute="trailing" id="LBP-xJ-e0n"/>
+                                        <constraint firstItem="l2T-D3-pM1" firstAttribute="top" secondItem="HD4-F3-mwW" secondAttribute="topMargin" id="bth-2R-Vi9"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="l2T-D3-pM1" secondAttribute="bottom" id="mUv-l8-djc"/>
+                                    </constraints>
+                                </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BroCell" textLabel="fBM-Jj-QlB" style="IBUITableViewCellStyleDefault" id="gzK-S8-aSb">
                                         <rect key="frame" x="0.0" y="28" width="375" height="75"/>
@@ -128,6 +212,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8j0-mf-mqB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="7yp-VM-kqN">
+                    <connections>
+                        <action selector="inviteAction:" destination="dae-rx-b0f" id="ghI-kF-1gm"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="4692" y="672.41379310344837"/>
         </scene>
@@ -177,7 +266,7 @@
         <!--Home-->
         <scene sceneID="71R-KB-Mic">
             <objects>
-                <viewController storyboardIdentifier="MainVC" id="hfL-1l-aXt" customClass="MainViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainVC" automaticallyAdjustsScrollViewInsets="NO" id="hfL-1l-aXt" customClass="MainViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1VG-wK-0fh"/>
                         <viewControllerLayoutGuide type="bottom" id="Rtx-4y-Jcq"/>
@@ -187,7 +276,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f7A-dH-vUp">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <connections>
                                     <segue destination="dae-rx-b0f" kind="embed" identifier="UsersListSegue" id="6uD-Zb-eJ5"/>
                                 </connections>

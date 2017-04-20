@@ -64,6 +64,13 @@
     [[FIRAuth auth] signOut:&signOutError];
 }
 
+- (IBAction)inviteAction:(UITapGestureRecognizer *)sender {
+    UIViewController *contactsVC = [self.storyboard instantiateViewControllerWithIdentifier:@"ContactsVC"];
+    [self.parentViewController.navigationController pushViewController:contactsVC animated:YES];
+//    [self.navigationController pushViewController:contactsVC animated:YES];
+}
+
+
 #pragma mark - TableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

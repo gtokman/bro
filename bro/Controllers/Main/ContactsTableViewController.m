@@ -7,92 +7,100 @@
 //
 
 #import "ContactsTableViewController.h"
+#import "ContactsCell.h"
+@import Ohana;
+@import Contacts;
+@import MessageUI;
 
-@interface ContactsTableViewController ()
-
+@interface ContactsTableViewController () <OHCNContactsDataProviderDelegate, MFMessageComposeViewControllerDelegate>
+@property NSMutableArray<OHContact *> *contacts;
 @end
 
 @implementation ContactsTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    // Init setup
+    OHCNContactsDataProvider *dataProvider = [[OHCNContactsDataProvider alloc] initWithDelegate:self];
+    OHAlphabeticalSortPostProcessor *alphabeticalSortProcessor = [[OHAlphabeticalSortPostProcessor alloc]
+     initWithSortMode:OHAlphabeticalSortPostProcessorSortModeFullName];
+    OHRequiredFieldPostProcessor *phoneNumberProcessor = [[OHRequiredFieldPostProcessor alloc]
+                                                          initWithFieldType:OHContactFieldTypePhoneNumber];
+    OHContactsDataSource *dataSource = [[OHContactsDataSource alloc]
+                                        initWithDataProviders:
+                                        [NSOrderedSet orderedSetWithObjects:dataProvider, nil]
+                                        postProcessors:
+                                        [NSOrderedSet orderedSetWithObjects:alphabeticalSortProcessor, phoneNumberProcessor, nil]];
+    ContactsTableViewController __weak *weakSelf = self;
+    [dataSource.onContactsDataSourceReadySignal addObserver:self callback:^(id  _Nonnull self) {
+        weakSelf.contacts = [NSMutableArray arrayWithArray:dataSource.contacts.array];
+    }];
+    [dataSource loadContacts];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+#pragma mark - OHCNContactsDataProviderDelegate
+
+- (void)dataProviderDidHitContactsAuthenticationChallenge:(OHCNContactsDataProvider *)dataProvider {
+    CNContactStore *contactStore = [CNContactStore new];
+    [contactStore requestAccessForEntityType:CNEntityTypeContacts completionHandler:^(BOOL granted, NSError * _Nullable error) {
+        if (error) {
+            NSLog(@"Error requesting contact permission: %@", error);
+        }
+        
+        if (granted) {
+            [dataProvider loadContacts];
+        }
+    }];
+}
+
+#pragma mark - Message compose delegete
+
+- (void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result {
+    switch (result) {
+        case MessageComposeResultSent:
+            NSLog(@"Message was sent");
+            break;
+        case MessageComposeResultFailed:
+            NSLog(@"Message was failed");
+            break;
+        default:
+            NSLog(@"Message was cancelled");
+            break;
+    }
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - Table view delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if ([MFMessageComposeViewController canSendText]) {
+        OHContact *contact = self.contacts[indexPath.row];
+        MFMessageComposeViewController *composeVC = [MFMessageComposeViewController new];
+        composeVC.messageComposeDelegate = self;
+        //config
+        composeVC.recipients = @[[[contact.contactFields valueForKey:@"value"] firstObject]];
+        composeVC.body = @"Bro! Download the Bro app.";
+        
+        [self presentViewController:composeVC animated:YES completion:nil];
+    }
 }
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
-}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
+    return self.contacts.count;
 }
 
-/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
     
-    // Configure the cell...
+    ContactsCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ContactCell" forIndexPath:indexPath];
+    
+    OHContact *contact = self.contacts[indexPath.row];
+    cell.nameLabel.text = contact.fullName;
+    cell.phoneNumberLabel.text = [[contact.contactFields valueForKey:@"value"] firstObject];
     
     return cell;
 }
-*/
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
