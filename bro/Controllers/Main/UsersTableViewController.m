@@ -8,6 +8,7 @@
 
 #import "UsersTableViewController.h"
 #import "BRUser.h"
+@import ChameleonFramework;
 
 @interface UsersTableViewController () <UISearchResultsUpdating>
 @property NSMutableArray<BRUser *> *users;
@@ -41,11 +42,6 @@
     [[DatabaseManager newUserRef] removeObserverWithHandle:self.usersHandle];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -54,14 +50,31 @@
     // Pass the selected object to the new view controller.
 }
 
+- (IBAction)unwindSegue:(UIStoryboardSegue*)segue {
+    
+}
+
 + (UsersTableViewController *)homeViewControllerFromStoryBoardID {
     return [[UIStoryboard storyboardWithName:@"Home" bundle:nil]
             instantiateViewControllerWithIdentifier:@"HomeVC"];
 }
 
+#pragma mark - Actions
+
 - (IBAction)addAction:(UIButton *)sender {
     NSError *signOutError;
     [[FIRAuth auth] signOut:&signOutError];
+}
+
+- (IBAction)inviteAction:(UITapGestureRecognizer *)sender {
+    UIViewController *contactsVC = [self.storyboard instantiateViewControllerWithIdentifier:@"ContactsVC"];
+    [self.parentViewController.navigationController pushViewController:contactsVC animated:YES];
+//    [self.navigationController pushViewController:contactsVC animated:YES];
+}
+
+- (IBAction)searchAction:(UITapGestureRecognizer *)sender {
+    UIViewController *searchVC = [self.storyboard instantiateViewControllerWithIdentifier:@"SearchVC"];
+    [self.parentViewController.navigationController pushViewController:searchVC animated:YES];
 }
 
 #pragma mark - TableViewDelegate
@@ -82,6 +95,7 @@
     
     BRUser *user = self.users[indexPath.row];
     cell.textLabel.text = user.displayName;
+    cell.backgroundColor = [UIColor randomFlatColor];
     
     return cell;
 }

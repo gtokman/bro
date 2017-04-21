@@ -10,6 +10,13 @@
 		0221F6391E97F2EE007C87E0 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0221F6381E97F2EE007C87E0 /* Home.storyboard */; };
 		0221F63D1E97F5B6007C87E0 /* UsersTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0221F63C1E97F5B6007C87E0 /* UsersTableViewController.m */; };
 		023DBF801E9FC8EA00249A1A /* PhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 023DBF7F1E9FC8EA00249A1A /* PhotoViewController.m */; };
+		027442421EA7CFD6008483EB /* ContactsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 027442411EA7CFD6008483EB /* ContactsTableViewController.m */; };
+		027442451EA7D243008483EB /* ContactsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 027442441EA7D243008483EB /* ContactsCell.m */; };
+		027442901EA8F6B0008483EB /* SearchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0274428F1EA8F6B0008483EB /* SearchTableViewController.m */; };
+		027442931EA91D1B008483EB /* AddButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 027442921EA91D1B008483EB /* AddButtonView.m */; };
+		027442961EA97462008483EB /* StyleKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 027442941EA97462008483EB /* StyleKit.m */; };
+		027442991EA99090008483EB /* NotificationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 027442981EA99090008483EB /* NotificationView.m */; };
+		0274429C1EA9B126008483EB /* AlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0274429B1EA9B126008483EB /* AlertViewController.m */; };
 		027840501E96C3EE00E231F1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0278404F1E96C3EE00E231F1 /* main.m */; };
 		027840531E96C3EE00E231F1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 027840521E96C3EE00E231F1 /* AppDelegate.m */; };
 		0278405B1E96C3EE00E231F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0278405A1E96C3EE00E231F1 /* Assets.xcassets */; };
@@ -35,6 +42,20 @@
 		0221F63C1E97F5B6007C87E0 /* UsersTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UsersTableViewController.m; sourceTree = "<group>"; };
 		023DBF7E1E9FC8EA00249A1A /* PhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoViewController.h; sourceTree = "<group>"; };
 		023DBF7F1E9FC8EA00249A1A /* PhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoViewController.m; sourceTree = "<group>"; };
+		027442401EA7CFD6008483EB /* ContactsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactsTableViewController.h; sourceTree = "<group>"; };
+		027442411EA7CFD6008483EB /* ContactsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactsTableViewController.m; sourceTree = "<group>"; };
+		027442431EA7D243008483EB /* ContactsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactsCell.h; sourceTree = "<group>"; };
+		027442441EA7D243008483EB /* ContactsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactsCell.m; sourceTree = "<group>"; };
+		0274428E1EA8F6B0008483EB /* SearchTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchTableViewController.h; sourceTree = "<group>"; };
+		0274428F1EA8F6B0008483EB /* SearchTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchTableViewController.m; sourceTree = "<group>"; };
+		027442911EA91D1B008483EB /* AddButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddButtonView.h; sourceTree = "<group>"; };
+		027442921EA91D1B008483EB /* AddButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddButtonView.m; sourceTree = "<group>"; };
+		027442941EA97462008483EB /* StyleKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StyleKit.m; sourceTree = "<group>"; };
+		027442951EA97462008483EB /* StyleKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StyleKit.h; sourceTree = "<group>"; };
+		027442971EA99090008483EB /* NotificationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationView.h; sourceTree = "<group>"; };
+		027442981EA99090008483EB /* NotificationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationView.m; sourceTree = "<group>"; };
+		0274429A1EA9B126008483EB /* AlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertViewController.h; sourceTree = "<group>"; };
+		0274429B1EA9B126008483EB /* AlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertViewController.m; sourceTree = "<group>"; };
 		0278404B1E96C3EE00E231F1 /* bro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0278404F1E96C3EE00E231F1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		027840511E96C3EE00E231F1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -86,6 +107,7 @@
 		0221F63A1E97F591007C87E0 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				0274428D1EA8F695008483EB /* Search */,
 				0221F63B1E97F5B6007C87E0 /* UsersTableViewController.h */,
 				0221F63C1E97F5B6007C87E0 /* UsersTableViewController.m */,
 				02DD31941E9AB2C300BEF14F /* PageViewController.h */,
@@ -97,8 +119,31 @@
 				0289DB1A1E9FFE4C005382A1 /* MainViewController.h */,
 				0289DB1B1E9FFE4C005382A1 /* MainViewController.m */,
 				0289DB1D1EA00679005382A1 /* ShareMediaDelegate.h */,
+				027442461EA7D24B008483EB /* Contacts */,
+				0274429A1EA9B126008483EB /* AlertViewController.h */,
+				0274429B1EA9B126008483EB /* AlertViewController.m */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		027442461EA7D24B008483EB /* Contacts */ = {
+			isa = PBXGroup;
+			children = (
+				027442401EA7CFD6008483EB /* ContactsTableViewController.h */,
+				027442411EA7CFD6008483EB /* ContactsTableViewController.m */,
+				027442431EA7D243008483EB /* ContactsCell.h */,
+				027442441EA7D243008483EB /* ContactsCell.m */,
+			);
+			name = Contacts;
+			sourceTree = "<group>";
+		};
+		0274428D1EA8F695008483EB /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				0274428E1EA8F6B0008483EB /* SearchTableViewController.h */,
+				0274428F1EA8F6B0008483EB /* SearchTableViewController.m */,
+			);
+			name = Search;
 			sourceTree = "<group>";
 		};
 		027840421E96C3EE00E231F1 = {
@@ -169,8 +214,14 @@
 		027840671E96C42100E231F1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				027442951EA97462008483EB /* StyleKit.h */,
+				027442941EA97462008483EB /* StyleKit.m */,
 				0278406E1E96C4E100E231F1 /* Main.storyboard */,
 				0221F6381E97F2EE007C87E0 /* Home.storyboard */,
+				027442911EA91D1B008483EB /* AddButtonView.h */,
+				027442921EA91D1B008483EB /* AddButtonView.m */,
+				027442971EA99090008483EB /* NotificationView.h */,
+				027442981EA99090008483EB /* NotificationView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -360,13 +411,20 @@
 			files = (
 				027840531E96C3EE00E231F1 /* AppDelegate.m in Sources */,
 				02DD31991E9AB56200BEF14F /* NotificationViewController.m in Sources */,
+				0274429C1EA9B126008483EB /* AlertViewController.m in Sources */,
+				027442421EA7CFD6008483EB /* ContactsTableViewController.m in Sources */,
 				0278407D1E9749A900E231F1 /* AuthManager.m in Sources */,
+				027442961EA97462008483EB /* StyleKit.m in Sources */,
 				02FDDE571E9B150200287627 /* BRUser.m in Sources */,
 				027840501E96C3EE00E231F1 /* main.m in Sources */,
 				02DD31961E9AB2C300BEF14F /* PageViewController.m in Sources */,
 				027840721E97064300E231F1 /* SignUpViewController.m in Sources */,
+				027442451EA7D243008483EB /* ContactsCell.m in Sources */,
 				023DBF801E9FC8EA00249A1A /* PhotoViewController.m in Sources */,
+				027442991EA99090008483EB /* NotificationView.m in Sources */,
 				02FDDE5A1E9B1EA200287627 /* BRMessage.m in Sources */,
+				027442901EA8F6B0008483EB /* SearchTableViewController.m in Sources */,
+				027442931EA91D1B008483EB /* AddButtonView.m in Sources */,
 				0278406C1E96C4C400E231F1 /* OnboardViewController.m in Sources */,
 				0221F63D1E97F5B6007C87E0 /* UsersTableViewController.m in Sources */,
 				0289DB1C1E9FFE4C005382A1 /* MainViewController.m in Sources */,
