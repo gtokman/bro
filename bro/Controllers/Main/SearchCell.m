@@ -8,7 +8,19 @@
 
 #import "SearchCell.h"
 
+
+
 @implementation SearchCell
+@synthesize user = _user;
+
+- (void)setUser:(BRUser *)user {
+    _user = user;
+    self.displayNameLabel.text = user.displayName;
+}
+
+- (BRUser *)user {
+    return _user;
+}
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -19,6 +31,10 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+- (IBAction)addAction:(UIButton *)sender {
+    NSLog(@"Hello");
+    [self.delegate addNewUser: self.user];
 }
 
 @end

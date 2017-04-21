@@ -7,7 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BRUser.h"
+
+@protocol UserAddedDelegate <NSObject>
+
+- (void)addNewUser:(BRUser*)user;
+
+@end
 
 @interface SearchCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UILabel *displayNameLabel;
+@property (weak, nonatomic) IBOutlet UIButton *addButton;
+@property (weak) BRUser *user;
+@property id <UserAddedDelegate> delegate;
 @end

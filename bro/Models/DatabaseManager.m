@@ -14,6 +14,10 @@
     return [[[FIRDatabase database] reference] child:@"users"];
 }
 
++ (FIRDatabaseReference *)newFriendRef {
+    return [[[FIRDatabase database] reference] child:@"bros"];
+}
+
 + (FIRDatabaseReference *)notificationRef {
     return [[[[FIRDatabase database] reference] child:@"notifications"] child:@"messages"];;
 }
@@ -23,6 +27,17 @@
                              withCompletionBlock:^(NSError *_Nullable error, FIRDatabaseReference *_Nonnull ref) {
                                  completion(error, ref);
                              }];
+}
+
++ (void)addNewFriend:(BRUser*)friend withBlock:(DatabaseCompletion)completion {
+    FIRDatabaseReference *newFriendRef = [[[self newFriendRef]
+                                            child:[FIRAuth auth].currentUser.uid]
+                                           child:friend.uid];
+    [newFriendRef setValue:friend.userToJsonDictionary
+       withCompletionBlock:^(NSError * _Nullable error, FIRDatabaseReference * _Nonnull ref) {
+        completion(error, ref);
+    }];
+    
 }
 
 + (FIRDatabaseHandle)observeNewUsersAddedHandleWithBlock:(HandleCompletion)completion {
@@ -40,6 +55,17 @@
 + (void)addNewMessageNotificationToDatabaseWithMessageDict:(NSDictionary *)messageDict withBlock:(DatabaseCompletion)completion {
     [[[self notificationRef] childByAutoId] setValue:messageDict withCompletionBlock:^(NSError *_Nullable error, FIRDatabaseReference *_Nonnull ref) {
         completion(error, ref);
+    }];
+}
+
++ (void)queryUsersWithUsername:(NSString*)username withBlock:(HandleCompletion)completion {
+    FIRDatabaseQuery *query = [[[self newUserRef] queryOrderedByChild:@"displayName"] queryEqualToValue:username];
+    
+    [query observeSingleEventOfType:FIRDataEventTypeChildAdded withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+        NSLog(@"Search value: %@", snapshot.value);
+        completion(snapshot);
+    } withCancelBlock:^(NSError * _Nonnull error) {
+        NSLog(@"Error: %@", error.localizedDescription);
     }];
 }
 
