@@ -19,10 +19,10 @@
     
     // Init
     self.pageViewControllers = [NSMutableArray new];
-    UINavigationController *main = [MainViewController getMainViewControllerWithStoryboardID];
-    UINavigationController *profile = [NotificationViewController profileViewControllerFromStoryboardID];
+    MainViewController *main = [MainViewController getMainViewControllerWithStoryboardID];
+    NotificationViewController *notification = [NotificationViewController notificationViewControllerFromStoryboardID];
     PhotoViewController *photoVC = [PhotoViewController photoViewControllerFromStoryboardID];
-    [self.pageViewControllers addObject:profile];
+    [self.pageViewControllers addObject:notification];
     [self.pageViewControllers addObject:main];
     [self.pageViewControllers addObject:photoVC];
     // Setup
@@ -40,7 +40,7 @@
 
 #pragma mark - Navigation
 
-+(PageViewController*)initPageViewControllerFromStoryboard {
++ (PageViewController*)initPageViewControllerFromStoryboard {
     return [[UIStoryboard storyboardWithName:@"Home" bundle:nil]
             instantiateViewControllerWithIdentifier:@"HomePageController"];
 }
@@ -48,7 +48,7 @@
 #pragma mark - UIPageControllerDataSource
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {
-    if ([viewController.childViewControllers.firstObject isKindOfClass:[MainViewController class]]) {
+    if ([viewController isKindOfClass:[MainViewController class]]) {
         NSLog(@"The before VC is profile %@", viewController.description);
         return self.pageViewControllers[0];
     } else if ([viewController isKindOfClass:[PhotoViewController class]]) {
@@ -59,10 +59,10 @@
 }
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController {
-    if ([viewController.childViewControllers.firstObject isKindOfClass:[NotificationViewController class]]) {
+    if ([viewController isKindOfClass:[NotificationViewController class]]) {
         NSLog(@"The after vc should be Home: %@ ", viewController.description);
         return self.pageViewControllers[1];
-    } else if ([viewController.childViewControllers.firstObject isKindOfClass:[MainViewController class]]) {
+    } else if ([viewController isKindOfClass:[MainViewController class]]) {
         return self.pageViewControllers[2];
     }
     

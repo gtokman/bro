@@ -16,6 +16,6 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *label;
 
-+ (NotificationViewController*)profileViewControllerFromStoryboardID;
++ (NotificationViewController*)notificationViewControllerFromStoryboardID;
 
 @end

@@ -44,9 +44,9 @@
     // Pass the selected object to the new view controller.
 }
 
-+ (UINavigationController *)profileViewControllerFromStoryboardID {
++ (UINavigationController *)notificationViewControllerFromStoryboardID {
     return [[UIStoryboard storyboardWithName:@"Home" bundle:nil]
-            instantiateViewControllerWithIdentifier:@"NotifNavVC"];
+            instantiateViewControllerWithIdentifier:@"ProfileVC"];
 }
 
 #pragma mark - TableViewDataSource
@@ -58,7 +58,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NotificationCell" forIndexPath:indexPath];
     
-    cell.textLabel.text = [NSString stringWithFormat:@"Cell %ld", indexPath.row];
+    cell.textLabel.text = [NSString stringWithFormat:@"Cell %ld", (long)indexPath.row];
     
     return cell;
 }

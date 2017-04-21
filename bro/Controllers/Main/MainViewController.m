@@ -44,7 +44,7 @@
 
 + (UINavigationController *)getMainViewControllerWithStoryboardID {
     return [[UIStoryboard storyboardWithName:@"Home" bundle:nil]
-            instantiateViewControllerWithIdentifier:@"MainNavVC"];
+            instantiateViewControllerWithIdentifier:@"MainVC"];
 }
 
 @end
