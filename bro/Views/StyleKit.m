@@ -21,7 +21,7 @@
 
 //! Page 1
 
-+ (void)draw_120IPhone {
++ (void)drawAddButton {
   [StyleKit draw_120IPhoneWithFrame:CGRectMake(0, 0, 95, 95) resizing:StyleKitResizingBehaviorAspectFit];
 }
 + (void)draw_120IPhoneWithFrame:(CGRect)targetFrame resizing:(StyleKitResizingBehavior)resizing {
@@ -69,7 +69,7 @@
     [path2 fill];
     CGContextRestoreGState(context);
     path2.usesEvenOddFillRule = YES;
-    [[UIColor colorWithWhite:0.847 alpha:0.9] setFill];
+    [[UIColor colorWithWhite:0.847 alpha:0.5] setFill];
     [path2 fill];
     CGContextRestoreGState(context);
     
@@ -118,7 +118,7 @@
     return image;
   
   UIGraphicsBeginImageContextWithOptions(CGSizeMake(95, 95), NO, 0);
-  [StyleKit draw_120IPhone];
+  [StyleKit drawAddButton];
   image = UIGraphicsGetImageFromCurrentImageContext();
   UIGraphicsEndImageContext();
   

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+IB_DESIGNABLE
 @interface AddButtonView : UIView
-
+@property IBInspectable UIColor *pressedColor;
 @end

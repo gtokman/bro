@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+IB_DESIGNABLE
 @interface NotificationView : UIView
-
+@property IBInspectable NSString *text;
+@property IBInspectable double textSize;
+@property IBInspectable UIColor *bgColor;
+@property IBInspectable UIColor *pressedColor;
 @end

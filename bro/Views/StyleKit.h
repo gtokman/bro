@@ -31,7 +31,7 @@ extern CGRect StyleKitResizingBehaviorApply(StyleKitResizingBehavior behavior, C
 #pragma mark - Canvas Drawings
 
 //! Page 1
-+ (void)draw_120IPhone;
++ (void)drawAddButton;
 + (void)draw_120IPhoneWithFrame:(CGRect)targetFrame resizing:(StyleKitResizingBehavior)resizing;
 
 
