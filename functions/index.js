@@ -10,23 +10,25 @@ exports.sendFriendRequestNotification = functions.database.ref('/request/{receiv
         const requestReceiver = requestObject.receiver;
         const requestSender = requestObject.sender;
         const receiverAPNToken = admin.database().ref('/users/' + requestReceiver + '/token').once('value');
-        const senderInfo = admin.database().ref('/users/' + requestSender + '/displayName').once('value');
+        const senderInfo = admin.database().ref('/users/' + requestSender).once('value');
 
         return Promise.all([receiverAPNToken, senderInfo]).then(results => {
             const token = results[0].val();
-            const senderName = results[1].val();
+            const sender = results[1].val();
 
-            console.log('Sender: ' + senderName + 'to: ' + token);
+            console.log('Sender: ' + sender.displayName + ' to: ' + token);
 
             const payload = {
                 notification: {
                     title: 'New Bro Request',
-                    body: 'From ' + senderName
+                    body: 'From ' + sender.displayName
                 }
             };
 
             admin.messaging().sendToDevice(token, payload).then(response => {
                 console.log('Sent notification successfully ', response);
+
+                return admin.database().ref('/notifications/' + requestReceiver + '/' + requestSender).set(sender);
             }).catch(error => {
                 console.log('Error sending notification: ', response);
             });

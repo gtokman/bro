@@ -20,7 +20,7 @@ typedef void(^HandleCompletion)(FIRDataSnapshot* snapshot);
 + (void)addNewUserToDatabase:(FIRUser*)user userName:(NSString*)username token:(NSString*)token withBlock:(DatabaseCompletion)completion;
 + (void)addNewFriendRequest:(BRUser*)user withBlock:(DatabaseCompletion)completion;
 + (FIRDatabaseHandle)observeNewUsersAddedHandleWithBlock:(HandleCompletion)completion;
-+ (FIRDatabaseHandle)observeNewUserNotifications:(FIRUser *)user withBlock:(HandleCompletion)completion;
++ (FIRDatabaseHandle)observeNewUserNotificationsWithBlock:(HandleCompletion)completion;
 + (void)addNewMessageNotificationToDatabaseWithMessageDict:(NSDictionary*)messageDict withBlock:(DatabaseCompletion)completion;
 + (void)queryUsersWithUsername:(NSString*)username withBlock:(HandleCompletion)completion;
 @end

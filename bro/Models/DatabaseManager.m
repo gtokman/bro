@@ -27,7 +27,7 @@
 }
 
 + (FIRDatabaseReference *)notificationRef {
-    return [[[[FIRDatabase database] reference] child:@"notifications"] child:@"messages"];;
+    return [[[FIRDatabase database] reference] child:@"notifications"];
 }
 
 + (void)addNewUserToDatabase:(FIRUser *)user userName:(NSString *)username token:(NSString *)token withBlock:(DatabaseCompletion)completion {
@@ -52,8 +52,8 @@
     }];
 }
 
-+ (FIRDatabaseHandle)observeNewUserNotifications:(FIRUser *)user withBlock:(HandleCompletion)completion {
-    return [[[self notificationRef] child:user.uid] observeEventType:FIRDataEventTypeChildAdded withBlock:^(FIRDataSnapshot *snapshot) {
++ (FIRDatabaseHandle)observeNewUserNotificationsWithBlock:(HandleCompletion)completion {
+    return [[[self notificationRef] child:[self currentUser].uid] observeEventType:FIRDataEventTypeChildAdded withBlock:^(FIRDataSnapshot *snapshot) {
         completion(snapshot);
     }];
 }

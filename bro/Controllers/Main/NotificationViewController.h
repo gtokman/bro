@@ -9,12 +9,12 @@
 #import <UIKit/UIKit.h>
 #import <FirebaseAuth/FirebaseAuth.h>
 #import "DatabaseManager.h"
+#import "NotificationCell.h"
 
 
 @interface NotificationViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
-
-@property (weak, nonatomic) IBOutlet UILabel *label;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 + (NotificationViewController*)notificationViewControllerFromStoryboardID;
 

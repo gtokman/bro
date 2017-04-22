@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface NotificationCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *displayNameLabel;
+- (IBAction)acceptAction:(UIButton *)sender;
 
 @end
