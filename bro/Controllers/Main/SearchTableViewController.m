@@ -34,7 +34,7 @@
 
 - (void)addNewUser:(BRUser *)user {
     NSLog(@"User: %@", user.displayName);
-    [DatabaseManager addNewFriend:user withBlock:^(NSError *error, FIRDatabaseReference *ref) {
+    [DatabaseManager addNewFriendRequest:user withBlock:^(NSError *error, FIRDatabaseReference *ref) {
         if (error) {
             NSLog(@"Error adding friend");
         }

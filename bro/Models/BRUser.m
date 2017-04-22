@@ -17,6 +17,9 @@
         self.displayName = dictionary[@"displayName"];
         self.uid = dictionary[@"uid"];
         self.token = dictionary[@"token"];
+        NSLog(@"isAccept %@ and isFriend %@", dictionary[@"isBlocked"], dictionary[@"isFriend"]);
+        self.isBlocked = ((NSNumber*)dictionary[@"isBlocked"]).boolValue;
+        self.isFriend = ((NSNumber*)dictionary[@"isFriend"]).boolValue;
     }
     return self;
 }
@@ -26,7 +29,9 @@
             @"email": self.email,
             @"displayName": self.displayName,
             @"uid": self.uid,
-            @"token": self.token
+            @"token": self.token,
+            @"isBlocked": @(self.isBlocked),
+            @"isFriend": @(self.isFriend)
     };
 }
 

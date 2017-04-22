@@ -10,12 +10,20 @@
 
 @implementation DatabaseManager
 
++ (FIRUser*)currentUser {
+    return [FIRAuth auth].currentUser;
+}
+
 + (FIRDatabaseReference *)newUserRef {
     return [[[FIRDatabase database] reference] child:@"users"];
 }
 
 + (FIRDatabaseReference *)newFriendRef {
     return [[[FIRDatabase database] reference] child:@"bros"];
+}
+
++ (FIRDatabaseReference *)newFriendRequestRef {
+    return [[[FIRDatabase database] reference] child:@"request"];
 }
 
 + (FIRDatabaseReference *)notificationRef {
@@ -29,19 +37,17 @@
                              }];
 }
 
-+ (void)addNewFriend:(BRUser*)friend withBlock:(DatabaseCompletion)completion {
-    FIRDatabaseReference *newFriendRef = [[[self newFriendRef]
-                                            child:[FIRAuth auth].currentUser.uid]
-                                           child:friend.uid];
-    [newFriendRef setValue:friend.userToJsonDictionary
-       withCompletionBlock:^(NSError * _Nullable error, FIRDatabaseReference * _Nonnull ref) {
++ (void)addNewFriendRequest:(BRUser*)friend withBlock:(DatabaseCompletion)completion {
+    FIRDatabaseReference *newRequestRef = [[[self newFriendRequestRef] child:friend.uid] child:[self currentUser].uid];
+    FIRUser *currentUser = [self currentUser];
+    [newRequestRef setValue:@{@"receiver": friend.uid, @"sender":currentUser.uid} withCompletionBlock:^(NSError * _Nullable error, FIRDatabaseReference * _Nonnull ref) {
         completion(error, ref);
     }];
-    
 }
 
 + (FIRDatabaseHandle)observeNewUsersAddedHandleWithBlock:(HandleCompletion)completion {
-    return [[self newUserRef] observeEventType:FIRDataEventTypeChildAdded withBlock:^(FIRDataSnapshot *_Nonnull snapshot) {
+    return [[[self newFriendRef] child:[self currentUser].uid] observeEventType:FIRDataEventTypeChildAdded withBlock:^(FIRDataSnapshot *_Nonnull snapshot) {
+        NSLog(@"User is ------> %@", snapshot.value);
         completion(snapshot);
     }];
 }
