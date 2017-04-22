@@ -3,6 +3,36 @@ const functions = require('firebase-functions');
 const admin = require('firebase-admin');
 admin.initializeApp(functions.config().firebase);
 
+exports.sendFriendRequestNotification = functions.database.ref('/request/{receiver}/{sender}')
+    .onWrite(event => {
+
+        const requestObject = event.data.val();
+        const requestReceiver = requestObject.receiver;
+        const requestSender = requestObject.sender;
+        const receiverAPNToken = admin.database().ref('/users/' + requestReceiver + '/token').once('value');
+        const senderInfo = admin.database().ref('/users/' + requestSender + '/displayName').once('value');
+
+        return Promise.all([receiverAPNToken, senderInfo]).then(results => {
+            const token = results[0].val();
+            const senderName = results[1].val();
+
+            console.log('Sender: ' + senderName + 'to: ' + token);
+
+            const payload = {
+                notification: {
+                    title: 'New Bro Request',
+                    body: 'From ' + senderName
+                }
+            };
+
+            admin.messaging().sendToDevice(token, payload).then(response => {
+                console.log('Sent notification successfully ', response);
+            }).catch(error => {
+                console.log('Error sending notification: ', response);
+            });
+        });
+    });
+
 exports.sendNotification = functions.database.ref('/notifications/messages/{pushId}')
     .onWrite(event => {
 

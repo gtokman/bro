@@ -6,10 +6,12 @@
 //  Copyright © 2017 garytokman. All rights reserved.
 //
 
+#import <FirebaseAuth/FirebaseAuth.h>
 #import "SearchTableViewController.h"
 #import "BRUser.h"
 #import "DatabaseManager.h"
 #import "SearchCell.h"
+
 
 @interface SearchTableViewController () <UITextFieldDelegate, UserAddedDelegate>
 
@@ -47,6 +49,10 @@
 - (IBAction)cancelAction:(UIButton *)sender {
     [self shouldHideCancelButton:YES];
     [self.searchTextField resignFirstResponder];
+}
+- (IBAction)logoutAction:(UIBarButtonItem *)sender {
+    NSError *error;
+    [[FIRAuth auth] signOut:&error];
 }
 
 - (void)searchForUserName:(NSString*)username {
