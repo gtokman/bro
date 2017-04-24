@@ -28,6 +28,12 @@
 
 - (void)didSelectUser:(BRUser *)user {
     NSLog(@"Selected %@", user.email);
+    [DatabaseManager addNewBroNotificationToFriend:user withBlock:^(NSError *error, FIRDatabaseReference *ref) {
+        if (error) {
+            NSLog(@"Error sending notif to bro: %@", error);
+        }
+        NSLog(@"Notif to bro success %@", ref);
+    }];
 }
 
 #pragma mark - Navigation

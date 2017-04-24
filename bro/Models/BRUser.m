@@ -18,8 +18,8 @@
         self.uid = dictionary[@"uid"];
         self.token = dictionary[@"token"];
         NSLog(@"isAccept %@ and isFriend %@", dictionary[@"isBlocked"], dictionary[@"isFriend"]);
-        self.isBlocked = ((NSNumber*)dictionary[@"isBlocked"]).boolValue;
-        self.isFriend = ((NSNumber*)dictionary[@"isFriend"]).boolValue;
+        self.isBlocked = ((NSNumber*)dictionary[@"isBlocked"]).boolValue ?: NO;
+        self.isFriend = ((NSNumber*)dictionary[@"isFriend"]).boolValue ?: NO;
     }
     return self;
 }

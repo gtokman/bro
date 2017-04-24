@@ -32,6 +32,11 @@
     self.loadingIndicator.center = [self.view center];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self.searchTextField becomeFirstResponder];
+}
+
 #pragma mark - UserAddedDelegate
 
 - (void)addNewUser:(BRUser *)user {

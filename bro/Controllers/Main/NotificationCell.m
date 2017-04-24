@@ -9,6 +9,16 @@
 #import "NotificationCell.h"
 
 @implementation NotificationCell
+@synthesize user = _user;
+
+- (void)setUser:(BRUser *)user {
+    _user = user;
+    self.displayNameLabel.text = user.displayName;
+}
+
+- (BRUser *)user {
+    return _user;
+}
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -22,5 +32,6 @@
 }
 
 - (IBAction)acceptAction:(UIButton *)sender {
+    [self.delegate didSelectUser:self.user];
 }
 @end

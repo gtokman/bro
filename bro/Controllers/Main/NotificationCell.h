@@ -7,8 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ShareMediaDelegate.h"
 
 @interface NotificationCell : UITableViewCell
+
+
+@property (weak) id <ShareMediaDelegate> delegate;
+@property (weak) BRUser *user;
 @property (weak, nonatomic) IBOutlet UILabel *displayNameLabel;
 - (IBAction)acceptAction:(UIButton *)sender;
 

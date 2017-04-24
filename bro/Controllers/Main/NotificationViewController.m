@@ -37,11 +37,6 @@
     
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -55,6 +50,23 @@
             instantiateViewControllerWithIdentifier:@"ProfileVC"];
 }
 
+#pragma mark - ShareMediaDelegate
+
+- (void)didSelectUser:(BRUser *)user {
+    NSLog(@"User accepted %@", user.displayName);
+    [DatabaseManager addNewFriend:user withSelfBlock:^(NSError *error, FIRDatabaseReference *ref) {
+        if (error) {
+            NSLog(@"Error adding friend %@", error.localizedDescription);
+        }
+        NSLog(@"Added user to self %@", ref);
+    } withFriendBlock:^(NSError *error, FIRDatabaseReference *ref) {
+        if (error) {
+            NSLog(@"Error adding friend %@", error.localizedDescription);
+        }
+        NSLog(@"Added self to user %@", ref);
+    }];
+}
+
 #pragma mark - TableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -64,7 +76,8 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NotificationCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NotificationCell" forIndexPath:indexPath];
     BRUser *user = self.users[indexPath.row];
-    cell.displayNameLabel.text = user.displayName;
+    cell.user = user;
+    cell.delegate = self;
     
     return cell;
 }
