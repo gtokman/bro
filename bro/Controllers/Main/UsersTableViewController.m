@@ -30,11 +30,13 @@
         [self.users addObject:user];
         [self.tableView reloadData];
     }];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handlePushNotification:) name:@"NewPushNotification" object:nil];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    
+- (void)handlePushNotification:(NSNotification *)notification {
+    NSLog(@"Received notification %@", notification.object);
+    [self.notificationButton setHidden:NO];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
