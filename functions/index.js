@@ -35,7 +35,7 @@ exports.sendFriendRequestNotification = functions.database.ref('/request/{receiv
         });
     });
 
-exports.sendNotification = functions.database.ref('/notifications/messages/{pushId}')
+exports.sendNotification = functions.database.ref('/bro-notifications/{friendUID}/{pushId}')
     .onWrite(event => {
 
         console.log('Data is: ', event.data.current.val());
@@ -43,19 +43,18 @@ exports.sendNotification = functions.database.ref('/notifications/messages/{push
         const senderUid = messageObject.sender;
         const receiverUid = messageObject.receiver;
         const receiverAPNToken = admin.database().ref('/users/' + receiverUid + '/token').once('value');
-        const receiverUserInfo = admin.auth().getUser(receiverUid);
+        const senderUserInfo = admin.database().ref('/users/' + senderUid).once('value');
 
-        return Promise.all([receiverAPNToken, receiverUserInfo]).then(results => {
+        return Promise.all([receiverAPNToken, senderUserInfo]).then(results => {
             const token = results[0].val();
-            const receiver = results[1];
+            const senderObject = results[1].val();
 
-            console.log('Send notification to ' + receiverUid + ' message ' + messageObject.body + ' sender ' + senderUid);
+            console.log('Send notification to ' + receiverUid + ' sender ' + senderObject.displayName);
 
             const payload = {
                 notification: {
-                    title: receiver.email,
-                    body: messageObject.body,
-                    icon: messageObject.icon
+                    title: messageObject.title,
+                    body: senderObject.displayName
                 }
             };
 
