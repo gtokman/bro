@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+IB_DESIGNABLE
 @interface CustomNavBar : UINavigationBar
-
+@property IBInspectable CGFloat cornerRadius;
 @end

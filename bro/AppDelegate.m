@@ -56,6 +56,8 @@ NSString *const kGCMMessageIDKey = @"gcm.message_id";
     self.window.rootViewController = root;
     [self.window makeKeyAndVisible];
     
+    [[UISegmentedControl appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"AvenirNext-Bold" size:15.0], NSFontAttributeName, nil] forState:UIControlStateNormal];
+    
     return YES;
 }
 
@@ -68,6 +70,9 @@ NSString *const kGCMMessageIDKey = @"gcm.message_id";
     }
     
     NSLog(@"didReceiveRemoteNotification: %@", userInfo);
+    NSDictionary *alert = userInfo[@"aps"][@"alert"];
+//    didReceiveNotificationResponse
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"NewPushNotification" object:alert];
     
     completionHandler(UIBackgroundFetchResultNewData);
 }
@@ -84,6 +89,9 @@ NSString *const kGCMMessageIDKey = @"gcm.message_id";
     // Print full message.
     NSLog(@"will presentPresentNotification: %@", userInfo);
     NSDictionary *alert = userInfo[@"aps"][@"alert"];
+    
+    // Post notification
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"NewPushNotification" object:alert];
     
     // Present alert
     UIAlertController *alertController = [UIAlertController
@@ -103,6 +111,8 @@ NSString *const kGCMMessageIDKey = @"gcm.message_id";
     
     // Print full message.
     NSLog(@"didReceiveNotificationResponse: %@", userInfo);
+    NSDictionary *alert = userInfo[@"aps"][@"alert"];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"NewPushNotification" object:alert];
     
     completionHandler();
 }

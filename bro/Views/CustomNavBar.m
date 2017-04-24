@@ -11,11 +11,24 @@
 @implementation CustomNavBar
 
 /*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+ // Only override drawRect: if you perform custom drawing.
+ // An empty implementation adversely affects performance during animation.
+ - (void)drawRect:(CGRect)rect {
+ // Drawing code
+ }
+ */
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    
+    CAShapeLayer *maskLayer = [CAShapeLayer new];
+    maskLayer.path = [UIBezierPath
+                      bezierPathWithRoundedRect:self.bounds
+                      byRoundingCorners:UIRectCornerTopLeft | UIRectCornerTopRight
+                      cornerRadii:CGSizeMake(self.cornerRadius, self.cornerRadius)].CGPath;
+    self.layer.mask = maskLayer;
+    
 }
-*/
+
 
 @end

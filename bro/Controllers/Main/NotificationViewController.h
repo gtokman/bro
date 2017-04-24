@@ -16,7 +16,9 @@
 @interface NotificationViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, ShareMediaDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *notificationControl;
 
+- (IBAction)notificationControlAction:(UISegmentedControl *)sender;
 + (NotificationViewController*)notificationViewControllerFromStoryboardID;
 
 @end

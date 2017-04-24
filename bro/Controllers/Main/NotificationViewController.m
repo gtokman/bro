@@ -12,6 +12,7 @@
 @interface NotificationViewController ()
 @property FIRDatabaseHandle usersHandle;
 @property NSMutableArray<BRUser *> *users;
+@property NSMutableArray<NSString *> *notifications;
 @end
 
 @implementation NotificationViewController
@@ -20,21 +21,20 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.users = [NSMutableArray new];
+    self.notifications = [NSMutableArray new];
+    [self.notifications addObject:@"Hi"];
     self.usersHandle = [DatabaseManager observeNewUserNotificationsWithBlock:^(FIRDataSnapshot *snapshot) {
         NSLog(@"Notification ref %@", snapshot.value);
         BRUser *user = [[BRUser alloc] initWithJsonDictionary:snapshot.value];
         [self.users addObject:user];
-        [self.tableView
-         insertRowsAtIndexPaths:@[
-                                  [NSIndexPath indexPathForRow:self.users.count - 1 inSection:0]
-                                  ]
-         withRowAnimation:UITableViewRowAnimationAutomatic];
     }];
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl addTarget:self action:@selector(handleRefresh:) forControlEvents:UIControlEventValueChanged];
+    self.tableView.refreshControl = refreshControl;
 }
 
-- (void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
-    
+- (void)handleRefresh:(id)sender {
+    NSLog(@"Refresh");
 }
 
 #pragma mark - Navigation
@@ -43,6 +43,20 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+}
+
+- (IBAction)notificationControlAction:(UISegmentedControl *)sender {
+    switch (sender.selectedSegmentIndex) {
+        case 0:
+            NSLog(@"messages selected");
+            [self.tableView reloadData];
+            break;
+        case 1:
+            NSLog(@"Requests selected");
+            [self.tableView reloadData];
+            
+            break;
+    }
 }
 
 + (UINavigationController *)notificationViewControllerFromStoryboardID {
@@ -70,16 +84,33 @@
 #pragma mark - TableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.users.count;
+    return self.notificationControl.selectedSegmentIndex == 0 ? self.notifications.count : self.users.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NotificationCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NotificationCell" forIndexPath:indexPath];
-    BRUser *user = self.users[indexPath.row];
-    cell.user = user;
-    cell.delegate = self;
+    
+    switch (self.notificationControl.selectedSegmentIndex) {
+        case 0:
+            cell.displayNameLabel.text = self.notifications[indexPath.row];
+            break;
+        case 1: {
+            BRUser *user = self.users[indexPath.row];
+            cell.user = user;
+            cell.delegate = self;
+            break;
+        }
+    }
     
     return cell;
+}
+
+#pragma mark - Table view delegate
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(NotificationCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    [UIView animateWithDuration:0.1 animations:^{
+        [cell.acceptButton setHidden: !self.notificationControl.selectedSegmentIndex];
+    }];
 }
 
 @end

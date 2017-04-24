@@ -11,12 +11,15 @@
 #import <FirebaseDatabase/FirebaseDatabase.h>
 #import "DatabaseManager.h"
 #import "BRMessage.h"
+#import "NotificationView.h"
 #import "ShareMediaDelegate.h"
+
 
 @interface UsersTableViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) id <ShareMediaDelegate> delegate;
+@property (weak, nonatomic) IBOutlet NotificationView *notificationButton;
 
 + (UsersTableViewController*)homeViewControllerFromStoryBoardID;
 

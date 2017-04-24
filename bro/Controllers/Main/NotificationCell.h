@@ -13,6 +13,7 @@
 
 
 @property (weak) id <ShareMediaDelegate> delegate;
+@property (weak, nonatomic) IBOutlet UIButton *acceptButton;
 @property (weak) BRUser *user;
 @property (weak, nonatomic) IBOutlet UILabel *displayNameLabel;
 - (IBAction)acceptAction:(UIButton *)sender;

@@ -27,6 +27,8 @@
 		0278407A1E97483000E231F1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 027840791E97483000E231F1 /* GoogleService-Info.plist */; };
 		0278407D1E9749A900E231F1 /* AuthManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0278407C1E9749A900E231F1 /* AuthManager.m */; };
 		0289DB1C1E9FFE4C005382A1 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0289DB1B1E9FFE4C005382A1 /* MainViewController.m */; };
+		02A744321EAE7EF8001023C3 /* NotificationHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 02A744311EAE7EF8001023C3 /* NotificationHeaderView.m */; };
+		02A744361EAE83F1001023C3 /* CustomNavBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 02A744351EAE83F1001023C3 /* CustomNavBar.m */; };
 		02C778331EABDD0900CA1D2E /* NotificationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C778321EABDD0900CA1D2E /* NotificationCell.m */; };
 		02DD31961E9AB2C300BEF14F /* PageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02DD31951E9AB2C300BEF14F /* PageViewController.m */; };
 		02DD31991E9AB56200BEF14F /* NotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02DD31981E9AB56200BEF14F /* NotificationViewController.m */; };
@@ -74,6 +76,10 @@
 		0289DB1A1E9FFE4C005382A1 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		0289DB1B1E9FFE4C005382A1 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		0289DB1D1EA00679005382A1 /* ShareMediaDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareMediaDelegate.h; sourceTree = "<group>"; };
+		02A744311EAE7EF8001023C3 /* NotificationHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationHeaderView.m; sourceTree = "<group>"; };
+		02A744331EAE7EF8001023C3 /* NotificationHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationHeaderView.h; sourceTree = "<group>"; };
+		02A744341EAE83F1001023C3 /* CustomNavBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomNavBar.h; sourceTree = "<group>"; };
+		02A744351EAE83F1001023C3 /* CustomNavBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomNavBar.m; sourceTree = "<group>"; };
 		02C778311EABDD0900CA1D2E /* NotificationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationCell.h; sourceTree = "<group>"; };
 		02C778321EABDD0900CA1D2E /* NotificationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationCell.m; sourceTree = "<group>"; };
 		02DD31941E9AB2C300BEF14F /* PageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageViewController.h; sourceTree = "<group>"; };
@@ -221,12 +227,16 @@
 		027840671E96C42100E231F1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				02A744331EAE7EF8001023C3 /* NotificationHeaderView.h */,
+				02A744311EAE7EF8001023C3 /* NotificationHeaderView.m */,
 				0278406E1E96C4E100E231F1 /* Main.storyboard */,
 				0221F6381E97F2EE007C87E0 /* Home.storyboard */,
 				027442911EA91D1B008483EB /* AddButtonView.h */,
 				027442921EA91D1B008483EB /* AddButtonView.m */,
 				027442971EA99090008483EB /* NotificationView.h */,
 				027442981EA99090008483EB /* NotificationView.m */,
+				02A744341EAE83F1001023C3 /* CustomNavBar.h */,
+				02A744351EAE83F1001023C3 /* CustomNavBar.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -441,8 +451,10 @@
 				027442901EA8F6B0008483EB /* SearchTableViewController.m in Sources */,
 				027442931EA91D1B008483EB /* AddButtonView.m in Sources */,
 				0278406C1E96C4C400E231F1 /* OnboardViewController.m in Sources */,
+				02A744361EAE83F1001023C3 /* CustomNavBar.m in Sources */,
 				0221F63D1E97F5B6007C87E0 /* UsersTableViewController.m in Sources */,
 				0289DB1C1E9FFE4C005382A1 /* MainViewController.m in Sources */,
+				02A744321EAE7EF8001023C3 /* NotificationHeaderView.m in Sources */,
 				025D05191EAA78D900C5CD3E /* SearchCell.m in Sources */,
 				02FDDE541E9AFA8500287627 /* DatabaseManager.m in Sources */,
 				027840751E97064F00E231F1 /* LoginViewController.m in Sources */,
