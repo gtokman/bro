@@ -13,6 +13,8 @@
 @property NSString *displayName;
 @property NSString *uid;
 @property NSString *token;
+@property BOOL isBlocked;
+@property BOOL isFriend;
 
 - (instancetype)initWithJsonDictionary:(NSDictionary*)dictionary;
 - (NSDictionary*)userToJsonDictionary;

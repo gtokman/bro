@@ -7,7 +7,6 @@
 //
 
 #import "AddButtonView.h"
-#import "StyleKit.h"
 
 @interface AddButtonView ()
 

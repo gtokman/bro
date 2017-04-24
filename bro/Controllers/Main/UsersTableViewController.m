@@ -10,7 +10,7 @@
 #import "BRUser.h"
 @import ChameleonFramework;
 
-@interface UsersTableViewController () <UISearchResultsUpdating>
+@interface UsersTableViewController ()
 @property NSMutableArray<BRUser *> *users;
 @property FIRUser *currentUser;
 @property FIRDatabaseHandle usersHandle;
@@ -99,10 +99,5 @@
     
     return cell;
 }
-
-- (void)updateSearchResultsForSearchController:(UISearchController *)searchController {
-    
-}
-
 
 @end
