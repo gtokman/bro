@@ -11,14 +11,16 @@
 @import Ohana;
 @import Contacts;
 @import MessageUI;
+@import ChameleonFramework;
 
 @interface ContactsTableViewController () <OHCNContactsDataProviderDelegate, MFMessageComposeViewControllerDelegate>
 @property NSMutableArray<OHContact *> *contacts;
+@property NSArray *colors;
+@property NSInteger index;
 @end
 
 @implementation ContactsTableViewController
 @synthesize contacts = _contacts;
-
 
 - (void)setContacts:(NSMutableArray<OHContact *> *)contacts {
     _contacts = contacts;
@@ -47,6 +49,8 @@
         weakSelf.contacts = [NSMutableArray arrayWithArray:dataSource.contacts.array];
     }];
     [dataSource loadContacts];
+    
+    self.colors = @[FlatWatermelonDark, FlatSkyBlueDark, FlatYellowDark, FlatGreenDark, FlatMagentaDark];
 }
 
 #pragma mark - OHCNContactsDataProviderDelegate
@@ -94,6 +98,15 @@
         composeVC.body = @"Bro! Download the Bro app.";
         
         [self presentViewController:composeVC animated:YES completion:nil];
+    }
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    cell.backgroundColor = self.colors[self.index];
+    self.index++;
+    
+    if (self.index == self.colors.count) {
+        self.index = 0;
     }
 }
 

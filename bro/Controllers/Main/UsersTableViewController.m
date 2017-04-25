@@ -12,6 +12,8 @@
 
 @interface UsersTableViewController ()
 @property NSMutableArray<BRUser *> *users;
+@property NSArray *colors;
+@property NSInteger index;
 @property FIRUser *currentUser;
 @property FIRDatabaseHandle usersHandle;
 @end
@@ -22,11 +24,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.users = [NSMutableArray new];
+    self.colors = @[FlatWatermelonDark, FlatSkyBlueDark, FlatYellowDark, FlatGreenDark, FlatMagentaDark];
     self.currentUser = [[FIRAuth auth]currentUser];
     //NSLog(@"%@, %@, %@", user.email, user.displayName, user.description);
     
     self.usersHandle = [DatabaseManager observeNewUsersAddedHandleWithBlock:^(FIRDataSnapshot *snapshot) {
         BRUser *user = [[BRUser alloc] initWithJsonDictionary:snapshot.value];
+        [self.activityIndicator stopAnimating];
         [self.users addObject:user];
         [self.tableView reloadData];
     }];
@@ -83,7 +87,38 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     BRUser *receivingUser = self.users[indexPath.row];
-    [self.delegate didSelectUser:receivingUser];
+    UsersCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    [UIView animateWithDuration:0.1 animations:^{
+        [cell.displayNameLabel setHidden:YES];
+        [cell.activityIndicator startAnimating];
+    }];
+    [DatabaseManager addNewBroNotificationToFriend:receivingUser withBlock:^(NSError *error, FIRDatabaseReference *ref) {
+        if (error) {
+            NSLog(@"Error sending notif to bro: %@", error);
+        }
+        NSLog(@"Notif to bro success %@", ref);
+        [UIView animateWithDuration:0.1 animations:^{
+            [cell.activityIndicator stopAnimating];
+            cell.displayNameLabel.text = @"Bro Sent!";
+            [cell.displayNameLabel setHidden:NO];
+        } completion:^(BOOL finished) {
+            [UIView animateWithDuration:3.0 animations:^{
+                cell.displayNameLabel.alpha = 0;
+            } completion:^(BOOL finished) {
+                cell.displayNameLabel.alpha = 1;
+                cell.displayNameLabel.text = receivingUser.displayName;
+            }];
+        }];
+    }];
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    cell.backgroundColor = self.colors[self.index];
+    self.index++;
+    
+    if (self.index == self.colors.count) {
+        self.index = 0;
+    }
 }
 
 #pragma mark - TableViewDataSource
@@ -93,11 +128,10 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BroCell" forIndexPath:indexPath];
+    UsersCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BroCell" forIndexPath:indexPath];
     
     BRUser *user = self.users[indexPath.row];
-    cell.textLabel.text = user.displayName;
-    cell.backgroundColor = [UIColor randomFlatColor];
+    cell.displayNameLabel.text = user.displayName;
     
     return cell;
 }

@@ -12,6 +12,7 @@
 #import "DatabaseManager.h"
 #import "BRMessage.h"
 #import "NotificationView.h"
+#import "UsersCell.h"
 #import "ShareMediaDelegate.h"
 
 
@@ -20,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) id <ShareMediaDelegate> delegate;
 @property (weak, nonatomic) IBOutlet NotificationView *notificationButton;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 + (UsersTableViewController*)homeViewControllerFromStoryBoardID;
 

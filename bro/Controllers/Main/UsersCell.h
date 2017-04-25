@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface UsersCell : UITableViewCell
-
+@property (weak, nonatomic) IBOutlet UILabel *displayNameLabel;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @end
