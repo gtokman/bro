@@ -10,5 +10,5 @@
 
 IB_DESIGNABLE
 @interface NotificationHeaderView : UIView
-
+@property IBInspectable CGFloat cornerRadius;
 @end
