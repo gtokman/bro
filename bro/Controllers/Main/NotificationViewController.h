@@ -13,7 +13,7 @@
 #import "NotificationCell.h"
 
 
-@interface NotificationViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, ShareMediaDelegate>
+@interface NotificationViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, ShareMediaDelegate, UIToolbarDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *notificationControl;

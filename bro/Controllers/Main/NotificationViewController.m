@@ -28,13 +28,6 @@
         BRUser *user = [[BRUser alloc] initWithJsonDictionary:snapshot.value];
         [self.users addObject:user];
     }];
-    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
-    [refreshControl addTarget:self action:@selector(handleRefresh:) forControlEvents:UIControlEventValueChanged];
-    self.tableView.refreshControl = refreshControl;
-}
-
-- (void)handleRefresh:(id)sender {
-    NSLog(@"Refresh");
 }
 
 #pragma mark - Navigation

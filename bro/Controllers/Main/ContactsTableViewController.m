@@ -17,6 +17,17 @@
 @end
 
 @implementation ContactsTableViewController
+@synthesize contacts = _contacts;
+
+
+- (void)setContacts:(NSMutableArray<OHContact *> *)contacts {
+    _contacts = contacts;
+    [self.tableView reloadData];
+}
+
+- (NSMutableArray<OHContact *> *)contacts {
+    return _contacts;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
