@@ -11,8 +11,9 @@
 
 @interface NotificationViewController ()
 @property FIRDatabaseHandle usersHandle;
+@property FIRDatabaseHandle messagesHandle;
 @property NSMutableArray<BRUser *> *users;
-@property NSMutableArray<NSString *> *notifications;
+@property NSMutableArray<BRMessage *> *messages;
 @end
 
 @implementation NotificationViewController
@@ -21,12 +22,20 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.users = [NSMutableArray new];
-    self.notifications = [NSMutableArray new];
-    [self.notifications addObject:@"Hi"];
+    self.messages = [NSMutableArray new];
+    
     self.usersHandle = [DatabaseManager observeNewUserNotificationsWithBlock:^(FIRDataSnapshot *snapshot) {
         NSLog(@"Notification ref %@", snapshot.value);
         BRUser *user = [[BRUser alloc] initWithJsonDictionary:snapshot.value];
         [self.users addObject:user];
+        [self.tableView reloadData];
+    }];
+    
+    self.messagesHandle = [DatabaseManager observeNewMessageWithBlock:^(FIRDataSnapshot *snapshot) {
+        NSLog(@"Messages Ref: %@", snapshot.value);
+        BRMessage *message = [[BRMessage alloc] initWithMessageDictionary:snapshot.value];
+        [self.messages addObject:message];
+        [self.tableView reloadData];
     }];
 }
 
@@ -77,16 +86,18 @@
 #pragma mark - TableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.notificationControl.selectedSegmentIndex == 0 ? self.notifications.count : self.users.count;
+    return self.notificationControl.selectedSegmentIndex == 0 ? self.messages.count : self.users.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NotificationCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NotificationCell" forIndexPath:indexPath];
     
     switch (self.notificationControl.selectedSegmentIndex) {
-        case 0:
-            cell.displayNameLabel.text = self.notifications[indexPath.row];
+        case 0: {
+            BRMessage *message = self.messages[indexPath.row];
+            cell.displayNameLabel.text = [NSString stringWithFormat:@"%@ From %@", message.body, message.sender];
             break;
+        }
         case 1: {
             BRUser *user = self.users[indexPath.row];
             cell.user = user;
@@ -104,6 +115,12 @@
     [UIView animateWithDuration:0.1 animations:^{
         [cell.acceptButton setHidden: !self.notificationControl.selectedSegmentIndex];
     }];
+    
+    if (indexPath.row % 2 == 0) {
+        cell.backgroundColor = [UIColor flatGrayColor];
+    } else {
+        cell.backgroundColor = [UIColor flatWhiteColor];
+    }
 }
 
 @end

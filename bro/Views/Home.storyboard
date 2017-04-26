@@ -57,14 +57,21 @@
                                     <outlet property="delegate" destination="l4S-9O-abI" id="sjz-2W-ylh"/>
                                 </connections>
                             </toolbar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vfy-Je-gLt">
+                                <rect key="frame" x="0.0" y="75" width="375" height="1"/>
+                                <color key="backgroundColor" red="0.51784205436706543" green="0.58159953355789185" blue="0.58617168664932251" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="flo-ZX-knW"/>
+                                </constraints>
+                            </view>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="at1-Ng-ZwO">
-                                <rect key="frame" x="0.0" y="75" width="375" height="592"/>
+                                <rect key="frame" x="0.0" y="76" width="375" height="591"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="OwD-gY-L17">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="592"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="591"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="75" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eZd-g6-DHT">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="559"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="592"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -114,7 +121,6 @@
                                                             <constraint firstItem="M7H-OX-j1s" firstAttribute="top" secondItem="BUu-Cg-gPF" secondAttribute="topMargin" id="jtd-Ii-o2d"/>
                                                         </constraints>
                                                     </tableViewCellContentView>
-                                                    <color key="backgroundColor" red="0.90823972225189209" green="0.92638683319091797" blue="0.9317171573638916" alpha="1" colorSpace="calibratedRGB"/>
                                                     <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                     <connections>
                                                         <outlet property="acceptButton" destination="78x-wn-RIX" id="uoR-U2-cLv"/>
@@ -134,13 +140,16 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="at1-Ng-ZwO" firstAttribute="top" secondItem="Vfy-Je-gLt" secondAttribute="bottom" id="1GQ-D4-7gR"/>
                             <constraint firstItem="71j-dg-xvM" firstAttribute="leading" secondItem="1Ej-qD-9so" secondAttribute="leading" id="F7J-rM-dkG"/>
                             <constraint firstItem="at1-Ng-ZwO" firstAttribute="leading" secondItem="1Ej-qD-9so" secondAttribute="leading" id="Hc0-Mm-jgo"/>
+                            <constraint firstItem="Vfy-Je-gLt" firstAttribute="leading" secondItem="1Ej-qD-9so" secondAttribute="leading" id="OXc-bC-kPz"/>
                             <constraint firstAttribute="trailing" secondItem="at1-Ng-ZwO" secondAttribute="trailing" id="QKC-1w-Bel"/>
+                            <constraint firstItem="Vfy-Je-gLt" firstAttribute="top" secondItem="71j-dg-xvM" secondAttribute="bottom" id="jBX-sc-CXN"/>
+                            <constraint firstAttribute="trailing" secondItem="Vfy-Je-gLt" secondAttribute="trailing" id="jnl-De-O3w"/>
                             <constraint firstItem="71j-dg-xvM" firstAttribute="top" secondItem="iiO-E5-kAr" secondAttribute="bottom" id="l6b-5U-hBU"/>
                             <constraint firstAttribute="trailing" secondItem="71j-dg-xvM" secondAttribute="trailing" id="neb-uQ-50Z"/>
                             <constraint firstItem="dlh-uj-2hO" firstAttribute="top" secondItem="at1-Ng-ZwO" secondAttribute="bottom" id="q4v-qB-Tz5"/>
-                            <constraint firstItem="at1-Ng-ZwO" firstAttribute="top" secondItem="71j-dg-xvM" secondAttribute="bottom" id="rHm-Hn-Koc"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Notifications" id="ir6-t6-Gwg">
@@ -159,7 +168,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vBJ-2B-Jui" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="frm-PS-KzJ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="5470" y="1601"/>
+            <point key="canvasLocation" x="5469.6000000000004" y="1599.8500749625189"/>
         </scene>
         <!--Invite-->
         <scene sceneID="ac7-G7-wSj">
@@ -586,7 +595,7 @@
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f7A-dH-vUp">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
-                                <color key="backgroundColor" red="0.90823972225189209" green="0.92638683319091797" blue="0.9317171573638916" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.51784205436706543" green="0.58159953355789185" blue="0.58617168664932251" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <segue destination="dae-rx-b0f" kind="embed" identifier="UsersListSegue" id="6uD-Zb-eJ5"/>
                                 </connections>
