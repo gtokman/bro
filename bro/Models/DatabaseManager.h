@@ -26,6 +26,7 @@ typedef void(^HandleCompletion)(FIRDataSnapshot* snapshot);
 + (FIRDatabaseHandle)observeNewUsersAddedHandleWithBlock:(HandleCompletion)completion;
 + (FIRDatabaseHandle)observeNewUserNotificationsWithBlock:(HandleCompletion)completion;
 + (FIRDatabaseHandle)observeNewMessageWithBlock:(HandleCompletion)completion;
++ (void)removeNotificationRefWithUser:(BRUser *)user;
 + (void)addNewBroNotificationToFriend:(BRUser *)friend withBlock:(DatabaseCompletion)completion;
 + (void)queryUsersWithUsername:(NSString*)username withBlock:(HandleCompletion)completion;
 @end

@@ -20,16 +20,6 @@
 @end
 
 @implementation ContactsTableViewController
-@synthesize contacts = _contacts;
-
-- (void)setContacts:(NSMutableArray<OHContact *> *)contacts {
-    _contacts = contacts;
-    [self.tableView reloadData];
-}
-
-- (NSMutableArray<OHContact *> *)contacts {
-    return _contacts;
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -47,6 +37,9 @@
     ContactsTableViewController __weak *weakSelf = self;
     [dataSource.onContactsDataSourceReadySignal addObserver:self callback:^(id  _Nonnull self) {
         weakSelf.contacts = [NSMutableArray arrayWithArray:dataSource.contacts.array];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [weakSelf.tableView reloadData];
+        });
     }];
     [dataSource loadContacts];
     

@@ -35,6 +35,8 @@
 - (IBAction)addAction:(UIButton *)sender {
     NSLog(@"Hello");
     [self.delegate addNewUser: self.user];
+    [sender setTitle:@"sent" forState:UIControlStateNormal];
+    [sender setEnabled:NO];
 }
 
 @end

@@ -60,12 +60,11 @@ exports.sendNotification = functions.database.ref('/bro-notifications/{friendUID
 
             admin.messaging().sendToDevice(receiverObject.token, payload).then(response => {
                 console.log('Sent notification successfully ', response);
-                const timestamp = new Date().toDateString();
                 const messageInfo = {
                     sender: senderObject.displayName,
                     receiver: receiverObject.displayName,
                     body: "Bro",
-                    timestamp: timestamp
+                    timestamp: Date.now()
                 };
                 return admin.database().ref('/bro-messages/' + receiverUid).push().set(messageInfo);
             }).catch(error => {
@@ -74,12 +73,3 @@ exports.sendNotification = functions.database.ref('/bro-notifications/{friendUID
         });
 
     });
-
-exports.uppercaseUserName = functions.database.ref('/users/{uid}/displayName').onWrite(event => {
-
-    const original = event.data.current.val();
-    console.log('uppercasing username ', event.params, original);
-    const uppercase = original.toUpperCase();
-
-    return event.data.ref.parent.child('displayName').set(uppercase);
-});

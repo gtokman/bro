@@ -70,61 +70,74 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="591"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="75" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eZd-g6-DHT">
+                                        <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="75" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eZd-g6-DHT">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="592"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <color key="separatorColor" red="0.68888300657272339" green="0.71366006135940552" blue="0.73448425531387329" alpha="1" colorSpace="calibratedRGB"/>
                                             <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                             <prototypes>
                                                 <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NotificationCell" rowHeight="75" id="Zgb-Pw-Czp" customClass="NotificationCell">
                                                     <rect key="frame" x="0.0" y="28" width="375" height="75"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Zgb-Pw-Czp" id="BUu-Cg-gPF">
-                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="75"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="74.5"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <subviews>
-                                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="M7H-OX-j1s">
-                                                                <rect key="frame" x="8" y="8" width="359" height="58.5"/>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Iu8-9D-Qpi">
+                                                                <rect key="frame" x="8" y="8" width="359" height="59"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="THEGARY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BEA-2h-ebi">
-                                                                        <rect key="frame" x="0.0" y="13" width="251" height="33"/>
-                                                                        <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="24"/>
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="M7H-OX-j1s">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="359" height="33"/>
+                                                                        <subviews>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="THEGARY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BEA-2h-ebi">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="251" height="33"/>
+                                                                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="24"/>
+                                                                                <nil key="textColor"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                            </label>
+                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="78x-wn-RIX">
+                                                                                <rect key="frame" x="259" y="0.0" width="100" height="33"/>
+                                                                                <color key="backgroundColor" red="0.89126098155975342" green="0.3545563817024231" blue="0.39968371391296387" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="width" constant="100" id="24k-E8-W3c"/>
+                                                                                </constraints>
+                                                                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
+                                                                                <state key="normal" title="accept">
+                                                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                </state>
+                                                                                <userDefinedRuntimeAttributes>
+                                                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                                        <integer key="value" value="5"/>
+                                                                                    </userDefinedRuntimeAttribute>
+                                                                                </userDefinedRuntimeAttributes>
+                                                                                <connections>
+                                                                                    <action selector="acceptAction:" destination="Zgb-Pw-Czp" eventType="touchUpInside" id="Uwt-zO-UDv"/>
+                                                                                </connections>
+                                                                            </button>
+                                                                        </subviews>
+                                                                    </stackView>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DSe-BK-nmc">
+                                                                        <rect key="frame" x="0.0" y="37" width="359" height="22"/>
+                                                                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="78x-wn-RIX">
-                                                                        <rect key="frame" x="259" y="11.5" width="100" height="36"/>
-                                                                        <color key="backgroundColor" red="0.89126098155975342" green="0.3545563817024231" blue="0.39968371391296387" alpha="1" colorSpace="calibratedRGB"/>
-                                                                        <constraints>
-                                                                            <constraint firstAttribute="width" constant="100" id="24k-E8-W3c"/>
-                                                                        </constraints>
-                                                                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
-                                                                        <state key="normal" title="accept">
-                                                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                                        </state>
-                                                                        <userDefinedRuntimeAttributes>
-                                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                                                <integer key="value" value="5"/>
-                                                                            </userDefinedRuntimeAttribute>
-                                                                        </userDefinedRuntimeAttributes>
-                                                                        <connections>
-                                                                            <action selector="acceptAction:" destination="Zgb-Pw-Czp" eventType="touchUpInside" id="Uwt-zO-UDv"/>
-                                                                        </connections>
-                                                                    </button>
                                                                 </subviews>
                                                             </stackView>
                                                         </subviews>
                                                         <constraints>
-                                                            <constraint firstItem="M7H-OX-j1s" firstAttribute="leading" secondItem="BUu-Cg-gPF" secondAttribute="leadingMargin" id="JEv-Pd-2er"/>
-                                                            <constraint firstAttribute="bottomMargin" secondItem="M7H-OX-j1s" secondAttribute="bottom" id="V1B-Oc-BIL"/>
-                                                            <constraint firstAttribute="trailingMargin" secondItem="M7H-OX-j1s" secondAttribute="trailing" id="dg4-0R-7Ad"/>
-                                                            <constraint firstItem="M7H-OX-j1s" firstAttribute="top" secondItem="BUu-Cg-gPF" secondAttribute="topMargin" id="jtd-Ii-o2d"/>
+                                                            <constraint firstAttribute="bottomMargin" secondItem="Iu8-9D-Qpi" secondAttribute="bottom" id="0RB-DV-mCr"/>
+                                                            <constraint firstItem="Iu8-9D-Qpi" firstAttribute="leading" secondItem="BUu-Cg-gPF" secondAttribute="leadingMargin" id="Crb-gG-K90"/>
+                                                            <constraint firstAttribute="trailingMargin" secondItem="Iu8-9D-Qpi" secondAttribute="trailing" id="POb-XC-kyF"/>
+                                                            <constraint firstItem="Iu8-9D-Qpi" firstAttribute="top" secondItem="BUu-Cg-gPF" secondAttribute="topMargin" id="aPX-tQ-U20"/>
                                                         </constraints>
                                                     </tableViewCellContentView>
                                                     <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                     <connections>
                                                         <outlet property="acceptButton" destination="78x-wn-RIX" id="uoR-U2-cLv"/>
                                                         <outlet property="displayNameLabel" destination="BEA-2h-ebi" id="75w-Mm-3jm"/>
+                                                        <outlet property="timeLabel" destination="DSe-BK-nmc" id="vPe-yJ-VU9"/>
                                                     </connections>
                                                 </tableViewCell>
                                             </prototypes>
@@ -459,7 +472,6 @@
                                                                             <constraint firstAttribute="width" constant="100" id="Pn7-xL-NP9"/>
                                                                         </constraints>
                                                                         <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
-                                                                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <state key="normal" title="add">
                                                                             <color key="titleColor" red="0.90823972230000005" green="0.92638683320000004" blue="0.93171715740000005" alpha="1" colorSpace="calibratedRGB"/>
                                                                         </state>

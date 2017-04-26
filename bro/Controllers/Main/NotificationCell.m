@@ -35,5 +35,6 @@
 
 - (IBAction)acceptAction:(UIButton *)sender {
     [self.delegate didSelectUser:self.user];
+    [sender setTitle:@"accepted" forState:UIControlStateNormal];
 }
 @end

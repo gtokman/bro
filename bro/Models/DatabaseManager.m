@@ -111,6 +111,10 @@
     }];
 }
 
++ (void)removeNotificationRefWithUser:(BRUser *)user {
+    [[[[self notificationRef] child:[self currentUser].uid] child:user.uid] removeValue];
+}
+
 + (void)queryUsersWithUsername:(NSString*)username withBlock:(HandleCompletion)completion {
     FIRDatabaseQuery *query = [[[self newUserRef] queryOrderedByChild:@"displayName"] queryEqualToValue:username];
     

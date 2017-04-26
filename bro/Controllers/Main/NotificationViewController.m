@@ -7,6 +7,7 @@
 //
 
 #import "NotificationViewController.h"
+#import "bro-Swift.h"
 #import <FirebaseDatabase/FirebaseDatabase.h>
 
 @interface NotificationViewController ()
@@ -24,6 +25,7 @@
     self.users = [NSMutableArray new];
     self.messages = [NSMutableArray new];
     
+    
     self.usersHandle = [DatabaseManager observeNewUserNotificationsWithBlock:^(FIRDataSnapshot *snapshot) {
         NSLog(@"Notification ref %@", snapshot.value);
         BRUser *user = [[BRUser alloc] initWithJsonDictionary:snapshot.value];
@@ -37,6 +39,7 @@
         [self.messages addObject:message];
         [self.tableView reloadData];
     }];
+    
 }
 
 #pragma mark - Navigation
@@ -56,7 +59,6 @@
         case 1:
             NSLog(@"Requests selected");
             [self.tableView reloadData];
-            
             break;
     }
 }
@@ -75,11 +77,14 @@
             NSLog(@"Error adding friend %@", error.localizedDescription);
         }
         NSLog(@"Added user to self %@", ref);
+        // Delete ref
+        [DatabaseManager removeNotificationRefWithUser:user];
     } withFriendBlock:^(NSError *error, FIRDatabaseReference *ref) {
         if (error) {
             NSLog(@"Error adding friend %@", error.localizedDescription);
         }
         NSLog(@"Added self to user %@", ref);
+        
     }];
 }
 
@@ -96,6 +101,8 @@
         case 0: {
             BRMessage *message = self.messages[indexPath.row];
             cell.displayNameLabel.text = [NSString stringWithFormat:@"%@ From %@", message.body, message.sender];
+            NSDate *timestamp = [NSDate dateWithTimeIntervalSince1970:message.timeStamp.doubleValue / 1000];
+            cell.timeLabel.text = [DateHelper timeAgoSinceDate:timestamp currentDate:[NSDate date] numericDates:YES];
             break;
         }
         case 1: {
@@ -114,13 +121,14 @@
 - (void)tableView:(UITableView *)tableView willDisplayCell:(NotificationCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     [UIView animateWithDuration:0.1 animations:^{
         [cell.acceptButton setHidden: !self.notificationControl.selectedSegmentIndex];
+        [cell.timeLabel setHidden: self.notificationControl.selectedSegmentIndex];
     }];
     
-    if (indexPath.row % 2 == 0) {
-        cell.backgroundColor = [UIColor flatGrayColor];
-    } else {
-        cell.backgroundColor = [UIColor flatWhiteColor];
-    }
+//    if (indexPath.row % 2 == 0) {
+//        cell.backgroundColor = [UIColor flatGrayColor];
+//    } else {
+//        cell.backgroundColor = [UIColor flatWhiteColor];
+//    }
 }
 
 @end

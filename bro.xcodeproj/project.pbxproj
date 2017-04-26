@@ -28,6 +28,7 @@
 		0278407A1E97483000E231F1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 027840791E97483000E231F1 /* GoogleService-Info.plist */; };
 		0278407D1E9749A900E231F1 /* AuthManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0278407C1E9749A900E231F1 /* AuthManager.m */; };
 		0289DB1C1E9FFE4C005382A1 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0289DB1B1E9FFE4C005382A1 /* MainViewController.m */; };
+		0298414E1EB0FF68000F14ED /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0298414D1EB0FF68000F14ED /* DateHelper.swift */; };
 		02A744321EAE7EF8001023C3 /* NotificationHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 02A744311EAE7EF8001023C3 /* NotificationHeaderView.m */; };
 		02A744361EAE83F1001023C3 /* CustomNavBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 02A744351EAE83F1001023C3 /* CustomNavBar.m */; };
 		02C778331EABDD0900CA1D2E /* NotificationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C778321EABDD0900CA1D2E /* NotificationCell.m */; };
@@ -79,6 +80,8 @@
 		0289DB1A1E9FFE4C005382A1 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		0289DB1B1E9FFE4C005382A1 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		0289DB1D1EA00679005382A1 /* ShareMediaDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareMediaDelegate.h; sourceTree = "<group>"; };
+		0298414C1EB0FF68000F14ED /* bro-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "bro-Bridging-Header.h"; sourceTree = "<group>"; };
+		0298414D1EB0FF68000F14ED /* DateHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 		02A744311EAE7EF8001023C3 /* NotificationHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationHeaderView.m; sourceTree = "<group>"; };
 		02A744331EAE7EF8001023C3 /* NotificationHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationHeaderView.h; sourceTree = "<group>"; };
 		02A744341EAE83F1001023C3 /* CustomNavBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomNavBar.h; sourceTree = "<group>"; };
@@ -270,6 +273,8 @@
 				0278405A1E96C3EE00E231F1 /* Assets.xcassets */,
 				0278405C1E96C3EE00E231F1 /* LaunchScreen.storyboard */,
 				0278405F1E96C3EE00E231F1 /* Info.plist */,
+				0298414D1EB0FF68000F14ED /* DateHelper.swift */,
+				0298414C1EB0FF68000F14ED /* bro-Bridging-Header.h */,
 			);
 			name = Support;
 			sourceTree = "<group>";
@@ -350,6 +355,7 @@
 					0278404A1E96C3EE00E231F1 = {
 						CreatedOnToolsVersion = 8.3;
 						DevelopmentTeam = NTP2A7PJM8;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -448,6 +454,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0298414E1EB0FF68000F14ED /* DateHelper.swift in Sources */,
 				027840531E96C3EE00E231F1 /* AppDelegate.m in Sources */,
 				02DD31991E9AB56200BEF14F /* NotificationViewController.m in Sources */,
 				027442421EA7CFD6008483EB /* ContactsTableViewController.m in Sources */,
@@ -584,13 +591,18 @@
 			baseConfigurationReference = 8A1B574031C44AC1C01A88BA /* Pods-bro.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = bro/bro.entitlements;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = NTP2A7PJM8;
 				INFOPLIST_FILE = bro/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.garytokman.bro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "bro/bro-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -599,13 +611,17 @@
 			baseConfigurationReference = 1E7978981E31365E53249527 /* Pods-bro.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = bro/bro.entitlements;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = NTP2A7PJM8;
 				INFOPLIST_FILE = bro/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.garytokman.bro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "bro/bro-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
