@@ -8,12 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import <FirebaseAuth/FirebaseAuth.h>
+#import "BRMessage.h"
 #import "DatabaseManager.h"
 #import "ShareMediaDelegate.h"
 #import "NotificationCell.h"
 
+@import ChameleonFramework;
 
-@interface NotificationViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, ShareMediaDelegate>
+
+@interface NotificationViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, ShareMediaDelegate, UIToolbarDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *notificationControl;

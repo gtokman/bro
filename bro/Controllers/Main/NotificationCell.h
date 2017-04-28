@@ -16,6 +16,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *acceptButton;
 @property (weak) BRUser *user;
 @property (weak, nonatomic) IBOutlet UILabel *displayNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
+
 - (IBAction)acceptAction:(UIButton *)sender;
 
 @end

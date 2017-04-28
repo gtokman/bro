@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)initWithSender:(NSString*)sender receiver:(NSString*)receiver
                           body:(NSString*)body timestamp:(NSString*)time;
+- (instancetype)initWithMessageDictionary:(NSDictionary *)dictionary;
 - (NSDictionary*)messageToJsonDictionary;
 
 @end

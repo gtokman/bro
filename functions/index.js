@@ -42,14 +42,14 @@ exports.sendNotification = functions.database.ref('/bro-notifications/{friendUID
         const messageObject = event.data.current.val();
         const senderUid = messageObject.sender;
         const receiverUid = messageObject.receiver;
-        const receiverAPNToken = admin.database().ref('/users/' + receiverUid + '/token').once('value');
+        const receiverUserInfo = admin.database().ref('/users/' + receiverUid).once('value');
         const senderUserInfo = admin.database().ref('/users/' + senderUid).once('value');
 
-        return Promise.all([receiverAPNToken, senderUserInfo]).then(results => {
-            const token = results[0].val();
+        return Promise.all([receiverUserInfo, senderUserInfo]).then(results => {
+            const receiverObject = results[0].val();
             const senderObject = results[1].val();
 
-            console.log('Send notification to ' + receiverUid + ' sender ' + senderObject.displayName);
+            console.log('Send notification to ' + receiverObject.displayName + ' sender ' + senderObject.displayName);
 
             const payload = {
                 notification: {
@@ -58,20 +58,18 @@ exports.sendNotification = functions.database.ref('/bro-notifications/{friendUID
                 }
             };
 
-            admin.messaging().sendToDevice(token, payload).then(response => {
+            admin.messaging().sendToDevice(receiverObject.token, payload).then(response => {
                 console.log('Sent notification successfully ', response);
+                const messageInfo = {
+                    sender: senderObject.displayName,
+                    receiver: receiverObject.displayName,
+                    body: "Bro",
+                    timestamp: Date.now()
+                };
+                return admin.database().ref('/bro-messages/' + receiverUid).push().set(messageInfo);
             }).catch(error => {
                 console.log('Error sending notification: ', error);
             });
         });
 
     });
-
-exports.uppercaseUserName = functions.database.ref('/users/{uid}/displayName').onWrite(event => {
-
-    const original = event.data.current.val();
-    console.log('uppercasing username ', event.params, original);
-    const uppercase = original.toUpperCase();
-
-    return event.data.ref.parent.child('displayName').set(uppercase);
-});

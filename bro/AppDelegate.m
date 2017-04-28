@@ -56,8 +56,8 @@ NSString *const kGCMMessageIDKey = @"gcm.message_id";
     self.window.rootViewController = root;
     [self.window makeKeyAndVisible];
     
-    [[UISegmentedControl appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"AvenirNext-Bold" size:15.0], NSFontAttributeName, nil] forState:UIControlStateNormal];
-    
+    [[UISegmentedControl appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"AvenirNext-Medium" size:15.0], NSFontAttributeName, nil] forState:UIControlStateNormal];
+
     return YES;
 }
 

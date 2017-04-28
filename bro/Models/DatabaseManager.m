@@ -34,6 +34,10 @@
     return [[[FIRDatabase database] reference] child:@"bro-notifications"];
 }
 
++ (FIRDatabaseReference *)broMessagesRef {
+    return [[[FIRDatabase database] reference] child:@"bro-messages"];
+}
+
 + (void)addNewUserToDatabase:(FIRUser *)user userName:(NSString *)username token:(NSString *)token withBlock:(DatabaseCompletion)completion {
     [[[self newUserRef] child:user.uid]
      setValue:@{@"uid": user.uid, @"email": user.email, @"displayName": username, @"token": token}
@@ -99,6 +103,16 @@
     return [[[self notificationRef] child:[self currentUser].uid] observeEventType:FIRDataEventTypeChildAdded withBlock:^(FIRDataSnapshot *snapshot) {
         completion(snapshot);
     }];
+}
+
++ (FIRDatabaseHandle)observeNewMessageWithBlock:(HandleCompletion)completion {
+    return [[[self broMessagesRef] child:[self currentUser].uid] observeEventType:FIRDataEventTypeChildAdded withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+        completion(snapshot);
+    }];
+}
+
++ (void)removeNotificationRefWithUser:(BRUser *)user {
+    [[[[self notificationRef] child:[self currentUser].uid] child:user.uid] removeValue];
 }
 
 + (void)queryUsersWithUsername:(NSString*)username withBlock:(HandleCompletion)completion {

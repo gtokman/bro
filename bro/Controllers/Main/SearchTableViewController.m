@@ -15,6 +15,7 @@
 
 @interface SearchTableViewController () <UITextFieldDelegate, UserAddedDelegate>
 
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIButton *cancelButton;
 @property (weak, nonatomic) IBOutlet UITextField *searchTextField;
 @property NSMutableArray<BRUser *> *users;
@@ -28,13 +29,15 @@
     [super viewDidLoad];
     // Init
     self.users = [NSMutableArray new];
-    [self.view addSubview:self.loadingIndicator];
-    self.loadingIndicator.center = [self.view center];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self.searchTextField becomeFirstResponder];
+}
+
+- (BOOL)prefersStatusBarHidden {
+    return YES;
 }
 
 #pragma mark - UserAddedDelegate
@@ -54,10 +57,6 @@
 - (IBAction)cancelAction:(UIButton *)sender {
     [self shouldHideCancelButton:YES];
     [self.searchTextField resignFirstResponder];
-}
-- (IBAction)logoutAction:(UIBarButtonItem *)sender {
-    NSError *error;
-    [[FIRAuth auth] signOut:&error];
 }
 
 - (void)searchForUserName:(NSString*)username {
@@ -119,7 +118,9 @@
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    
+    if (self.searchTextField.isFirstResponder) {
+        [self.searchTextField resignFirstResponder];
+    }
 }
 
 

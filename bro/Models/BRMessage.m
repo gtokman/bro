@@ -21,6 +21,17 @@
     return self;
 }
 
+- (instancetype)initWithMessageDictionary:(NSDictionary *)dictionary {
+    self = [super init];
+    if (self) {
+        self.sender = dictionary[@"sender"];
+        self.receiver = dictionary[@"receiver"];
+        self.body = dictionary[@"body"];
+        self.timeStamp = dictionary[@"timestamp"];
+    }
+    return self;
+}
+
 - (NSDictionary *)messageToJsonDictionary {
     return @{
              @"sender":self.sender,
