@@ -12,4 +12,5 @@ target 'bro' do
 
     pod 'Ohana', '~> 1.3'
     pod 'ChameleonFramework'
+    pod 'DZNEmptyDataSet'
 end
