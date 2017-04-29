@@ -29,4 +29,5 @@ typedef void(^HandleCompletion)(FIRDataSnapshot* snapshot);
 + (void)removeNotificationRefWithUser:(BRUser *)user;
 + (void)addNewBroNotificationToFriend:(BRUser *)friend withBlock:(DatabaseCompletion)completion;
 + (void)queryUsersWithUsername:(NSString*)username withBlock:(HandleCompletion)completion;
++ (void)queryNewBroMessagesWithBlock:(HandleCompletion)completion;
 @end

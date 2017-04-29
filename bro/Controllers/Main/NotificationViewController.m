@@ -12,7 +12,7 @@
 
 @interface NotificationViewController ()
 @property FIRDatabaseHandle usersHandle;
-@property FIRDatabaseHandle messagesHandle;
+//@property FIRDatabaseHandle messagesHandle;
 @property NSMutableArray<BRUser *> *users;
 @property NSMutableArray<BRMessage *> *messages;
 @end
@@ -33,22 +33,16 @@
         [self.tableView reloadData];
     }];
     
-    self.messagesHandle = [DatabaseManager observeNewMessageWithBlock:^(FIRDataSnapshot *snapshot) {
-        NSLog(@"Messages Ref: %@", snapshot.value);
+    [DatabaseManager queryNewBroMessagesWithBlock:^(FIRDataSnapshot *snapshot) {
         BRMessage *message = [[BRMessage alloc] initWithMessageDictionary:snapshot.value];
+        
         [self.messages addObject:message];
+        
         [self.tableView reloadData];
     }];
-    
 }
 
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
+#pragma mark - Actions
 
 - (IBAction)notificationControlAction:(UISegmentedControl *)sender {
     switch (sender.selectedSegmentIndex) {
@@ -61,6 +55,14 @@
             [self.tableView reloadData];
             break;
     }
+}
+
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
 }
 
 + (UINavigationController *)notificationViewControllerFromStoryboardID {
@@ -99,7 +101,7 @@
     
     switch (self.notificationControl.selectedSegmentIndex) {
         case 0: {
-            BRMessage *message = self.messages[indexPath.row];
+            BRMessage *message = self.messages[self.messages.count - indexPath.row - 1];
             cell.displayNameLabel.text = [NSString stringWithFormat:@"%@ From %@", message.body, message.sender];
             NSDate *timestamp = [NSDate dateWithTimeIntervalSince1970:message.timeStamp.doubleValue / 1000];
             cell.timeLabel.text = [DateHelper timeAgoSinceDate:timestamp currentDate:[NSDate date] numericDates:YES];

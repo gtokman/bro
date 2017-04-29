@@ -19,11 +19,11 @@
 @interface UsersTableViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIButton *notificationButton;
+@property (weak, nonatomic) IBOutlet UIButton *addButton;
 @property (weak, nonatomic) id <ShareMediaDelegate> delegate;
-@property (weak, nonatomic) IBOutlet NotificationView *notificationButton;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 + (UsersTableViewController*)homeViewControllerFromStoryBoardID;
 
-- (IBAction)addAction:(UIButton *)sender;
 @end

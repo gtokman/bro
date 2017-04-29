@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "UsersTableViewController.h"
 #import "NotificationViewController.h"
-#import "PhotoViewController.h"
 #import "MainViewController.h"
 
 @interface PageViewController : UIPageViewController <UIPageViewControllerDataSource>
