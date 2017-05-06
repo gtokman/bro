@@ -11,19 +11,19 @@
 #import <FirebaseDatabase/FirebaseDatabase.h>
 #import "DatabaseManager.h"
 #import "BRMessage.h"
-#import "NotificationView.h"
 #import "UsersCell.h"
 #import "ShareMediaDelegate.h"
+@import DZNEmptyDataSet;
 
-
-@interface UsersTableViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface UsersTableViewController : UIViewController <UITableViewDataSource, UITableViewDelegate,
+DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIButton *notificationButton;
+@property (weak, nonatomic) IBOutlet UIButton *addButton;
 @property (weak, nonatomic) id <ShareMediaDelegate> delegate;
-@property (weak, nonatomic) IBOutlet NotificationView *notificationButton;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 + (UsersTableViewController*)homeViewControllerFromStoryBoardID;
 
-- (IBAction)addAction:(UIButton *)sender;
 @end

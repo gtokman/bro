@@ -111,6 +111,14 @@
     }];
 }
 
++ (void)queryNewBroMessagesWithBlock:(HandleCompletion)completion {
+    FIRDatabaseQuery *query = [[[self broMessagesRef] child:[self currentUser].uid] queryLimitedToLast:10];
+    [query observeEventType:FIRDataEventTypeChildAdded withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+        NSLog(@"snapshot value: %@", snapshot.value);
+        completion(snapshot);
+    }];
+}
+
 + (void)removeNotificationRefWithUser:(BRUser *)user {
     [[[[self notificationRef] child:[self currentUser].uid] child:user.uid] removeValue];
 }

@@ -10,13 +10,10 @@
 		0221F6391E97F2EE007C87E0 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0221F6381E97F2EE007C87E0 /* Home.storyboard */; };
 		0221F63D1E97F5B6007C87E0 /* UsersTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0221F63C1E97F5B6007C87E0 /* UsersTableViewController.m */; };
 		022E59DD1EAF97F700B76D30 /* UsersCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 022E59DC1EAF97F700B76D30 /* UsersCell.m */; };
-		023DBF801E9FC8EA00249A1A /* PhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 023DBF7F1E9FC8EA00249A1A /* PhotoViewController.m */; };
 		025D05191EAA78D900C5CD3E /* SearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 025D05181EAA78D900C5CD3E /* SearchCell.m */; };
 		027442421EA7CFD6008483EB /* ContactsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 027442411EA7CFD6008483EB /* ContactsTableViewController.m */; };
 		027442451EA7D243008483EB /* ContactsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 027442441EA7D243008483EB /* ContactsCell.m */; };
 		027442901EA8F6B0008483EB /* SearchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0274428F1EA8F6B0008483EB /* SearchTableViewController.m */; };
-		027442931EA91D1B008483EB /* AddButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 027442921EA91D1B008483EB /* AddButtonView.m */; };
-		027442991EA99090008483EB /* NotificationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 027442981EA99090008483EB /* NotificationView.m */; };
 		027840501E96C3EE00E231F1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0278404F1E96C3EE00E231F1 /* main.m */; };
 		027840531E96C3EE00E231F1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 027840521E96C3EE00E231F1 /* AppDelegate.m */; };
 		0278405B1E96C3EE00E231F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0278405A1E96C3EE00E231F1 /* Assets.xcassets */; };
@@ -29,11 +26,14 @@
 		0278407D1E9749A900E231F1 /* AuthManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0278407C1E9749A900E231F1 /* AuthManager.m */; };
 		0289DB1C1E9FFE4C005382A1 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0289DB1B1E9FFE4C005382A1 /* MainViewController.m */; };
 		0298414E1EB0FF68000F14ED /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0298414D1EB0FF68000F14ED /* DateHelper.swift */; };
-		02A744321EAE7EF8001023C3 /* NotificationHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 02A744311EAE7EF8001023C3 /* NotificationHeaderView.m */; };
 		02A744361EAE83F1001023C3 /* CustomNavBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 02A744351EAE83F1001023C3 /* CustomNavBar.m */; };
 		02C778331EABDD0900CA1D2E /* NotificationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C778321EABDD0900CA1D2E /* NotificationCell.m */; };
 		02DD31961E9AB2C300BEF14F /* PageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02DD31951E9AB2C300BEF14F /* PageViewController.m */; };
 		02DD31991E9AB56200BEF14F /* NotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02DD31981E9AB56200BEF14F /* NotificationViewController.m */; };
+		02EEDBB81EBE23A300F20DC3 /* CustomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 02EEDBB71EBE23A300F20DC3 /* CustomView.m */; };
+		02EEDBBB1EBE2FDF00F20DC3 /* StyleKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 02EEDBB91EBE2FDF00F20DC3 /* StyleKit.m */; };
+		02EEDBBE1EBE307400F20DC3 /* NotificationButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 02EEDBBD1EBE307400F20DC3 /* NotificationButton.m */; };
+		02EEDBC11EBE329A00F20DC3 /* SearchButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 02EEDBC01EBE329A00F20DC3 /* SearchButton.m */; };
 		02FDDE541E9AFA8500287627 /* DatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 02FDDE531E9AFA8500287627 /* DatabaseManager.m */; };
 		02FDDE571E9B150200287627 /* BRUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 02FDDE561E9B150200287627 /* BRUser.m */; };
 		02FDDE5A1E9B1EA200287627 /* BRMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 02FDDE591E9B1EA200287627 /* BRMessage.m */; };
@@ -46,8 +46,6 @@
 		0221F63C1E97F5B6007C87E0 /* UsersTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UsersTableViewController.m; sourceTree = "<group>"; };
 		022E59DB1EAF97F700B76D30 /* UsersCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UsersCell.h; sourceTree = "<group>"; };
 		022E59DC1EAF97F700B76D30 /* UsersCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UsersCell.m; sourceTree = "<group>"; };
-		023DBF7E1E9FC8EA00249A1A /* PhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoViewController.h; sourceTree = "<group>"; };
-		023DBF7F1E9FC8EA00249A1A /* PhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoViewController.m; sourceTree = "<group>"; };
 		025D05171EAA78D900C5CD3E /* SearchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchCell.h; sourceTree = "<group>"; };
 		025D05181EAA78D900C5CD3E /* SearchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchCell.m; sourceTree = "<group>"; };
 		027442401EA7CFD6008483EB /* ContactsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactsTableViewController.h; sourceTree = "<group>"; };
@@ -56,10 +54,6 @@
 		027442441EA7D243008483EB /* ContactsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactsCell.m; sourceTree = "<group>"; };
 		0274428E1EA8F6B0008483EB /* SearchTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchTableViewController.h; sourceTree = "<group>"; };
 		0274428F1EA8F6B0008483EB /* SearchTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchTableViewController.m; sourceTree = "<group>"; };
-		027442911EA91D1B008483EB /* AddButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddButtonView.h; sourceTree = "<group>"; };
-		027442921EA91D1B008483EB /* AddButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddButtonView.m; sourceTree = "<group>"; };
-		027442971EA99090008483EB /* NotificationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationView.h; sourceTree = "<group>"; };
-		027442981EA99090008483EB /* NotificationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationView.m; sourceTree = "<group>"; };
 		0278404B1E96C3EE00E231F1 /* bro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0278404F1E96C3EE00E231F1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		027840511E96C3EE00E231F1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -82,8 +76,6 @@
 		0289DB1D1EA00679005382A1 /* ShareMediaDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareMediaDelegate.h; sourceTree = "<group>"; };
 		0298414C1EB0FF68000F14ED /* bro-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "bro-Bridging-Header.h"; sourceTree = "<group>"; };
 		0298414D1EB0FF68000F14ED /* DateHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
-		02A744311EAE7EF8001023C3 /* NotificationHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationHeaderView.m; sourceTree = "<group>"; };
-		02A744331EAE7EF8001023C3 /* NotificationHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationHeaderView.h; sourceTree = "<group>"; };
 		02A744341EAE83F1001023C3 /* CustomNavBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomNavBar.h; sourceTree = "<group>"; };
 		02A744351EAE83F1001023C3 /* CustomNavBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomNavBar.m; sourceTree = "<group>"; };
 		02C778311EABDD0900CA1D2E /* NotificationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationCell.h; sourceTree = "<group>"; };
@@ -92,6 +84,14 @@
 		02DD31951E9AB2C300BEF14F /* PageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageViewController.m; sourceTree = "<group>"; };
 		02DD31971E9AB56200BEF14F /* NotificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationViewController.h; sourceTree = "<group>"; };
 		02DD31981E9AB56200BEF14F /* NotificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationViewController.m; sourceTree = "<group>"; };
+		02EEDBB61EBE23A300F20DC3 /* CustomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomView.h; sourceTree = "<group>"; };
+		02EEDBB71EBE23A300F20DC3 /* CustomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomView.m; sourceTree = "<group>"; };
+		02EEDBB91EBE2FDF00F20DC3 /* StyleKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StyleKit.m; sourceTree = "<group>"; };
+		02EEDBBA1EBE2FDF00F20DC3 /* StyleKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StyleKit.h; sourceTree = "<group>"; };
+		02EEDBBC1EBE307400F20DC3 /* NotificationButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationButton.h; sourceTree = "<group>"; };
+		02EEDBBD1EBE307400F20DC3 /* NotificationButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationButton.m; sourceTree = "<group>"; };
+		02EEDBBF1EBE329A00F20DC3 /* SearchButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchButton.h; sourceTree = "<group>"; };
+		02EEDBC01EBE329A00F20DC3 /* SearchButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchButton.m; sourceTree = "<group>"; };
 		02FDDE521E9AFA8500287627 /* DatabaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatabaseManager.h; sourceTree = "<group>"; };
 		02FDDE531E9AFA8500287627 /* DatabaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatabaseManager.m; sourceTree = "<group>"; };
 		02FDDE551E9B150200287627 /* BRUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRUser.h; sourceTree = "<group>"; };
@@ -145,8 +145,6 @@
 				02DD31941E9AB2C300BEF14F /* PageViewController.h */,
 				02DD31951E9AB2C300BEF14F /* PageViewController.m */,
 				02C778351EABDD9100CA1D2E /* Notification page */,
-				023DBF7E1E9FC8EA00249A1A /* PhotoViewController.h */,
-				023DBF7F1E9FC8EA00249A1A /* PhotoViewController.m */,
 				0289DB1A1E9FFE4C005382A1 /* MainViewController.h */,
 				0289DB1B1E9FFE4C005382A1 /* MainViewController.m */,
 			);
@@ -243,16 +241,18 @@
 		027840671E96C42100E231F1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				02A744331EAE7EF8001023C3 /* NotificationHeaderView.h */,
-				02A744311EAE7EF8001023C3 /* NotificationHeaderView.m */,
 				0278406E1E96C4E100E231F1 /* Main.storyboard */,
 				0221F6381E97F2EE007C87E0 /* Home.storyboard */,
-				027442911EA91D1B008483EB /* AddButtonView.h */,
-				027442921EA91D1B008483EB /* AddButtonView.m */,
-				027442971EA99090008483EB /* NotificationView.h */,
-				027442981EA99090008483EB /* NotificationView.m */,
+				02EEDBBA1EBE2FDF00F20DC3 /* StyleKit.h */,
+				02EEDBB91EBE2FDF00F20DC3 /* StyleKit.m */,
 				02A744341EAE83F1001023C3 /* CustomNavBar.h */,
 				02A744351EAE83F1001023C3 /* CustomNavBar.m */,
+				02EEDBB61EBE23A300F20DC3 /* CustomView.h */,
+				02EEDBB71EBE23A300F20DC3 /* CustomView.m */,
+				02EEDBBC1EBE307400F20DC3 /* NotificationButton.h */,
+				02EEDBBD1EBE307400F20DC3 /* NotificationButton.m */,
+				02EEDBBF1EBE329A00F20DC3 /* SearchButton.h */,
+				02EEDBC01EBE329A00F20DC3 /* SearchButton.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -454,7 +454,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02EEDBBB1EBE2FDF00F20DC3 /* StyleKit.m in Sources */,
+				02EEDBC11EBE329A00F20DC3 /* SearchButton.m in Sources */,
 				0298414E1EB0FF68000F14ED /* DateHelper.swift in Sources */,
+				02EEDBBE1EBE307400F20DC3 /* NotificationButton.m in Sources */,
 				027840531E96C3EE00E231F1 /* AppDelegate.m in Sources */,
 				02DD31991E9AB56200BEF14F /* NotificationViewController.m in Sources */,
 				027442421EA7CFD6008483EB /* ContactsTableViewController.m in Sources */,
@@ -465,17 +468,14 @@
 				02C778331EABDD0900CA1D2E /* NotificationCell.m in Sources */,
 				027840721E97064300E231F1 /* SignUpViewController.m in Sources */,
 				027442451EA7D243008483EB /* ContactsCell.m in Sources */,
-				023DBF801E9FC8EA00249A1A /* PhotoViewController.m in Sources */,
-				027442991EA99090008483EB /* NotificationView.m in Sources */,
 				02FDDE5A1E9B1EA200287627 /* BRMessage.m in Sources */,
 				027442901EA8F6B0008483EB /* SearchTableViewController.m in Sources */,
-				027442931EA91D1B008483EB /* AddButtonView.m in Sources */,
+				02EEDBB81EBE23A300F20DC3 /* CustomView.m in Sources */,
 				0278406C1E96C4C400E231F1 /* OnboardViewController.m in Sources */,
 				022E59DD1EAF97F700B76D30 /* UsersCell.m in Sources */,
 				02A744361EAE83F1001023C3 /* CustomNavBar.m in Sources */,
 				0221F63D1E97F5B6007C87E0 /* UsersTableViewController.m in Sources */,
 				0289DB1C1E9FFE4C005382A1 /* MainViewController.m in Sources */,
-				02A744321EAE7EF8001023C3 /* NotificationHeaderView.m in Sources */,
 				025D05191EAA78D900C5CD3E /* SearchCell.m in Sources */,
 				02FDDE541E9AFA8500287627 /* DatabaseManager.m in Sources */,
 				027840751E97064F00E231F1 /* LoginViewController.m in Sources */,
