@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NotificationButton : UIView
+IB_DESIGNABLE
+@interface NotificationButton : UIButton
 
 @end

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SearchButton : UIView
+IB_DESIGNABLE
+@interface SearchButton : UIButton
 
 @end

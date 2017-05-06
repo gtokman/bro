@@ -31,7 +31,7 @@
                    direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:^(BOOL finished) {
         NSLog(@"Complete");
     }];
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = [UIColor flatBlackColor];
 }
 
 - (BOOL)prefersStatusBarHidden {
