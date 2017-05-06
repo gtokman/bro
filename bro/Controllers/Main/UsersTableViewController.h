@@ -11,12 +11,12 @@
 #import <FirebaseDatabase/FirebaseDatabase.h>
 #import "DatabaseManager.h"
 #import "BRMessage.h"
-#import "NotificationView.h"
 #import "UsersCell.h"
 #import "ShareMediaDelegate.h"
+@import DZNEmptyDataSet;
 
-
-@interface UsersTableViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface UsersTableViewController : UIViewController <UITableViewDataSource, UITableViewDelegate,
+DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIButton *notificationButton;
