@@ -79,28 +79,6 @@
   [searchBg fill];
   CGContextRestoreGState(context);
   //! add text
-//  UIBezierPath *addText = [UIBezierPath bezierPath];
-//  [addText moveToPoint:CGPointMake(16.18, 11.82)];
-//  [addText addLineToPoint:CGPointMake(28, 11.82)];
-//  [addText addLineToPoint:CGPointMake(28, 16.18)];
-//  [addText addLineToPoint:CGPointMake(16.18, 16.18)];
-//  [addText addLineToPoint:CGPointMake(16.18, 28)];
-//  [addText addLineToPoint:CGPointMake(11.82, 28)];
-//  [addText addLineToPoint:CGPointMake(11.82, 16.18)];
-//  [addText addLineToPoint:CGPointMake(0, 16.18)];
-//  [addText addLineToPoint:CGPointMake(0, 11.82)];
-//  [addText addLineToPoint:CGPointMake(11.82, 11.82)];
-//  [addText addLineToPoint:CGPointMake(11.82, 0)];
-//  [addText addLineToPoint:CGPointMake(16.18, 0)];
-//  [addText addLineToPoint:CGPointMake(16.18, 11.82)];
-//  [addText closePath];
-//  [addText moveToPoint:CGPointMake(16.18, 11.82)];
-//  CGContextSaveGState(context);
-//  CGContextTranslateCTM(context, 50, 51);
-//  addText.usesEvenOddFillRule = YES;
-//  [UIColor.whiteColor setFill];
-//  [addText fill];
-//  CGContextRestoreGState(context);
   
   CGContextRestoreGState(context);
 }
@@ -156,14 +134,6 @@
     [[UIColor colorWithHue:0.993 saturation:0.687 brightness:0.788 alpha:1] setFill];
     [notificationBg fill];
     CGContextRestoreGState(context);
-    
-//    //! notificationText
-//    NSMutableAttributedString *notificationText = [[NSMutableAttributedString alloc] initWithString:@"1"];
-//    [notificationText addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"AvenirNext-Medium" size:17] range:NSMakeRange(0, notificationText.length)];
-//    [notificationText addAttribute:NSForegroundColorAttributeName value:UIColor.whiteColor range:NSMakeRange(0, notificationText.length)];
-//    CGContextSaveGState(context);
-//    [notificationText drawAtPoint:CGPointMake(35, 27)];
-//    CGContextRestoreGState(context);
     
     CGContextRestoreGState(context);
   }
