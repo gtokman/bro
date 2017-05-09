@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import <FirebaseAuth/FirebaseAuth.h>
 #import "AuthManager.h"
+#import "DatabaseManager.h"
+@import Firebase;
 
 @interface LoginViewController : UIViewController <UITextFieldDelegate>
 

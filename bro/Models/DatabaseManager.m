@@ -18,6 +18,10 @@
     return [[[FIRDatabase database] reference] child:@"users"];
 }
 
++ (FIRDatabaseReference *)usernameRef {
+    return [[[FIRDatabase database] reference] child:@"usernames"];
+}
+
 + (FIRDatabaseReference *)newFriendRef {
     return [[[FIRDatabase database] reference] child:@"friends"];
 }
@@ -39,8 +43,9 @@
 }
 
 + (void)addNewUserToDatabase:(FIRUser *)user userName:(NSString *)username token:(NSString *)token withBlock:(DatabaseCompletion)completion {
+    NSString *trimmedUsername = [username stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     [[[self newUserRef] child:user.uid]
-     setValue:@{@"uid": user.uid, @"email": user.email, @"displayName": username, @"token": token}
+     setValue:@{@"uid": user.uid, @"email": user.email, @"displayName": trimmedUsername.uppercaseString, @"token": token}
      withCompletionBlock:^(NSError *_Nullable error, FIRDatabaseReference *_Nonnull ref) {
          completion(error, ref);
      }];
@@ -51,7 +56,7 @@
      observeSingleEventOfType:FIRDataEventTypeValue
      withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
          completion(snapshot);
-    }];
+     }];
 }
 
 + (void)addNewFriendRequest:(BRUser*)friend withBlock:(DatabaseCompletion)completion {
@@ -59,14 +64,42 @@
     FIRUser *currentUser = [self currentUser];
     [newRequestRef setValue:@{@"receiver": friend.uid, @"sender":currentUser.uid}
         withCompletionBlock:^(NSError * _Nullable error, FIRDatabaseReference * _Nonnull ref) {
-        completion(error, ref);
-    }];
+            completion(error, ref);
+        }];
 }
 
 + (void)addNewBroNotificationToFriend:(BRUser *)friend withBlock:(DatabaseCompletion)completion {
     FIRUser *currentUser = [self currentUser];
     [[[[self broNotificationRef] child:friend.uid] childByAutoId] setValue:@{@"receiver": friend.uid, @"sender":currentUser.uid, @"title": @"Bro"} withCompletionBlock:^(NSError * _Nullable error, FIRDatabaseReference * _Nonnull ref) {
         completion(error, ref);
+    }];
+}
+
++ (void)addNewUserName:(NSString*)username withBlock: (DatabaseCompletion)completion {
+    NSString *trimmedUsername = [username stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    [[self usernameRef] updateChildValues:@{trimmedUsername.uppercaseString: @YES}
+                      withCompletionBlock:^(NSError * _Nullable error, FIRDatabaseReference * _Nonnull ref) {
+                          completion(error, ref);
+                      }];
+}
+
++ (void)updateUserToken: (NSString*)token withBlock: (DatabaseCompletion)completion {
+    if (token) {
+        [[[self newUserRef] child:[self currentUser].uid] updateChildValues:@{@"token":token}
+                                                        withCompletionBlock:^(NSError * _Nullable error, FIRDatabaseReference * _Nonnull ref) {
+                                                            completion(error, ref);
+                                                        }];
+    }
+}
+
++ (void)deleteFriends: (BRUser*)friend withBlock: (DatabaseCompletion)completion withFriendBlock: (DatabaseCompletion)friendCompletion {
+    FIRUser *currentUser = [self currentUser];
+    [[[[self newFriendRef] child:currentUser.uid] child: friend.uid] removeValueWithCompletionBlock:^(NSError * _Nullable error, FIRDatabaseReference * _Nonnull ref) {
+        completion(error, ref);
+    }];
+    
+    [[[[self newFriendRef] child:friend.uid] child:currentUser.uid] removeValueWithCompletionBlock:^(NSError * _Nullable error, FIRDatabaseReference * _Nonnull ref) {
+        friendCompletion(error, ref);
     }];
 }
 

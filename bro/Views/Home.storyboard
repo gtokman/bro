@@ -304,11 +304,11 @@
                                     <outlet property="emptyDataSetSource" destination="dae-rx-b0f" id="vwq-dJ-nvT"/>
                                 </connections>
                             </tableView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="UjK-HH-hxe">
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="UjK-HH-hxe">
                                 <rect key="frame" x="169" y="305" width="37" height="37"/>
                                 <color key="color" red="0.90823972225189209" green="0.92638683319091797" blue="0.9317171573638916" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pY1-pP-SaM" customClass="NotificationButton">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pY1-pP-SaM" customClass="NotificationButton">
                                 <rect key="frame" x="16" y="527" width="100" height="100"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -338,7 +338,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="R2R-3D-cVa" kind="presentation" modalPresentationStyle="overCurrentContext" id="4J5-Rd-FNM"/>
+                                    <segue destination="R2R-3D-cVa" kind="presentation" identifier="SearchSegue" modalPresentationStyle="overCurrentContext" id="4J5-Rd-FNM"/>
                                 </connections>
                             </button>
                         </subviews>

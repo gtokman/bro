@@ -34,7 +34,14 @@
     self.authHandle = [[FIRAuth auth]addAuthStateDidChangeListener:^(FIRAuth * _Nonnull auth, FIRUser * _Nullable user) {
         if (user) {
             NSLog(@"We have a user! %@", user.email);
-            [self performSegueWithIdentifier:@"HomeSegue" sender:nil];
+            NSString *refreshToken = [[FIRInstanceID instanceID] token];
+            [DatabaseManager updateUserToken:refreshToken withBlock:^(NSError *error, FIRDatabaseReference *ref) {
+                if (error) {
+                    NSLog(@"Could not update token");
+                }
+                NSLog(@"InstanceId token created: %@ and updated", refreshToken);
+                [self performSegueWithIdentifier:@"HomeSegue" sender:nil];
+            }];
         } else {
             NSLog(@"No user :(");
         }

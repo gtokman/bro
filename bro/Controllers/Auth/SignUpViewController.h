@@ -11,8 +11,9 @@
 #import "AuthManager.h"
 #import "DatabaseManager.h"
 @import Firebase;
+@import SafariServices;
 
-@interface SignUpViewController : UIViewController <UITextFieldDelegate>
+@interface SignUpViewController : UIViewController <UITextFieldDelegate, SFSafariViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;
 @property (weak, nonatomic) IBOutlet UITextField *userNameTextField;

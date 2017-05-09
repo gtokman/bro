@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "OnboardViewController.h"
 #import "PageViewController.h"
+#import "DatabaseManager.h"
 
 @import Firebase;
 @import UserNotifications;
@@ -137,6 +138,17 @@ NSString *const kGCMMessageIDKey = @"gcm.message_id";
     [self connectToFcm];
     
     // Update server with new token
+    FIRUser *user = [FIRAuth auth].currentUser;
+    if (user) {
+        [DatabaseManager updateUserToken:refreshToken withBlock:^(NSError *error, FIRDatabaseReference *ref) {
+            if (error) {
+                NSLog(@"Error updating token");
+            }
+            NSLog(@"updated token");
+        }];
+    } else {
+        NSLog(@"No user for token");
+    }
 }
 
 - (void)connectToFcm {

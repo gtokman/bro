@@ -1,7 +1,12 @@
 "use strict";
 const functions = require('firebase-functions');
 const admin = require('firebase-admin');
+const path = require('path');
 admin.initializeApp(functions.config().firebase);
+
+exports.termsAndService = functions.https.onRequest((req, res) => {
+    res.sendFile(path.join(__dirname, '/terms.html'));
+});
 
 exports.sendFriendRequestNotification = functions.database.ref('/request/{receiver}/{sender}')
     .onWrite(event => {

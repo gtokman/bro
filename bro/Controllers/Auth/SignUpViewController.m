@@ -7,6 +7,7 @@
 //
 
 #import "SignUpViewController.h"
+@import ChameleonFramework;
 
 @interface SignUpViewController ()
 @property FIRAuthStateDidChangeListenerHandle handle;
@@ -35,17 +36,7 @@
     self.handle = [[FIRAuth auth]
                    addAuthStateDidChangeListener:^(FIRAuth * _Nonnull auth, FIRUser * _Nullable user) {
                        if (user) {
-                           NSLog(@"We have a user %@, displayName: %@", user.email, user.displayName);
-                           NSString *token = [[FIRInstanceID instanceID] token];
-                           [DatabaseManager addNewUserToDatabase:user userName:self.userNameTextField.text token:token withBlock:^(NSError *error, FIRDatabaseReference *ref) {
-                               if (error) {
-                                   NSLog(@"Error adding user to database: %@", error.localizedDescription);
-                               } else {
-                                   NSLog(@"new user added %@", ref);
-                                   [self performSegueWithIdentifier:@"HomeSegue" sender:nil];
-                               }
-                               [self.activityIndicator stopAnimating];
-                           }];
+                           [self addNewUserToDatabase: user];
                        }
                    }];
     
@@ -94,6 +85,49 @@
     }];
 }
 
+- (void)signUpNewUser {
+    [self.activityIndicator startAnimating];
+    [AuthManager
+     signUpUserWithEmail:self.emailTextField.text
+     password:self.passwordTextField.text
+     withBlock:^(FIRUser *user, NSError *error) {
+         if (error) {
+             NSLog(@"Error signing up: %@", error.localizedDescription);
+             [self.activityIndicator stopAnimating];
+         } else {
+             NSLog(@"Sign up with user: %@", user.email);
+         }
+     }];
+}
+
+- (void)addNewUserToDatabase:(FIRUser *)user {
+    
+    NSLog(@"We have a user %@, displayName: %@", user.email, user.displayName);
+    NSString *token = [[FIRInstanceID instanceID] token];
+    [DatabaseManager
+     addNewUserToDatabase:user
+     userName:self.userNameTextField.text
+     token:token
+     withBlock:^(NSError *error, FIRDatabaseReference *ref) {
+         if (error) {
+             NSLog(@"Error adding user to database: %@", error.localizedDescription);
+             // Handle user name taken error
+             
+         } else {
+             [DatabaseManager addNewUserName:self.userNameTextField.text
+                                   withBlock:^(NSError *error, FIRDatabaseReference *ref) {
+                                       if (error) {
+                                           NSLog(@"Adding username to DB error %@", error.localizedDescription);
+                                           return;
+                                       }
+                                       NSLog(@"new user added %@", ref);
+                                       [self performSegueWithIdentifier:@"HomeSegue" sender:nil];
+                                   }];
+         }
+         [self.activityIndicator stopAnimating];
+     }];
+}
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -107,23 +141,35 @@
 
 #pragma mark - Actions
 
+- (IBAction)termsAndServiceAction:(UIButton *)sender {
+    NSURL *termsUrl = [NSURL URLWithString:@"https://us-central1-broapp-a3772.cloudfunctions.net/termsAndService"];
+    SFSafariViewController *sfVC = [[SFSafariViewController alloc] initWithURL:termsUrl];
+    sfVC.delegate = self;
+    [self presentViewController:sfVC animated:YES completion:nil];
+}
+
 - (IBAction)nextAction:(UIButton *)sender {
-    if ([self.emailTextField hasText] && [self.userNameTextField hasText] && [self.passwordTextField hasText]) {
-        [self.activityIndicator startAnimating];
-        [AuthManager
-         signUpUserWithEmail:self.emailTextField.text
-         password:self.passwordTextField.text
-         withBlock:^(FIRUser *user, NSError *error) {
-             if (error) {
-                 NSLog(@"Error signing up: %@", error.localizedDescription);
-                 [self.activityIndicator stopAnimating];
-             } else {
-                 NSLog(@"Sign up with user: %@", user.email);
-             }
-         }];
+    FIRUser *user = [FIRAuth auth].currentUser;
+    if ([self.emailTextField hasText] && [self.userNameTextField hasText] && [self.passwordTextField hasText]){
+        if (!user) {
+            [self signUpNewUser];
+        } else {
+            [self addNewUserToDatabase: user];
+        }
     } else {
         NSLog(@"No empty text");
     }
+}
+
+#pragma mark - SFSafariDelegate
+
+- (void)safariViewControllerDidFinish:(SFSafariViewController *)controller {
+    NSLog(@"Done with SFVC!");
+    //  [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)safariViewController:(SFSafariViewController *)controller didCompleteInitialLoad:(BOOL)didLoadSuccessfully {
+    NSLog(@"Did finish loading!");
 }
 
 #pragma mark - UITextFieldDelegate

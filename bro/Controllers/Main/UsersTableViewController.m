@@ -33,6 +33,7 @@
         [self.activityIndicator stopAnimating];
         [self.users addObject:user];
         [self.tableView reloadData];
+        [self.addButton setHidden:!(self.users.count > 0)];
     }];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handlePushNotification:) name:@"NewPushNotification" object:nil];
@@ -69,16 +70,24 @@
 
 #pragma mark - Empty data source
 
-- (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView {
-    return [[NSAttributedString alloc] initWithString:@"No bros"];
-}
-
-- (NSAttributedString *)descriptionForEmptyDataSet:(UIScrollView *)scrollView {
-    return [[NSAttributedString alloc] initWithString:@"Add bros now"];
-}
+//- (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView {
+//    return [UIImage imageNamed:@"thumbs_down"];
+//}
+//
+//- (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView {
+//    return [[NSAttributedString alloc] initWithString:@"No bros"];
+//}
+//
+//- (NSAttributedString *)descriptionForEmptyDataSet:(UIScrollView *)scrollView {
+//    return [[NSAttributedString alloc] initWithString:@"Add your bro's now!"];
+//}
 
 - (NSAttributedString *)buttonTitleForEmptyDataSet:(UIScrollView *)scrollView forState:(UIControlState)state {
-    return [[NSAttributedString alloc] initWithString:@"Search"];
+    NSDictionary *attrDict = @{
+                               NSFontAttributeName : [UIFont fontWithName:@"AvenirNext-Bold" size:70.0],
+                               NSForegroundColorAttributeName : FlatWatermelonDark
+                               };
+    return [[NSAttributedString alloc] initWithString:@"+" attributes:attrDict];
 }
 
 - (UIColor *)backgroundColorForEmptyDataSet:(UIScrollView *)scrollView {
@@ -88,7 +97,7 @@
 #pragma mark - Empty delete
 
 - (void)emptyDataSet:(UIScrollView *)scrollView didTapButton:(UIButton *)button {
-    NSLog(@"Hello");
+    [self performSegueWithIdentifier:@"SearchSegue" sender:nil];
 }
 
 #pragma mark - TableViewDelegate
@@ -98,6 +107,7 @@
     UsersCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
     [UIView animateWithDuration:0.1 animations:^{
         [cell.displayNameLabel setHidden:YES];
+        [cell setUserInteractionEnabled:NO];
         [cell.activityIndicator startAnimating];
     }];
     [DatabaseManager addNewBroNotificationToFriend:receivingUser withBlock:^(NSError *error, FIRDatabaseReference *ref) {
@@ -115,6 +125,7 @@
             } completion:^(BOOL finished) {
                 cell.displayNameLabel.alpha = 1;
                 cell.displayNameLabel.text = receivingUser.displayName;
+                [cell setUserInteractionEnabled:YES];
             }];
         }];
     }];
@@ -135,10 +146,15 @@
         [alert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
         [alert addAction:[UIAlertAction actionWithTitle:@"Delete" style:UIAlertActionStyleDestructive handler: ^(UIAlertAction* action)
                           {
-                              [tableView beginUpdates];
-                              [self.users removeObjectAtIndex:indexPath.row];
-                              [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationLeft];
-                              [tableView endUpdates];
+                              BRUser *friend = self.users[indexPath.row];
+                              [DatabaseManager deleteFriends:friend withBlock:^(NSError *error, FIRDatabaseReference *ref) {
+                                  [tableView beginUpdates];
+                                  [self.users removeObjectAtIndex:indexPath.row];
+                                  [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationLeft];
+                                  [tableView endUpdates];
+                              } withFriendBlock:^(NSError *error, FIRDatabaseReference *ref) {
+                                  
+                              }];
                           }]];
         [self presentViewController:alert animated:YES completion:nil];
     }

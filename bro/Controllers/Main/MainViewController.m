@@ -18,8 +18,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationController.navigationBar.layer.cornerRadius=25;
-    NSString *refreshToken = [[FIRInstanceID instanceID] token];
-    NSLog(@"InstanceId token created: %@", refreshToken);
 }
 
 - (void)didReceiveMemoryWarning {
