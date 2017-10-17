@@ -1,1 +1,12 @@
 language: objective-c
+osx_image: xcode9
+# Specify your Xcode project’s name in your .travis.yml file using the xcode_project key.
+# Specify the scheme that you want to be used to test your project, with the xcode_scheme key.
+# Write a script in your .travis.yml file to actually run your tests.
+#
+xcode_project: bro.xcworkspace
+xcode_scheme: bro
+
+script: xcrun xcodebuild test -project bro.xcworkspace 
+        -scheme bro  -sdk iphonesimulator -destination 
+        'platform=iOS Simulator,name=iPhone 7,OS=10.3'
