@@ -47,7 +47,7 @@ NSString *const kGCMMessageIDKey = @"gcm.message_id";
      selector:@selector(tokenRefreshNotif:)
      name:kFIRInstanceIDTokenRefreshNotification object:nil];
     
-    [FIRApp configure];
+   // [FIRApp configure];
     
     UIViewController *root = [OnboardViewController initOnboardViewControllerFromStoryboard];
     if ([[FIRAuth auth] currentUser]) {
@@ -103,7 +103,7 @@ NSString *const kGCMMessageIDKey = @"gcm.message_id";
     completionHandler(UNNotificationPresentationOptionNone);
 }
 
-- (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)())completionHandler {
+- (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)(void))completionHandler {
     NSDictionary *userInfo = response.notification.request.content.userInfo;
     if (userInfo[kGCMMessageIDKey]) {
         NSLog(@"didReceiveNotificationResponse Message ID: %@", userInfo[kGCMMessageIDKey]);

@@ -22,7 +22,6 @@
 		0278406F1E96C4E100E231F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0278406E1E96C4E100E231F1 /* Main.storyboard */; };
 		027840721E97064300E231F1 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 027840711E97064300E231F1 /* SignUpViewController.m */; };
 		027840751E97064F00E231F1 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 027840741E97064F00E231F1 /* LoginViewController.m */; };
-		0278407A1E97483000E231F1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 027840791E97483000E231F1 /* GoogleService-Info.plist */; };
 		0278407D1E9749A900E231F1 /* AuthManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0278407C1E9749A900E231F1 /* AuthManager.m */; };
 		0289DB1C1E9FFE4C005382A1 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0289DB1B1E9FFE4C005382A1 /* MainViewController.m */; };
 		0298414E1EB0FF68000F14ED /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0298414D1EB0FF68000F14ED /* DateHelper.swift */; };
@@ -38,7 +37,18 @@
 		02FDDE571E9B150200287627 /* BRUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 02FDDE561E9B150200287627 /* BRUser.m */; };
 		02FDDE5A1E9B1EA200287627 /* BRMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 02FDDE591E9B1EA200287627 /* BRMessage.m */; };
 		4841069A8390415568126926 /* Pods_bro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76B251959E1D532637366865 /* Pods_bro.framework */; };
+		DA67C4581F95B13E00B6B20F /* broTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DA67C4571F95B13E00B6B20F /* broTests.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DA67C45A1F95B13E00B6B20F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 027840431E96C3EE00E231F1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0278404A1E96C3EE00E231F1;
+			remoteInfo = bro;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		0221F6381E97F2EE007C87E0 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
@@ -68,7 +78,6 @@
 		027840711E97064300E231F1 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SignUpViewController.m; path = Auth/SignUpViewController.m; sourceTree = "<group>"; };
 		027840731E97064F00E231F1 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = Auth/LoginViewController.h; sourceTree = "<group>"; };
 		027840741E97064F00E231F1 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = Auth/LoginViewController.m; sourceTree = "<group>"; };
-		027840791E97483000E231F1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0278407B1E9749A900E231F1 /* AuthManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthManager.h; sourceTree = "<group>"; };
 		0278407C1E9749A900E231F1 /* AuthManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthManager.m; sourceTree = "<group>"; };
 		0289DB1A1E9FFE4C005382A1 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
@@ -102,6 +111,11 @@
 		1E7978981E31365E53249527 /* Pods-bro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bro.release.xcconfig"; path = "Pods/Target Support Files/Pods-bro/Pods-bro.release.xcconfig"; sourceTree = "<group>"; };
 		76B251959E1D532637366865 /* Pods_bro.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_bro.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A1B574031C44AC1C01A88BA /* Pods-bro.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bro.debug.xcconfig"; path = "Pods/Target Support Files/Pods-bro/Pods-bro.debug.xcconfig"; sourceTree = "<group>"; };
+		DA67C40A1F95B04200B6B20F /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		DA67C4551F95B13E00B6B20F /* broTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = broTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA67C4571F95B13E00B6B20F /* broTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = broTests.m; sourceTree = "<group>"; };
+		DA67C4591F95B13E00B6B20F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DA67C45F1F95B18B00B6B20F /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +124,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				4841069A8390415568126926 /* Pods_bro.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA67C4521F95B13E00B6B20F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,6 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				0278404D1E96C3EE00E231F1 /* bro */,
+				DA67C4561F95B13E00B6B20F /* broTests */,
 				0278404C1E96C3EE00E231F1 /* Products */,
 				96ED4320B92E6E23FB386F1C /* Pods */,
 				DB967AE977795966E4F327D1 /* Frameworks */,
@@ -187,6 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				0278404B1E96C3EE00E231F1 /* bro.app */,
+				DA67C4551F95B13E00B6B20F /* broTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -194,8 +217,8 @@
 		0278404D1E96C3EE00E231F1 /* bro */ = {
 			isa = PBXGroup;
 			children = (
+				DA67C45F1F95B18B00B6B20F /* GoogleService-Info.plist */,
 				02FDDE5B1E9B271400287627 /* bro.entitlements */,
-				027840681E96C42900E231F1 /* Categories */,
 				027840671E96C42100E231F1 /* Views */,
 				027840661E96C41B00E231F1 /* Model */,
 				027840651E96C41400E231F1 /* Controllers */,
@@ -208,6 +231,7 @@
 		0278404E1E96C3EE00E231F1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				DA67C40A1F95B04200B6B20F /* GoogleService-Info.plist */,
 				0278404F1E96C3EE00E231F1 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -257,17 +281,9 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		027840681E96C42900E231F1 /* Categories */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Categories;
-			sourceTree = "<group>";
-		};
 		027840691E96C49C00E231F1 /* Support */ = {
 			isa = PBXGroup;
 			children = (
-				027840791E97483000E231F1 /* GoogleService-Info.plist */,
 				027840511E96C3EE00E231F1 /* AppDelegate.h */,
 				027840521E96C3EE00E231F1 /* AppDelegate.m */,
 				0278405A1E96C3EE00E231F1 /* Assets.xcassets */,
@@ -312,6 +328,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		DA67C4561F95B13E00B6B20F /* broTests */ = {
+			isa = PBXGroup;
+			children = (
+				DA67C4571F95B13E00B6B20F /* broTests.m */,
+				DA67C4591F95B13E00B6B20F /* Info.plist */,
+			);
+			path = broTests;
+			sourceTree = "<group>";
+		};
 		DB967AE977795966E4F327D1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -343,13 +368,32 @@
 			productReference = 0278404B1E96C3EE00E231F1 /* bro.app */;
 			productType = "com.apple.product-type.application";
 		};
+		DA67C4541F95B13E00B6B20F /* broTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DA67C45C1F95B13E00B6B20F /* Build configuration list for PBXNativeTarget "broTests" */;
+			buildPhases = (
+				DA67C4511F95B13E00B6B20F /* Sources */,
+				DA67C4521F95B13E00B6B20F /* Frameworks */,
+				DA67C4531F95B13E00B6B20F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DA67C45B1F95B13E00B6B20F /* PBXTargetDependency */,
+			);
+			name = broTests;
+			productName = broTests;
+			productReference = DA67C4551F95B13E00B6B20F /* broTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		027840431E96C3EE00E231F1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0830;
+				LastSwiftUpdateCheck = 0900;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = garytokman;
 				TargetAttributes = {
 					0278404A1E96C3EE00E231F1 = {
@@ -365,6 +409,12 @@
 								enabled = 1;
 							};
 						};
+					};
+					DA67C4541F95B13E00B6B20F = {
+						CreatedOnToolsVersion = 9.0;
+						DevelopmentTeam = NTP2A7PJM8;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 0278404A1E96C3EE00E231F1;
 					};
 				};
 			};
@@ -382,6 +432,7 @@
 			projectRoot = "";
 			targets = (
 				0278404A1E96C3EE00E231F1 /* bro */,
+				DA67C4541F95B13E00B6B20F /* broTests */,
 			);
 		};
 /* End PBXProject section */
@@ -393,9 +444,15 @@
 			files = (
 				0278406F1E96C4E100E231F1 /* Main.storyboard in Resources */,
 				0221F6391E97F2EE007C87E0 /* Home.storyboard in Resources */,
-				0278407A1E97483000E231F1 /* GoogleService-Info.plist in Resources */,
 				0278405E1E96C3EE00E231F1 /* LaunchScreen.storyboard in Resources */,
 				0278405B1E96C3EE00E231F1 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA67C4531F95B13E00B6B20F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -408,13 +465,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-bro-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		15020EC345B0EC83D1E11CA4 /* [CP] Embed Pods Frameworks */ = {
@@ -423,9 +483,26 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-bro/Pods-bro-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
+				"${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Ohana/Ohana.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/UberSignals/UberSignals.framework",
+				"${BUILT_PRODUCTS_DIR}/libPhoneNumber-iOS/libPhoneNumber_iOS.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DZNEmptyDataSet.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Ohana.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UberSignals.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/libPhoneNumber_iOS.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -482,7 +559,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DA67C4511F95B13E00B6B20F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA67C4581F95B13E00B6B20F /* broTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DA67C45B1F95B13E00B6B20F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0278404A1E96C3EE00E231F1 /* bro */;
+			targetProxy = DA67C45A1F95B13E00B6B20F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		0278405C1E96C3EE00E231F1 /* LaunchScreen.storyboard */ = {
@@ -506,7 +599,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -514,7 +609,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -554,7 +653,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -562,7 +663,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -626,6 +731,48 @@
 			};
 			name = Release;
 		};
+		DA67C45D1F95B13E00B6B20F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = NTP2A7PJM8;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = broTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.garytokman.broTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/bro.app/bro";
+			};
+			name = Debug;
+		};
+		DA67C45E1F95B13E00B6B20F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = NTP2A7PJM8;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = broTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.garytokman.broTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/bro.app/bro";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -643,6 +790,15 @@
 			buildConfigurations = (
 				027840631E96C3EE00E231F1 /* Debug */,
 				027840641E96C3EE00E231F1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DA67C45C1F95B13E00B6B20F /* Build configuration list for PBXNativeTarget "broTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA67C45D1F95B13E00B6B20F /* Debug */,
+				DA67C45E1F95B13E00B6B20F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
